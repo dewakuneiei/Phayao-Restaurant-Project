@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b17k2hoxj3hm5"]
+
+[ext_resource type="Texture2D" uid="uid://expstserh8fa" path="res://assets/sprites/shopping_basket.png" id="1_40sj7"]
+[ext_resource type="Script" path="res://scenes/objects/shop.gd" id="1_lmvob"]
+[ext_resource type="Texture2D" uid="uid://dwuqqo82qly7l" path="res://assets/sprites/shopkeeper.png" id="2_8rk47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpoy0"]
+size = Vector2(41, 78)
+
+[node name="Shop" type="StaticBody2D"]
+position = Vector2(332, 229)
+collision_layer = 4
+script = ExtResource("1_lmvob")
+interact_name = &"Shop"
+
+[node name="Basket" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_40sj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_lpoy0")
+
+[node name="Shopkeeper" type="Sprite2D" parent="."]
+position = Vector2(36, -5)
+scale = Vector2(4, 4)
+texture = ExtResource("2_8rk47")

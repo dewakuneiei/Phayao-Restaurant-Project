@@ -1,0 +1,310 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5nnv2vttb7g8"]
+
+[ext_resource type="Texture2D" uid="uid://cwjogcp17rgah" path="res://assets/sprites/dish.png" id="1_2mj3i"]
+[ext_resource type="Script" path="res://scenes/GUI/ui_inventroy.gd" id="1_07xtl"]
+
+[node name="Storage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_07xtl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 256
+theme_override_constants/margin_bottom = 64
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+color = Color(0.288518, 0.288518, 0.288518, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ItemContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="Fish" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FistTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Fish"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Fish/FistTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="FishName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Fish/FistTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name"
+
+[node name="FishAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Fish/FistTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+
+[node name="Pork" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PorkTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Pork"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Pork/PorkTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="PorkName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Pork/PorkTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name"
+
+[node name="PorkAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Pork/PorkTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+
+[node name="Salt" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaltTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Salt"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Salt/SaltTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="SaltName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Salt/SaltTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name"
+
+[node name="SaltAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Salt/SaltTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+
+[node name="Chili" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChiliTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Chili"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Chili/ChiliTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="ChiliName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Chili/ChiliTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name"
+
+[node name="ChiliAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Chili/ChiliTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+
+[node name="Chicken" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChickenTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Chicken"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Chicken/ChickenTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="ChickenName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Chicken/ChickenTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name"
+
+[node name="ChickenAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Chicken/ChickenTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+
+[node name="Noodles" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoodlesTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Noodles"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Noodles/NoodlesTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="NoodlesName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Noodles/NoodlesTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name"
+
+[node name="NoodlesAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Noodles/NoodlesTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+
+[node name="Lime" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LimeTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Lime"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Lime/LimeTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="LimeName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Lime/LimeTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name"
+
+[node name="LimeAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Lime/LimeTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+
+[node name="Egg" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EggTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Egg"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Egg/EggTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="EggName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Egg/EggTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "name"
+
+[node name="EggAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Egg/EggTextureBtn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+
+[node name="Crab" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CrabTextureBtn" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Crab"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_normal = ExtResource("1_2mj3i")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Crab/CrabTextureBtn"]
+layout_mode = 2
+offset_left = 94.0
+offset_right = 138.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="CrabName" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Crab/CrabTextureBtn/VBoxContainer"]
+layout_mode = 2
+text = "name"
+
+[node name="CrabAmount" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemContainer/Crab/CrabTextureBtn/VBoxContainer"]
+layout_mode = 2
+text = "x1"
+
+[node name="TitleBtn" type="Label" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Storage"
+
+[node name="CloseBtn" type="Button" parent="MarginContainer/PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/CloseBtn" to="." method="_on_close_btn_pressed"]
