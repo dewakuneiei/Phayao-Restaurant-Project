@@ -6,8 +6,10 @@ static var instance: Player
 # Player attributes
 @export var _moveSpeed: float = 200.0
 @onready var _rayCast: RayCast2D = $RayCast2D
+@onready var _sprite: Sprite2D = $Sprite2D
+@onready var _hand_mark: Marker2D = $Marker2D
 
-var is_preparing_dish: bool = false
+var _hold_dish: Dish = null
 
 # Input map
 var input_map: Dictionary = {
@@ -34,9 +36,23 @@ func handle_movement():
 	direction = direction.normalized()
 	velocity = direction * _moveSpeed
 	move_and_slide()
-	update__rayCast_target(direction)
+	update_rayCast_target(direction)
+	handle_sprite_dir(direction)
 
-func update__rayCast_target(direction: Vector2):
+func handle_sprite_dir(dir: Vector2):
+	if dir.x < 0 and _sprite.flip_h == false:
+		_sprite.flip_h = true
+		_turn_around()
+	elif dir.x > 0 and _sprite.flip_h == true:
+		_sprite.flip_h = false
+		_turn_around()
+
+func _turn_around():
+		var temp = _hand_mark.position
+		temp.x *= -1
+		_hand_mark.position = temp
+
+func update_rayCast_target(direction: Vector2):
 	if direction != Vector2.ZERO:
 		_rayCast.target_position = direction * 50
 
@@ -53,13 +69,22 @@ func get_interactable_object() -> Interactive:
 		return get_collider
 	return null
 
-func complete_preparing_dish():
-	if is_preparing_dish:
-		is_preparing_dish = false
-		# Logic to move the prepared dish to a cooking table
-		transfer_dish_to_cooking_table()
+func transfer_dish() -> Dish:
+	var clone = _hold_dish.duplicate()
+	_hold_dish.queue_free()
+	_hold_dish = null
+	return clone
 
-func transfer_dish_to_cooking_table():
-	# Logic to transfer the dish to a specific cooking table
-	pass
+func destroy_dish():
+	if _hold_dish is Dish:
+		_hold_dish.queue_free()
 
+func take_item(dish: Dish):
+	if is_holding_dish() or dish == null or not dish.is_in_group("dish"): 
+		return
+		
+	_hold_dish = dish
+	_hand_mark.add_child(_hold_dish)
+
+func is_holding_dish() -> bool:
+	return _hold_dish != null

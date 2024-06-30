@@ -44,6 +44,7 @@ func update_shop(entry: Dictionary):
 			new_entry.name_l.text = item.get_name()
 			new_entry.price_l.text = str(price) + " B"
 			new_entry.amount_l.text = "x"+ str(item.amount)
+			new_entry.rect.texture = item.icon
 			
 			var buyBtn : Button = new_entry.buy_btn
 			buyBtn.pressed.connect(func(): 

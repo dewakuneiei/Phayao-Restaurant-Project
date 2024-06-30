@@ -2,6 +2,7 @@ extends Interactive
 class_name Fridge
 
 @export var _ui_inventoy: InventroyUI
+@onready var disTemplate = preload("res://scenes/objects/dish.tscn")
 
 # Create a dictionary to hold instances of IngredientData
 #var inventory: Dictionary= {
@@ -20,10 +21,27 @@ var inventory: Dictionary = {}
 
 func interact(player: Player):
 	if _ui_inventoy.visible: _ui_inventoy.deactivate(); return;
-	_ui_inventoy.update_item_data(inventory)
+	_ui_inventoy.update_item_data(self, player, inventory)
 	_ui_inventoy.activate()
 
-func update_inventory(item: StringName, ingredientData: IngredientData):
-	if inventory.has(item):
-		print("Has it")
+func update_inventory(key: StringName, ingredientData: IngredientData):
+	if inventory.has(key):
+		inventory[key].amount += ingredientData.amount
+	else:
+		inventory[key] = ingredientData.clone()
 
+func take_to_player(player:Player, key):
+	if not inventory.has(key): return;
+	
+	var item: IngredientData = inventory[key]
+	var new_dish = disTemplate.instantiate()
+	if new_dish is Dish:
+		new_dish.set_sprite_texture(item.icon)
+		player.take_item(new_dish)
+	
+	item.amount -= 1
+	if item.amount < 1:
+		inventory.erase(key)
+		
+	_ui_inventoy.update_item_data(self, player, inventory)
+	

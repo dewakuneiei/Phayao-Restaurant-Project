@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfh3q5v11w3g"]
+[gd_scene load_steps=9 format=3 uid="uid://cfh3q5v11w3g"]
 
 [ext_resource type="PackedScene" uid="uid://idacl1vytymb" path="res://scenes/characters/player.tscn" id="1_wtq63"]
 [ext_resource type="PackedScene" uid="uid://dey5dj6qscuow" path="res://scenes/objects/preparing_table.tscn" id="2_c5av1"]
 [ext_resource type="PackedScene" uid="uid://b5nnv2vttb7g8" path="res://scenes/GUI/ui_inventroy.tscn" id="3_bg4g0"]
+[ext_resource type="PackedScene" uid="uid://duoo88uw8sxnf" path="res://scenes/objects/trash.tscn" id="3_rl3ih"]
 [ext_resource type="PackedScene" uid="uid://b17k2hoxj3hm5" path="res://scenes/objects/shop.tscn" id="4_s0p6o"]
 [ext_resource type="PackedScene" uid="uid://cmtlc3i8e534t" path="res://scenes/objects/fridge.tscn" id="4_wh1di"]
 [ext_resource type="Script" path="res://scenes/GameSystem.gd" id="5_20htw"]
@@ -12,22 +13,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_wtq63")]
 position = Vector2(153, 116)
-
-[node name="PreparingTable" parent="." instance=ExtResource("2_c5av1")]
-position = Vector2(155, 235)
-
-[node name="Fridge" parent="." node_paths=PackedStringArray("_ui_inventoy") instance=ExtResource("4_wh1di")]
-position = Vector2(258, 229)
-_ui_inventoy = NodePath("../CanvasLayer/Storage")
-
-[node name="MeatShop" parent="." node_paths=PackedStringArray("_shopUi") instance=ExtResource("4_s0p6o")]
-position = Vector2(341, 140)
-_shopUi = NodePath("../CanvasLayer/ShopControl")
-_isMeatShop = true
-
-[node name="VegatableShop" parent="." node_paths=PackedStringArray("_shopUi") instance=ExtResource("4_s0p6o")]
-position = Vector2(341, 49)
-_shopUi = NodePath("../CanvasLayer/ShopControl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(361, 123)
@@ -40,6 +25,35 @@ visible = false
 [node name="ShopControl" parent="CanvasLayer" instance=ExtResource("6_jteyj")]
 visible = false
 
-[node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("shop")]
+[node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("player", "fridge", "shop")]
 script = ExtResource("5_20htw")
-shop = [NodePath("../MeatShop"), NodePath("../VegatableShop")]
+player = NodePath("../Player")
+fridge = NodePath("../Interactable Object/Fridge")
+shop = [NodePath("../Interactable Object/MeatShop"), NodePath("../Interactable Object/VegatableShop")]
+
+[node name="Interactable Object" type="Node" parent="."]
+
+[node name="PreparingTable" parent="Interactable Object" instance=ExtResource("2_c5av1")]
+position = Vector2(207, 234)
+
+[node name="PreparingTable2" parent="Interactable Object" instance=ExtResource("2_c5av1")]
+position = Vector2(142, 234)
+
+[node name="PreparingTable3" parent="Interactable Object" instance=ExtResource("2_c5av1")]
+position = Vector2(78, 234)
+
+[node name="Trash" parent="Interactable Object" instance=ExtResource("3_rl3ih")]
+position = Vector2(21, 230)
+
+[node name="Fridge" parent="Interactable Object" node_paths=PackedStringArray("_ui_inventoy") instance=ExtResource("4_wh1di")]
+position = Vector2(258, 229)
+_ui_inventoy = NodePath("../../CanvasLayer/Storage")
+
+[node name="MeatShop" parent="Interactable Object" node_paths=PackedStringArray("_shopUi") instance=ExtResource("4_s0p6o")]
+position = Vector2(560, 170)
+_shopUi = NodePath("../../CanvasLayer/ShopControl")
+_isMeatShop = true
+
+[node name="VegatableShop" parent="Interactable Object" node_paths=PackedStringArray("_shopUi") instance=ExtResource("4_s0p6o")]
+position = Vector2(560, 79)
+_shopUi = NodePath("../../CanvasLayer/ShopControl")

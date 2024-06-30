@@ -2,6 +2,17 @@ extends Node
 class_name GameSystem
 
 static var instance: GameSystem
+static var load_icons: Dictionary = {
+	"Fish": load("res://assets/sprites/ingredients/fish.png"), 
+	"Pork": load("res://assets/sprites/ingredients/pork.png"), 
+	"Salt": load("res://assets/sprites/ingredients/salt.png"),
+	"Chili": load("res://assets/sprites/ingredients/chili.png"), 
+	"Chicken": load("res://assets/sprites/ingredients/chicken.png"), 
+	"Noodles": load("res://assets/sprites/ingredients/noodles.png"), 
+	"Lime": load("res://assets/sprites/ingredients/lime.png"), 
+	"Egg": load("res://assets/sprites/ingredients/egg.png"), 
+	"Crab": load("res://assets/sprites/ingredients/crab.png") 
+}
 
 @export var player: Player
 @export var fridge: Fridge
