@@ -26,11 +26,7 @@ func update_item_data(fridge: Fridge, player: Player, inventory: Dictionary):
 			
 			var btn : TextureButton = new_item.btn
 			btn.texture_normal = ingredient.icon
-			new_item.btn.pressed.connect(func(): 
-				print("Clicked ที่กับข้าวในตู้เย็น")
-				if player.is_holding_dish(): return;
-				fridge.take_to_player(player, key)
-				)
+			new_item.btn.pressed.connect(func(): fridge.take_to_player(player, key))
 
 func deactivate():
 	hide()  # Hide the node visually

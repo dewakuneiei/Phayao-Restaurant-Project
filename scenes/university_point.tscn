@@ -11,11 +11,13 @@
 
 [node name="University_Point" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_wtq63")]
+[node name="Player" parent="." node_paths=PackedStringArray("_parent_scene") instance=ExtResource("1_wtq63")]
 position = Vector2(153, 116)
+_parent_scene = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(361, 123)
+position = Vector2(268, 157)
+zoom = Vector2(1.2, 1.2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -50,10 +52,10 @@ position = Vector2(258, 229)
 _ui_inventoy = NodePath("../../CanvasLayer/Storage")
 
 [node name="MeatShop" parent="Interactable Object" node_paths=PackedStringArray("_shopUi") instance=ExtResource("4_s0p6o")]
-position = Vector2(560, 170)
+position = Vector2(410, 170)
 _shopUi = NodePath("../../CanvasLayer/ShopControl")
 _isMeatShop = true
 
 [node name="VegatableShop" parent="Interactable Object" node_paths=PackedStringArray("_shopUi") instance=ExtResource("4_s0p6o")]
-position = Vector2(560, 79)
+position = Vector2(411, 83)
 _shopUi = NodePath("../../CanvasLayer/ShopControl")

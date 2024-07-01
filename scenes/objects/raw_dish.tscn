@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://coihm5txnmvpg"]
+
+[ext_resource type="Script" path="res://scenes/objects/raw_dish.gd" id="1_y2fbs"]
+[ext_resource type="Texture2D" uid="uid://cwjogcp17rgah" path="res://assets/sprites/dish.png" id="2_m0htq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opofv"]
+
+[node name="RawDish" type="Area2D" groups=["dish", "raw_dish"]]
+scale = Vector2(3, 3)
+collision_layer = 2
+script = ExtResource("1_y2fbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_m0htq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_opofv")

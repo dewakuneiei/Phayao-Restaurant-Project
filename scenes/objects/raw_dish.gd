@@ -1,0 +1,21 @@
+extends Dish
+class_name RawDish
+
+var _ingredients : Array = []
+
+func interact(player: Player):
+	super.interact(player)
+
+func get_ingredients():
+	return _ingredients
+
+func set_ingredients(newIngredients: Array):
+	_ingredients = newIngredients
+
+
+func add_ingredient(id: int):
+	_ingredients.append(id)
+	if _ingredients.size() > 5:
+		_ingredients.resize(5)
+		return false
+	return true

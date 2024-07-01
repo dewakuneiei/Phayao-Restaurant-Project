@@ -4,7 +4,14 @@ class_name Player
 static var instance: Player
 
 # Player attributes
+@export_category("Refferences")
+@export var _parent_scene: Node2D;
+@export_category("Settings")
+@export var _dist_drop: int = 40
+@export var _dist_target: int = 50
+@export var _dist_center: int = 30
 @export var _moveSpeed: float = 200.0
+
 @onready var _rayCast: RayCast2D = $RayCast2D
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _hand_mark: Marker2D = $Marker2D
@@ -54,14 +61,20 @@ func _turn_around():
 
 func update_rayCast_target(direction: Vector2):
 	if direction != Vector2.ZERO:
-		_rayCast.target_position = direction * 50
+		if direction.x != 0:
+			_rayCast.position = Vector2(0, _dist_center)
+		else: 
+			_rayCast.position = Vector2.ZERO
+		_rayCast.target_position = (direction * _dist_target)
 
 func interact_with_object():
 	var object = get_interactable_object()
 	if object:
 		if object is Interactive and object.has_method("interact"):
 			object.interact(self)
+			return
 			
+	drop_item()
 
 func get_interactable_object() -> Interactive:
 	var get_collider : Interactive = _rayCast.get_collider()
@@ -69,22 +82,38 @@ func get_interactable_object() -> Interactive:
 		return get_collider
 	return null
 
-func transfer_dish() -> Dish:
-	var clone = _hold_dish.duplicate()
-	_hold_dish.queue_free()
+func drop_item():
+	if _hold_dish == null: return
+	_hand_mark.remove_child(_hold_dish)
+	_parent_scene.add_child(_hold_dish)
+	_hold_dish.global_position = _hand_mark.global_position + Vector2.DOWN * _dist_drop
+	_hold_dish.set_collistion(true)
 	_hold_dish = null
-	return clone
+
+func transfer_dish() -> Dish:
+	var temp = _hold_dish
+	_hand_mark.remove_child(_hold_dish)
+	_hold_dish = null
+	return temp
 
 func destroy_dish():
-	if _hold_dish is Dish:
+	if is_holding_dish() and _hold_dish is Dish:
 		_hold_dish.queue_free()
+		_hold_dish = null
 
 func take_item(dish: Dish):
 	if is_holding_dish() or dish == null or not dish.is_in_group("dish"): 
 		return
-		
+	var parent = dish.get_parent()
+	if parent:
+		parent.remove_child(dish)
+	
 	_hold_dish = dish
+	_hold_dish.global_position = Vector2.ZERO
 	_hand_mark.add_child(_hold_dish)
+func get_dish() -> Dish:
+	return _hold_dish
 
 func is_holding_dish() -> bool:
 	return _hold_dish != null
+
