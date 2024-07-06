@@ -1,52 +1,65 @@
 extends Interactive
 class_name PreparingTable
 
-@onready var dishTemplate = preload("res://scenes/objects/raw_dish.tscn")
+@onready var dish_template = preload("res://scenes/objects/raw_dish.tscn")
 @onready var mark: Marker2D = $DishMark
-
-var task : Dish= null
+var task: Dish = null
 
 func interact(player: Player):
-	var is_holding_dish : bool = player.is_holding_dish()
+	var is_holding_dish: bool = player.is_holding_dish()
 	
-	#mix dish
-	if task != null and task.is_in_group("raw_dish") and is_holding_dish:
-		var other_item : Dish= player.transfer_dish()
-		if not other_item.is_in_group("raw_dish") and task is RawDish:
-			task = task as RawDish
-			### work here add make id in
-			task.add_ingredient(other_item.ingredient_id)
-			var new_sprite = create_sprite(other_item.get_texutre())
-			task.add_child(new_sprite)
-			
-	elif task != null and not task.is_in_group("raw_dish") and is_holding_dish:
-		var dish = player.get_dish()
-		if dish != null and dish is RawDish and task is Dish:
-			var new_sprite = create_sprite(task.get_texutre())
-			dish.add_ingredient(task.ingredient_id)
-			dish.add_child(new_sprite)
-			task.queue_free()
-			task = null
+	if task:
+		handle_existing_task(player, is_holding_dish)
+	elif is_holding_dish:
+		transfer_dish_from_player(player)
+	else:
+		create_new_dish()
 
-	elif task != null and task.is_in_group("dish") and not is_holding_dish:
-		mark.remove_child(task)
-		player.take_item(task)
+func handle_existing_task(player: Player, is_holding_dish: bool):
+	if task.is_in_group("raw_dish") and not task.is_in_group("food_dish") and is_holding_dish:
+		mix_ingredients(player)
+	elif not task.is_in_group("raw_dish") and not task.is_in_group("food_dish") and is_holding_dish:
+		add_ingredient_to_player_dish(player)
+	elif task.is_in_group("dish") and not is_holding_dish:
+		give_dish_to_player(player)
+
+func mix_ingredients(player: Player):
+	var other_item: Dish = player.transfer_dish()
+	if not other_item.is_in_group("raw_dish") and task is RawDish:
+		var raw_task := task as RawDish
+		raw_task.add_ingredient(other_item.ingredient_id)
+		raw_task.add_child(create_sprite(other_item.get_texutre()))
+
+func add_ingredient_to_player_dish(player: Player):
+	var dish = player.get_dish()
+	if dish is RawDish and task is Dish:
+		dish.add_ingredient(task.ingredient_id)
+		dish.add_child(create_sprite(task.get_texutre()))
+		task.queue_free()
 		task = null
-		
-	# transfer
-	elif task == null and is_holding_dish:
-		task = player.transfer_dish()
-		mark.add_child(task)
-	#create new dish
-	elif task == null:
-		
-		var new_dish = dishTemplate.instantiate()
-		mark.add_child(new_dish)
-		task = new_dish
-	
-func create_sprite(txture: Texture):
+
+func give_dish_to_player(player: Player):
+	mark.remove_child(task)
+	player.take_item(task)
+	task = null
+
+func transfer_dish_from_player(player: Player):
+	task = player.transfer_dish()
+	mark.add_child(task)
+
+func create_new_dish():
+	var new_dish = dish_template.instantiate()
+	mark.add_child(new_dish)
+	task = new_dish
+
+func create_sprite(texture: Texture) -> Sprite2D:
 	var new_sprite = Sprite2D.new()
-	new_sprite.texture = txture
+	new_sprite.texture = texture
 	new_sprite.rotation_degrees = randf_range(0, 360)
 	new_sprite.flip_h = randf() > 0.5
 	return new_sprite
+
+func _ready():
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)

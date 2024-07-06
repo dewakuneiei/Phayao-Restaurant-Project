@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opofv"]
 
 [node name="RawDish" type="Area2D" groups=["dish", "raw_dish"]]
+z_index = 2
 scale = Vector2(3, 3)
 collision_layer = 2
 script = ExtResource("1_y2fbs")

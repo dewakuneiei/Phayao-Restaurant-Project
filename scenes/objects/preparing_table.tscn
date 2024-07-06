@@ -4,19 +4,22 @@
 [ext_resource type="Script" path="res://scenes/objects/preparing_table.gd" id="1_nccn7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csv05"]
-size = Vector2(58, 50)
+size = Vector2(58, 25)
 
 [node name="PreparingTable" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
 collision_layer = 4
 script = ExtResource("1_nccn7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
 scale = Vector2(4, 4)
 texture = ExtResource("1_bym64")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(-1, -10.5)
 shape = SubResource("RectangleShape2D_csv05")
 
 [node name="DishMark" type="Marker2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(0, -38)

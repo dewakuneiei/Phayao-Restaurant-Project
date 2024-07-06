@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxjoix3esuf14"]
+
+[ext_resource type="Script" path="res://scenes/objects/fried_table.gd" id="1_5vpvd"]
+[ext_resource type="Texture2D" uid="uid://f63kvsuxqk4h" path="res://assets/sprites/gui/circle_bg.png" id="2_rmfbi"]
+[ext_resource type="Texture2D" uid="uid://cgadt10c10muc" path="res://assets/sprites/fry.png" id="2_xwaqy"]
+[ext_resource type="Texture2D" uid="uid://bdyxwr3gf1sqg" path="res://assets/sprites/gui/circle_prg.png" id="3_pi07a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fasdj"]
+size = Vector2(64, 64)
+
+[node name="FriedTable" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 4
+script = ExtResource("1_5vpvd")
+interact_name = &"FriedTable"
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(0, -37)
+scale = Vector2(4, 4)
+texture = ExtResource("2_xwaqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -32)
+shape = SubResource("RectangleShape2D_fasdj")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+modulate = Color(0.223491, 1, 0.201554, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -122.0
+offset_right = 31.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(32, 32)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 6.0
+step = 0.01
+value = 4.73
+fill_mode = 4
+texture_under = ExtResource("2_rmfbi")
+texture_progress = ExtResource("3_pi07a")

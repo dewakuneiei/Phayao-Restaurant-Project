@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu4iahgpqddbo"]
+
+[ext_resource type="Script" path="res://counter.gd" id="1_gnhql"]
+[ext_resource type="Texture2D" uid="uid://bprfr6j2xtutl" path="res://assets/sprites/preparing_table.png" id="2_cvos3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr1sf"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsw55"]
+size = Vector2(137, 10)
+
+[sub_resource type="Animation" id="Animation_tr6w8"]
+resource_name = "earn_money"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(0.119938, 0.0395648),
+"update": 0,
+"values": [Vector2(-50.5, -54), Vector2(-50, -109)]
+}
+
+[sub_resource type="Animation" id="Animation_twxj2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-50.5, -54)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tx5vb"]
+_data = {
+"RESET": SubResource("Animation_twxj2"),
+"earn_money": SubResource("Animation_tr6w8")
+}
+
+[node name="Counter" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_gnhql")
+
+[node name="SendOrder" type="Area2D" parent="."]
+position = Vector2(0, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SendOrder"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_fr1sf")
+
+[node name="StartQeue" type="Marker2D" parent="."]
+position = Vector2(0, -27)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+scale = Vector2(10, 3)
+texture = ExtResource("2_cvos3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_jsw55")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.0666666, 1, 0, 1)
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -54.0
+offset_right = 54.5
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "+ 99 B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tx5vb")
+}
+
+[connection signal="body_entered" from="SendOrder" to="." method="_on_send_order_body_entered"]

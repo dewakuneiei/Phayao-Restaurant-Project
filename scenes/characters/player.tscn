@@ -3,25 +3,32 @@
 [ext_resource type="Script" path="res://scenes/characters/player.gd" id="1_b5bgf"]
 [ext_resource type="Texture2D" uid="uid://dssw88mfvy3kb" path="res://assets/creatures/cat.png" id="2_0p8vs"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpb2g"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5423x"]
+size = Vector2(11.6667, 10.1667)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 collision_mask = 15
 script = ExtResource("1_b5bgf")
+_dist_target = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -31)
 scale = Vector2(4, 4)
 texture = ExtResource("2_0p8vs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -15.75)
 scale = Vector2(3, 3)
-shape = SubResource("RectangleShape2D_rpb2g")
+shape = SubResource("RectangleShape2D_5423x")
+debug_color = Color(0.77248, 0.44309, 1.92523e-07, 0.42)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 30)
+position = Vector2(0, -1)
 exclude_parent = false
 collision_mask = 6
 collide_with_areas = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(46, 0)
+position = Vector2(46, -31)

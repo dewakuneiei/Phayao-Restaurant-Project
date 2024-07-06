@@ -1,8 +1,6 @@
 extends Interactive
 class_name Dish
 
-var ingredient_id: int
-
 func _ready():
 	set_process(false)
 	set_physics_process(false)
@@ -14,6 +12,7 @@ func set_collistion(enable: bool):
 	$CollisionShape2D.disabled = not enable
 
 func interact(player: Player):
+	if player.is_holding_dish(): return;
 	player.take_item(self)
 	set_collistion(false)
 

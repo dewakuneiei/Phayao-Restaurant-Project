@@ -7,16 +7,13 @@ static var instance: Player
 @export_category("Refferences")
 @export var _parent_scene: Node2D;
 @export_category("Settings")
-@export var _dist_drop: int = 40
-@export var _dist_target: int = 50
-@export var _dist_center: int = 30
+@export var _dist_drop: int = 35
+@export var _dist_target: int = 30
 @export var _moveSpeed: float = 200.0
 
 @onready var _rayCast: RayCast2D = $RayCast2D
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _hand_mark: Marker2D = $Marker2D
-
-var _hold_dish: Dish = null
 
 # Input map
 var input_map: Dictionary = {
@@ -25,17 +22,29 @@ var input_map: Dictionary = {
 	"move_down": Vector2.DOWN,
 	"move_up": Vector2.UP
 }
+var can_move: bool = true
+
+var _hold_dish: Dish = null
 
 func _ready():
 	instance = self
 	set_process(true)
+	set_process_input(false)
 
 func _process(delta: float):
 	handle_movement()
 	if Input.is_action_just_pressed("interact"):
 		interact_with_object()
+	
+	if Input.is_action_just_pressed("open_recipes"):
+		toggle_recipes()
 
 func handle_movement():
+	if not can_move:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
 	var direction = Vector2.ZERO
 	for action in input_map.keys():
 		if Input.is_action_pressed(action):
@@ -45,6 +54,12 @@ func handle_movement():
 	move_and_slide()
 	update_rayCast_target(direction)
 	handle_sprite_dir(direction)
+
+func set_player_movement(movable: bool):
+	can_move = movable
+	set_process(can_move)
+	if not can_move:
+		velocity = Vector2.ZERO
 
 func handle_sprite_dir(dir: Vector2):
 	if dir.x < 0 and _sprite.flip_h == false:
@@ -61,15 +76,11 @@ func _turn_around():
 
 func update_rayCast_target(direction: Vector2):
 	if direction != Vector2.ZERO:
-		if direction.x != 0:
-			_rayCast.position = Vector2(0, _dist_center)
-		else: 
-			_rayCast.position = Vector2.ZERO
-		_rayCast.target_position = (direction * _dist_target)
+		_rayCast.target_position = (direction.normalized() * _dist_target)
 
 func interact_with_object():
 	var object = get_interactable_object()
-	if object:
+	if object != null:
 		if object is Interactive and object.has_method("interact"):
 			object.interact(self)
 			return
@@ -116,4 +127,8 @@ func get_dish() -> Dish:
 
 func is_holding_dish() -> bool:
 	return _hold_dish != null
+
+
+func toggle_recipes():
+	GameSystem.instance.recipes.toggle()
 

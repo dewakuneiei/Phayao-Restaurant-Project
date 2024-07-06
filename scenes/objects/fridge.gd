@@ -2,7 +2,7 @@ extends Interactive
 class_name Fridge
 
 @export var _ui_inventoy: InventroyUI
-@onready var disTemplate = preload("res://scenes/objects/dish.tscn")
+@onready var disTemplate = preload("res://scenes/objects/ingredient_dish.tscn")
 
 var inventory: Dictionary = {}
 

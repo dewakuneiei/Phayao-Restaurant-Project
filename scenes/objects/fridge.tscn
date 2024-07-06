@@ -4,17 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://1eefqulrffjf" path="res://assets/sprites/fridge.png" id="1_wtjy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wb0fc"]
-size = Vector2(37, 50)
+size = Vector2(37, 21)
 
 [node name="Fridge" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
 collision_layer = 4
 script = ExtResource("1_0ref2")
 interact_name = &"Fridge"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -31)
 scale = Vector2(4, 4)
 texture = ExtResource("1_wtjy0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 6)
+position = Vector2(0.5, -10.5)
 shape = SubResource("RectangleShape2D_wb0fc")
