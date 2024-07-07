@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xjj7"]
 size = Vector2(11.25, 16.5)
 
-[node name="Customer" type="Area2D"]
+[node name="Customer" type="Area2D" groups=["customer", "npc"]]
 scale = Vector2(4, 4)
 script = ExtResource("2_wuily")
 

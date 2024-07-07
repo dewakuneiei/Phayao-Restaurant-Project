@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv3dmjndvgp4v"]
+
+[ext_resource type="Script" path="res://scenes/characters/npc.gd" id="1_apd8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hthct"]
+size = Vector2(40, 40)
+
+[node name="NPC" type="Area2D"]
+script = ExtResource("1_apd8q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["npc"]]
+shape = SubResource("RectangleShape2D_hthct")

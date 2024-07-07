@@ -4,30 +4,28 @@ var amount: int
 var price: int
 var icon: Texture
 
-var _eng_name: StringName
-var _thai_name: StringName
+var _ingredient_name: StringName
 var _id: int
 
 func _init(
 	id: int,
-	eng_name: StringName,
-	 thai_name: StringName,
+	ingredient_name: StringName,
 	 initial_amount: int = 0,
 	 initial_price: int = 1,
 	initial_icon: Texture = null):
 	
-	_thai_name = thai_name
-	_eng_name = eng_name
+	_ingredient_name = ingredient_name.to_upper()
 	_id = id
 	amount = initial_amount
 	price = initial_price
 	if initial_icon != null: icon = initial_icon
 
 func get_name() -> StringName:
-	return _thai_name
+	return _ingredient_name
 
 func get_id() -> int:
 	return _id
-
+	
 func clone() -> IngredientData:
-	return IngredientData.new(_id, _thai_name, _eng_name, amount, price, icon)
+	return IngredientData.new(_id,_ingredient_name, amount, price, icon)
+

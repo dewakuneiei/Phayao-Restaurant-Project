@@ -54,7 +54,7 @@ func _process(delta):
 	
 	if _heat_time >= overheat_duration:
 		is_overheat = true
-		print("Overheat")
+		what_cooking = gameSystem.burnt_food
 		set_process(false)
 	else:
 		_heat_time += delta
@@ -67,7 +67,7 @@ func _create_food_dish() -> FoodDish:
 	return new_food_dish
 
 func _match_food_data(keys: Array) -> FoodData:
-	return FoodData.new("ไทย", "Eng");
+	return FoodData.new("Don't Know Food");
 
 func finished():
 	_state = CookingState.FINISHED

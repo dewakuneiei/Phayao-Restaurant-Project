@@ -1,14 +1,13 @@
 extends Interactive
 class_name Counter
 
-const dist_of_queue: int = 5
+const dist_of_queue: int = 40
 
 @onready var start_mart: Marker2D = $StartQeue
 @onready var label: Label = $Label
 @onready var animplayer: AnimationPlayer = $AnimationPlayer
 
 var our_queue = []
-
 
 func update_queue():
 	var count = 0
@@ -24,7 +23,6 @@ func add_to_queue(customer: Customer):
 
 func finish_queue_front():
 	our_queue.pop_front()
-	
 	update_queue()
 
 func earn_money_play(value: int):
@@ -45,4 +43,5 @@ func _on_send_order_body_entered(body):
 				customer.pay_food(foodData)
 				earn_money_play(foodData.value)
 				body.destroy_dish()
+				finish_queue_front()
 

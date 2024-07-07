@@ -35,9 +35,7 @@ func _process(delta: float):
 	handle_movement()
 	if Input.is_action_just_pressed("interact"):
 		interact_with_object()
-	
-	if Input.is_action_just_pressed("open_recipes"):
-		toggle_recipes()
+
 
 func handle_movement():
 	if not can_move:
@@ -127,8 +125,4 @@ func get_dish() -> Dish:
 
 func is_holding_dish() -> bool:
 	return _hold_dish != null
-
-
-func toggle_recipes():
-	GameSystem.instance.recipes.toggle()
 

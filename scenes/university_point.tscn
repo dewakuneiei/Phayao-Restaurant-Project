@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfh3q5v11w3g"]
+[gd_scene load_steps=19 format=3 uid="uid://cfh3q5v11w3g"]
 
 [ext_resource type="PackedScene" uid="uid://idacl1vytymb" path="res://scenes/characters/player.tscn" id="1_wtq63"]
 [ext_resource type="Script" path="res://scenes/camera_following.gd" id="2_20rg8"]
@@ -8,13 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://fpjbev4fdanm" path="res://scenes/GUI/food_recipes.tscn" id="4_a61ca"]
 [ext_resource type="PackedScene" uid="uid://b17k2hoxj3hm5" path="res://scenes/objects/shop.tscn" id="4_s0p6o"]
 [ext_resource type="PackedScene" uid="uid://cmtlc3i8e534t" path="res://scenes/objects/fridge.tscn" id="4_wh1di"]
-[ext_resource type="Script" path="res://scenes/GameSystem.gd" id="5_20htw"]
+[ext_resource type="Script" path="res://scenes/game_system.gd" id="5_20htw"]
 [ext_resource type="PackedScene" uid="uid://borvcvamckk6b" path="res://scenes/GUI/ui_shop.tscn" id="6_jteyj"]
+[ext_resource type="PackedScene" uid="uid://dmuyxkhwbcgl5" path="res://scenes/GUI/gameplay_control.tscn" id="6_nsldg"]
+[ext_resource type="PackedScene" uid="uid://b1ojffe6mxgr" path="res://scenes/GUI/ui_game_ending.tscn" id="7_ixs2a"]
 [ext_resource type="PackedScene" uid="uid://dnkd8xg8mvue1" path="res://scenes/objects/boil_table.tscn" id="9_qqfra"]
 [ext_resource type="PackedScene" uid="uid://bjr0aovrdpolb" path="res://scenes/objects/grill_table.tscn" id="10_jhol3"]
 [ext_resource type="PackedScene" uid="uid://dxjoix3esuf14" path="res://scenes/objects/fried_table.tscn" id="11_swhy0"]
-[ext_resource type="PackedScene" uid="uid://bnfxvjy5jdttm" path="res://scenes/characters/customer.tscn" id="14_yrnkn"]
 [ext_resource type="PackedScene" uid="uid://cu4iahgpqddbo" path="res://scenes/objects/counter.tscn" id="15_82idv"]
+[ext_resource type="PackedScene" uid="uid://cb7ukr4mfiqfm" path="res://scenes/endpoint.tscn" id="16_c62xb"]
+[ext_resource type="PackedScene" uid="uid://bkhnfuya04d50" path="res://scenes/spawner.tscn" id="18_jcqyn"]
 
 [node name="University_Point" type="Node2D"]
 y_sort_enabled = true
@@ -31,29 +34,52 @@ follow_object = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Storage" parent="CanvasLayer" instance=ExtResource("3_bg4g0")]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameplayControl" parent="CanvasLayer/Control" node_paths=PackedStringArray("gameSytem") instance=ExtResource("6_nsldg")]
+layout_mode = 1
+gameSytem = NodePath("../../../GameSystem")
+gameTime = 120
+
+[node name="Storage" parent="CanvasLayer/Control" instance=ExtResource("3_bg4g0")]
 visible = false
+layout_mode = 1
 
-[node name="ShopControl" parent="CanvasLayer" instance=ExtResource("6_jteyj")]
+[node name="ShopControl" parent="CanvasLayer/Control" instance=ExtResource("6_jteyj")]
 visible = false
+layout_mode = 1
+offset_left = -250.0
+offset_right = 250.0
 
-[node name="FoodRecipes" parent="CanvasLayer" instance=ExtResource("4_a61ca")]
+[node name="UIEndedGame" parent="CanvasLayer/Control" instance=ExtResource("7_ixs2a")]
 visible = false
+layout_mode = 1
 
-[node name="Customer" parent="." instance=ExtResource("14_yrnkn")]
-position = Vector2(-115, -62)
+[node name="FoodRecipes" parent="CanvasLayer/Control" instance=ExtResource("4_a61ca")]
+visible = false
+layout_mode = 1
 
-[node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("player", "fridge", "shop1", "shop2", "recipes", "counter")]
+[node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("player", "fridge", "shop1", "shop2", "ui_ended_game", "counter", "endPoint", "spawner")]
 process_priority = -1
 script = ExtResource("5_20htw")
 player = NodePath("../Player")
 fridge = NodePath("../Interactable Object/Fridge")
 shop1 = NodePath("../Interactable Object/MeatShop")
 shop2 = NodePath("../Interactable Object/VegatableShop")
-recipes = NodePath("../CanvasLayer/FoodRecipes")
+ui_ended_game = NodePath("../CanvasLayer/Control/UIEndedGame")
 counter = NodePath("../Interactable Object/Counter")
+endPoint = NodePath("../Endpoint")
+spawner = NodePath("../Spawner")
 
 [node name="Interactable Object" type="Node2D" parent="."]
+process_priority = -2
 y_sort_enabled = true
 
 [node name="PreparingTable" parent="Interactable Object" instance=ExtResource("2_c5av1")]
@@ -67,7 +93,7 @@ position = Vector2(347, 233)
 
 [node name="Fridge" parent="Interactable Object" node_paths=PackedStringArray("_ui_inventoy") instance=ExtResource("4_wh1di")]
 position = Vector2(301, 233)
-_ui_inventoy = NodePath("../../CanvasLayer/Storage")
+_ui_inventoy = NodePath("../../CanvasLayer/Control/Storage")
 
 [node name="BoilTable" parent="Interactable Object" instance=ExtResource("9_qqfra")]
 position = Vector2(114, 236)
@@ -80,13 +106,30 @@ position = Vector2(40, 233)
 position = Vector2(-29, 234)
 
 [node name="MeatShop" parent="Interactable Object" node_paths=PackedStringArray("_shopUi") instance=ExtResource("4_s0p6o")]
-position = Vector2(443, 147)
-_shopUi = NodePath("../../CanvasLayer/ShopControl")
+position = Vector2(795, 357)
+_shopUi = NodePath("../../CanvasLayer/Control/ShopControl")
 _isMeatShop = true
 
 [node name="VegatableShop" parent="Interactable Object" node_paths=PackedStringArray("_shopUi") instance=ExtResource("4_s0p6o")]
-position = Vector2(443, 66)
-_shopUi = NodePath("../../CanvasLayer/ShopControl")
+position = Vector2(795, 276)
+_shopUi = NodePath("../../CanvasLayer/Control/ShopControl")
 
 [node name="Counter" parent="Interactable Object" instance=ExtResource("15_82idv")]
 position = Vector2(211, 12)
+
+[node name="Endpoint" parent="." instance=ExtResource("16_c62xb")]
+position = Vector2(817, -47)
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("customer_spawn_mark", "npc_spawn_mark") instance=ExtResource("18_jcqyn")]
+position = Vector2(-330, -49)
+customer_spawn_mark = NodePath("PointA")
+npc_spawn_mark = NodePath("PointB")
+
+[node name="PointA" type="Marker2D" parent="Spawner"]
+
+[node name="PointB" type="Marker2D" parent="Spawner"]
+position = Vector2(595, -370)
+
+[connection signal="pressed" from="CanvasLayer/Control/GameplayControl/Button" to="GameSystem" method="_on_button_pressed"]
+
+[editable path="CanvasLayer/Control/GameplayControl"]

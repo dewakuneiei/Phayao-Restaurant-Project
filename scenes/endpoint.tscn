@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb7ukr4mfiqfm"]
+
+[ext_resource type="Script" path="res://scenes/endpoint.gd" id="1_ai208"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0gdng"]
+radius = 50.0
+
+[node name="Endpoint" type="Marker2D"]
+gizmo_extents = 30.0
+script = ExtResource("1_ai208")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0gdng")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

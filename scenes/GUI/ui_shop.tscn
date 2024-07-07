@@ -2,53 +2,41 @@
 
 [ext_resource type="Script" path="res://scenes/GUI/ui_shop.gd" id="1_briyk"]
 
-[node name="ShopControl" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+[node name="ShopControl" type="PanelContainer"]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -56.5
+offset_right = 56.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_briyk")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 384
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 384
-theme_override_constants/margin_bottom = 32
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Money" type="Label" parent="MarginContainer/PanelContainer"]
+[node name="Money" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Money: 9999 B"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 36
 theme_override_constants/margin_top = 36
 theme_override_constants/margin_right = 36
 theme_override_constants/margin_bottom = 36
 
-[node name="EntryContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="EntryContainer" type="VBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Close" type="Button" parent="MarginContainer/PanelContainer"]
+[node name="Close" type="Button" parent="."]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "X"
 
-[connection signal="pressed" from="MarginContainer/PanelContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

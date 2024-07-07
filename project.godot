@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="phayao-scholarship-project"
-run/main_scene="res://scenes/university_point.tscn"
+run/main_scene="res://scenes/GUI/ui_main_menus.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scenes/game_manager.gd"
+LanguageManager="*res://scenes/language_manager.gd"
 
 [display]
 
@@ -54,6 +59,10 @@ open_recipes={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translate.en.translation", "res://translate.th.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Player"
@@ -64,5 +73,3 @@ open_recipes={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

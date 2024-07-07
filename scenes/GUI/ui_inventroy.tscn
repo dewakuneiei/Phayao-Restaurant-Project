@@ -2,49 +2,39 @@
 
 [ext_resource type="Script" path="res://scenes/GUI/ui_inventroy.gd" id="1_07xtl"]
 
-[node name="Storage" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+[node name="FridgeContainer" type="PanelContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(750, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -68.0
+offset_right = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_07xtl")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 256
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 256
-theme_override_constants/margin_bottom = 64
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="ItemContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="ItemContainer" type="GridContainer" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="TitleBtn" type="Label" parent="MarginContainer/PanelContainer"]
+[node name="TitleBtn" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Storage"
+theme_override_font_sizes/font_size = 24
+text = "Fidge Storage"
 
-[node name="CloseBtn" type="Button" parent="MarginContainer/PanelContainer"]
+[node name="CloseBtn" type="Button" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_direction = 1
@@ -53,4 +43,4 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "X"
 
-[connection signal="pressed" from="MarginContainer/PanelContainer/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="CloseBtn" to="." method="_on_close_btn_pressed"]

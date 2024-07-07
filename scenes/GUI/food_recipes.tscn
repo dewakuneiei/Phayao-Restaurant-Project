@@ -2,78 +2,60 @@
 
 [ext_resource type="Script" path="res://scenes/GUI/ui_food_recipes.gd" id="1_4exc1"]
 
-[node name="FoodRecipes" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+[node name="FoodRecipes" type="PanelContainer"]
+process_mode = 3
+process_priority = 1
+clip_contents = true
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -154.0
+offset_right = 154.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4exc1")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -20.0
-offset_right = 49.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Resume"
+
+[node name="New" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "New"
+
+[node name="Main" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Main"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="FoodMenusRichLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+[node name="FoodMenusRichLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 21
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
-text = "[center][b][font=res://assets/fonts/your_font.tres][color=#FFD700]Menu Items[/color][/font][/b][/center]
 
-[color=#FF4500][b]Lon Pla Som Phayao[/b][/color] [color=#4CAF50]-> Fry[/color]
-[indent]• Fish
-- Pork
-- Salt
-- Chili[/indent]
-
-[color=#FF4500][b]Chicken Khao Soi[/b][/color] [color=#4CAF50]-> Boil[/color]
-[indent]• Chicken
-- Rice noodles
-- Lime
-- Cilantro[/indent]
-
-[color=#FF4500][b]Khai Pam[/b][/color] [color=#4CAF50]-> Grill[/color]
-[indent]• Egg [color=#FFA500]x2[/color]
-- Chili
-- Salt[/indent]
-
-[color=#FF4500][b]Ong Pu Na[/b][/color] [color=#4CAF50]-> Grill[/color]
-[indent]• Crab [color=#FFA500]x2[/color]
-- Egg
-- Salt[/indent]
-
-[color=#FF4500][b]Aeb Pla Nil[/b][/color] [color=#4CAF50]-> Grill[/color]
-[indent]• Fish
-- Chili
-- Salt
-- Cilantro[/indent]"
-
-[node name="Button" type="Button" parent="PanelContainer"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "X"
-
-[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Main" to="." method="_on_main_pressed"]
