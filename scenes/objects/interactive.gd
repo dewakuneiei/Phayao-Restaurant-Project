@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 class_name Interactive
 
 @export var interact_name: StringName;

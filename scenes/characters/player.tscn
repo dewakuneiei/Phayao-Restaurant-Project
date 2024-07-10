@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://idacl1vytymb"]
+[gd_scene load_steps=5 format=3 uid="uid://idacl1vytymb"]
 
 [ext_resource type="Script" path="res://scenes/characters/player.gd" id="1_b5bgf"]
 [ext_resource type="Texture2D" uid="uid://dssw88mfvy3kb" path="res://assets/creatures/cat.png" id="2_0p8vs"]
@@ -6,12 +6,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5423x"]
 size = Vector2(11.6667, 10.1667)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1vsi"]
+radius = 64.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
 collision_mask = 15
 script = ExtResource("1_b5bgf")
-_dist_target = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -31)
@@ -24,11 +26,13 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_5423x")
 debug_color = Color(0.77248, 0.44309, 1.92523e-07, 0.42)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -1)
-exclude_parent = false
-collision_mask = 6
-collide_with_areas = true
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(46, -31)
+
+[node name="InteractiveArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_y1vsi")

@@ -79,15 +79,12 @@ y_sort_enabled = true
 
 [node name="PreparingTable" parent="Interactable Object" instance=ExtResource("2_c5av1")]
 position = Vector2(248, 232)
-interact_name = &"Table Preparing"
 
 [node name="PreparingTable2" parent="Interactable Object" instance=ExtResource("2_c5av1")]
 position = Vector2(188, 232)
-interact_name = &"Table Preparing"
 
 [node name="Trash" parent="Interactable Object" instance=ExtResource("3_rl3ih")]
 position = Vector2(347, 233)
-interact_name = &"Trash"
 
 [node name="Fridge" parent="Interactable Object" node_paths=PackedStringArray("_ui_inventoy") instance=ExtResource("4_wh1di")]
 position = Vector2(301, 233)
@@ -95,11 +92,10 @@ _ui_inventoy = NodePath("../../CanvasLayer/Control/Storage")
 
 [node name="BoilTable" parent="Interactable Object" instance=ExtResource("9_qqfra")]
 position = Vector2(114, 236)
-interact_name = &"BoilTable"
+interact_name = &"Boil"
 
 [node name="GrillTable" parent="Interactable Object" instance=ExtResource("10_jhol3")]
 position = Vector2(40, 233)
-interact_name = &"GrillTable"
 
 [node name="FriedTable" parent="Interactable Object" instance=ExtResource("11_swhy0")]
 position = Vector2(-29, 234)
@@ -115,7 +111,6 @@ _shopUi = NodePath("../../CanvasLayer/Control/ShopControl")
 
 [node name="Counter" parent="Interactable Object" instance=ExtResource("15_82idv")]
 position = Vector2(211, 12)
-interact_name = &"CounterTable"
 
 [node name="Endpoint" parent="." instance=ExtResource("16_c62xb")]
 position = Vector2(817, -47)

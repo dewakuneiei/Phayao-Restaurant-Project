@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gqc5"]
 size = Vector2(35, 19)
 
-[node name="PreparingTable2" type="StaticBody2D"]
+[node name="PreparingTable2" type="Area2D"]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 4

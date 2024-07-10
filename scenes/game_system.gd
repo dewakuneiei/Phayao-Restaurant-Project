@@ -20,7 +20,6 @@ static var load_icons: Dictionary = {
 @export var fridge: Fridge
 @export var shop1: Shop
 @export var shop2: Shop
-@export var recipes: FoodRecipes
 @export var ui_ended_game: GameEndUi
 @export var counter: Counter
 @export var endPoint: Marker2D

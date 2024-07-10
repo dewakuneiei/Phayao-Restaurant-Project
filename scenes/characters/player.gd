@@ -8,10 +8,9 @@ static var instance: Player
 @export var _parent_scene: Node2D;
 @export_category("Settings")
 @export var _dist_drop: int = 35
-@export var _dist_target: int = 30
 @export var _moveSpeed: float = 200.0
 
-@onready var _rayCast: RayCast2D = $RayCast2D
+@onready var interactive_area: Area2D = %InteractiveArea
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _hand_mark: Marker2D = $Marker2D
 
@@ -25,17 +24,20 @@ var input_map: Dictionary = {
 var can_move: bool = true
 
 var _hold_dish: Dish = null
+var _can_interact : bool = false
 
 func _ready():
-	instance = self
+	_initialized()
 	set_process(true)
 	set_process_input(false)
+
+func _initialized():
+	instance = self
 
 func _process(delta: float):
 	handle_movement()
 	if Input.is_action_just_pressed("interact"):
 		interact_with_object()
-
 
 func handle_movement():
 	if not can_move:
@@ -50,7 +52,6 @@ func handle_movement():
 	direction = direction.normalized()
 	velocity = direction * _moveSpeed
 	move_and_slide()
-	update_rayCast_target(direction)
 	handle_sprite_dir(direction)
 
 func set_player_movement(movable: bool):
@@ -72,24 +73,30 @@ func _turn_around():
 		temp.x *= -1
 		_hand_mark.position = temp
 
-func update_rayCast_target(direction: Vector2):
-	if direction != Vector2.ZERO:
-		_rayCast.target_position = (direction.normalized() * _dist_target)
 
 func interact_with_object():
 	var object = get_interactable_object()
 	if object != null:
 		if object is Interactive and object.has_method("interact"):
 			object.interact(self)
+			print(object.interact_name)
 			return
 			
 	drop_item()
 
 func get_interactable_object() -> Interactive:
-	var get_collider : Interactive = _rayCast.get_collider()
-	if get_collider:
-		return get_collider
-	return null
+	var overlappings = interactive_area.get_overlapping_areas()
+	var nearest_interactive: Interactive = null
+	var shortest_distance_squared = INF
+	
+	for body in overlappings:
+		if body is Interactive:
+			var distance_squared = interactive_area.global_position.distance_squared_to(body.global_position)
+			if distance_squared < shortest_distance_squared:
+				shortest_distance_squared = distance_squared
+				nearest_interactive = body
+	
+	return nearest_interactive
 
 func drop_item():
 	if _hold_dish == null: return

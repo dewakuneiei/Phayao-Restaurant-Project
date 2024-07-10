@@ -1,10 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu4iahgpqddbo"]
+[gd_scene load_steps=7 format=3 uid="uid://cu4iahgpqddbo"]
 
 [ext_resource type="Script" path="res://scenes/objects/counter.gd" id="1_gnhql"]
 [ext_resource type="Texture2D" uid="uid://bprfr6j2xtutl" path="res://assets/sprites/preparing_table.png" id="2_cvos3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr1sf"]
-size = Vector2(40, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsw55"]
 size = Vector2(137, 10)
@@ -70,17 +67,10 @@ _data = {
 "earn_money": SubResource("Animation_tr6w8")
 }
 
-[node name="Counter" type="StaticBody2D"]
+[node name="Counter" type="Area2D"]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_gnhql")
-
-[node name="SendOrder" type="Area2D" parent="."]
-position = Vector2(0, 18)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SendOrder"]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_fr1sf")
 
 [node name="StartQeue" type="Marker2D" parent="."]
 position = Vector2(0, -27)
@@ -115,5 +105,3 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_tx5vb")
 }
-
-[connection signal="body_entered" from="SendOrder" to="." method="_on_send_order_body_entered"]

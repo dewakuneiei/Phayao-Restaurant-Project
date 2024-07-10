@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpoy0"]
 size = Vector2(41, 78)
 
-[node name="Shop" type="StaticBody2D"]
+[node name="Shop" type="Area2D"]
 position = Vector2(332, 229)
 collision_layer = 4
 script = ExtResource("1_lmvob")

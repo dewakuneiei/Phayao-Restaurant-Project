@@ -10,6 +10,7 @@ z_index = 2
 scale = Vector2(3, 3)
 collision_layer = 2
 script = ExtResource("1_y2fbs")
+interact_name = &"RawDish"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)

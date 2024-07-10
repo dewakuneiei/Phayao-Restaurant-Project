@@ -32,6 +32,7 @@ func earn_money_play(value: int):
 
 func _ready():
 	label.hide()
+	self.connect("body_entered", _on_send_order_body_entered)
 
 func _on_send_order_body_entered(body):
 	if body is Player:
