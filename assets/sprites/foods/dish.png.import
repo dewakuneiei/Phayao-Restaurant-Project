@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbpgnas07mi30"
-path="res://.godot/imported/chicken.png-146b115fb559d4418db8c9595a8feefc.ctex"
+uid="uid://p2vj2g7lgmxd"
+path="res://.godot/imported/dish.png-6b7b3d2e5754b277a4ff09c994b8c138.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ingredients/chicken.png"
-dest_files=["res://.godot/imported/chicken.png-146b115fb559d4418db8c9595a8feefc.ctex"]
+source_file="res://assets/sprites/foods/dish.png"
+dest_files=["res://.godot/imported/dish.png-6b7b3d2e5754b277a4ff09c994b8c138.ctex"]
 
 [params]
 

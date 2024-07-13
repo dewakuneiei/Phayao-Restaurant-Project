@@ -3,7 +3,6 @@ class_name IngredientData
 var amount: int
 var price: int
 var icon: Texture
-
 var _ingredient_name: StringName
 var _id: int
 
@@ -18,7 +17,8 @@ func _init(
 	_id = id
 	amount = initial_amount
 	price = initial_price
-	if initial_icon != null: icon = initial_icon
+	
+	if initial_icon: icon = initial_icon
 
 func get_name() -> StringName:
 	return _ingredient_name

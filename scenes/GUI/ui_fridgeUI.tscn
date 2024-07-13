@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5nnv2vttb7g8"]
 
-[ext_resource type="Script" path="res://scenes/GUI/ui_inventroy.gd" id="1_07xtl"]
+[ext_resource type="Script" path="res://scenes/GUI/ui_fridge.gd" id="1_net1r"]
 
 [node name="FridgeContainer" type="PanelContainer"]
 clip_contents = true
@@ -13,7 +13,7 @@ offset_left = -68.0
 offset_right = 68.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_07xtl")
+script = ExtResource("1_net1r")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -1,16 +1,12 @@
 extends CookingTable
 class_name FriedTable
 
-var food_texture: Texture = preload("res://assets/sprites/foods/food.png")
-
 func _match_food_data(keys: Array) -> FoodData:
-	if gameSystem == null: gameSystem = GameSystem.instance
-	
 	keys.sort()
 
 	match keys:
 		#Lon Pla Som Phayao
-		[1, 2, 6, 7]:
-			return gameSystem.lon_pla_som
+		[0, 1, 5, 6]:
+			return GameManager.all_food_menus["LON_PLA_SOM"]
 		_:
-			return gameSystem.unknown_menu
+			return GameManager.all_food_menus["UNKNOWN_FOOD"]

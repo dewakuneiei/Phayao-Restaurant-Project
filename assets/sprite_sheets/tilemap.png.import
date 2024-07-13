@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doj230tyk1jdw"
-path="res://.godot/imported/food.png-7ffd42a5c3a6d6b0efa58be2c9b3009d.ctex"
+uid="uid://bhkef1vmnv44m"
+path="res://.godot/imported/tilemap.png-9ec14cb82528ad5dcb58a63ec152c470.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/foods/food.png"
-dest_files=["res://.godot/imported/food.png-7ffd42a5c3a6d6b0efa58be2c9b3009d.ctex"]
+source_file="res://assets/sprite_sheets/tilemap.png"
+dest_files=["res://.godot/imported/tilemap.png-9ec14cb82528ad5dcb58a63ec152c470.ctex"]
 
 [params]
 

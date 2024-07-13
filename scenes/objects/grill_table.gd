@@ -1,21 +1,17 @@
 extends CookingTable
 class_name GrillTable
 
-var food_texture: Texture = preload("res://assets/sprites/foods/food.png")
-
 func _match_food_data(keys: Array) -> FoodData:
-	if gameSystem == null: gameSystem = GameSystem.instance
-	
 	keys.sort()
 	match keys:
 		#Khai Pam
-		[4, 4, 6, 7]:
-			return gameSystem.khai_pam
+		[3, 3, 5, 6]:
+			return GameManager.all_food_menus["KHAI_PAM"]
 		#Ong Pu Na
-		[4, 5, 5, 6]:
-			return gameSystem.ong_pu_na
+		[3, 4, 4, 5]:
+			return GameManager.all_food_menus["ONG_PU_NA"]
 		#Aeb Pla Nil
-		[0, 1, 6, 7]:
-			return gameSystem.aeb_pla_nil
+		[0, 5, 6, 9]:
+			return GameManager.all_food_menus["AEB_PLA_NIL"]
 		_:
-			return gameSystem.unknown_menu
+			return GameManager.all_food_menus["UNKNOWN_FOOD"]

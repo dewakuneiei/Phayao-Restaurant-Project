@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bprfr6j2xtutl" path="res://assets/sprites/preparing_table.png" id="2_cvos3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsw55"]
-size = Vector2(137, 10)
+size = Vector2(137, 27)
 
 [sub_resource type="Animation" id="Animation_twxj2"]
 length = 0.001
@@ -73,7 +73,7 @@ y_sort_enabled = true
 script = ExtResource("1_gnhql")
 
 [node name="StartQeue" type="Marker2D" parent="."]
-position = Vector2(0, -27)
+position = Vector2(0, 8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-41, -18)
@@ -81,7 +81,7 @@ scale = Vector2(10, 3)
 texture = ExtResource("2_cvos3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-41, -6)
+position = Vector2(-41, -45.5)
 shape = SubResource("RectangleShape2D_jsw55")
 
 [node name="Label" type="Label" parent="."]

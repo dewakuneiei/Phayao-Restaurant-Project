@@ -1,14 +1,16 @@
 extends CharacterBody2D
 class_name Player
-
 static var instance: Player
 
+const FRONT_FRAME = 0
+const BACK_FRAME = 1
+const SIDE_FRAME = 2
+
 # Player attributes
-@export_category("Refferences")
-@export var _parent_scene: Node2D;
 @export_category("Settings")
 @export var _dist_drop: int = 35
 @export var _moveSpeed: float = 200.0
+@export var _dist_mark_x: int = 30
 
 @onready var interactive_area: Area2D = %InteractiveArea
 @onready var _sprite: Sprite2D = $Sprite2D
@@ -49,10 +51,12 @@ func handle_movement():
 	for action in input_map.keys():
 		if Input.is_action_pressed(action):
 			direction += input_map[action]
+			handle_sprite_dir(direction)
 	direction = direction.normalized()
 	velocity = direction * _moveSpeed
+	
 	move_and_slide()
-	handle_sprite_dir(direction)
+	
 
 func set_player_movement(movable: bool):
 	can_move = movable
@@ -61,12 +65,21 @@ func set_player_movement(movable: bool):
 		velocity = Vector2.ZERO
 
 func handle_sprite_dir(dir: Vector2):
-	if dir.x < 0 and _sprite.flip_h == false:
-		_sprite.flip_h = true
-		_turn_around()
-	elif dir.x > 0 and _sprite.flip_h == true:
-		_sprite.flip_h = false
-		_turn_around()
+	if dir.x != 0:
+		if dir.x < 0 and _sprite.flip_h == false:
+			_sprite.flip_h = true
+			_turn_around()
+			
+		elif dir.x > 0 and _sprite.flip_h == true:
+			_sprite.flip_h = false
+			_turn_around()
+		_sprite.frame = SIDE_FRAME
+	elif dir.y > 0:
+		_sprite.frame = FRONT_FRAME
+	elif dir.y < 0:
+		_sprite.frame = BACK_FRAME
+	
+	
 
 func _turn_around():
 		var temp = _hand_mark.position
@@ -101,7 +114,7 @@ func get_interactable_object() -> Interactive:
 func drop_item():
 	if _hold_dish == null: return
 	_hand_mark.remove_child(_hold_dish)
-	_parent_scene.add_child(_hold_dish)
+	get_parent().add_child(_hold_dish)
 	_hold_dish.global_position = _hand_mark.global_position + Vector2.DOWN * _dist_drop
 	_hold_dish.set_collistion(true)
 	_hold_dish = null

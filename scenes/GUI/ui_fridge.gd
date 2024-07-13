@@ -1,5 +1,5 @@
 extends Control  # Assuming this script is attached to a Control node
-class_name InventroyUI
+class_name FridgeUI
 
 const template = preload("res://scenes/GUI/ui_item.tscn")
 

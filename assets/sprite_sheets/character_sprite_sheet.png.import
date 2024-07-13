@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw0xf0132jscf"
-path="res://.godot/imported/noodles.png-fb7628049e2f999e8a46e8bec050daac.ctex"
+uid="uid://7aljo7u4qmij"
+path="res://.godot/imported/character_sprite_sheet.png-7617c556f8cffbed5391af4f507abbb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ingredients/noodles.png"
-dest_files=["res://.godot/imported/noodles.png-fb7628049e2f999e8a46e8bec050daac.ctex"]
+source_file="res://assets/sprite_sheets/character_sprite_sheet.png"
+dest_files=["res://.godot/imported/character_sprite_sheet.png-7617c556f8cffbed5391af4f507abbb3.ctex"]
 
 [params]
 

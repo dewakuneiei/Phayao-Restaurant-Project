@@ -16,8 +16,8 @@ func interact(player: Player):
 	player.take_item(self)
 	set_collistion(false)
 
-func set_sprite_texture(texture: Texture):
-	$Sprite2D.texture = texture
+func set_sprite_texture(icon: Texture):
+	$Sprite2D.texture = icon
 
 func get_texutre() -> Texture:
 	return $Sprite2D.texture

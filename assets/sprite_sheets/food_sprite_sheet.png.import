@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ra3rragqopkb"
-path="res://.godot/imported/egg.png-952271df69d6c59aacbf7ab4169f38f1.ctex"
+uid="uid://d1fy4d2njaitn"
+path="res://.godot/imported/food_sprite_sheet.png-6d49248e862b99c0c81fa30249f81c25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ingredients/egg.png"
-dest_files=["res://.godot/imported/egg.png-952271df69d6c59aacbf7ab4169f38f1.ctex"]
+source_file="res://assets/sprite_sheets/food_sprite_sheet.png"
+dest_files=["res://.godot/imported/food_sprite_sheet.png-6d49248e862b99c0c81fa30249f81c25.ctex"]
 
 [params]
 

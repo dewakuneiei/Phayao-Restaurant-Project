@@ -1,8 +1,8 @@
 extends Interactive
 class_name Fridge
 
-@export var _ui_inventoy: InventroyUI
-@onready var disTemplate = preload("res://scenes/objects/ingredient_dish.tscn")
+@export var _ui_inventoy: FridgeUI
+@onready var dishTemplate = preload("res://scenes/objects/ingredient_dish.tscn")
 
 var inventory: Dictionary = {}
 
@@ -37,7 +37,7 @@ func take_to_player(player:Player, key):
 			
 
 	elif dish == null:
-		var new_dish = disTemplate.instantiate()
+		var new_dish = dishTemplate.instantiate()
 		if new_dish is Dish:
 			new_dish.set_sprite_texture(item.icon)
 			new_dish.ingredient_id = item.get_id()

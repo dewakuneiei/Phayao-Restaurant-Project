@@ -64,6 +64,7 @@ locale/translations=PackedStringArray("res://translate.en.translation", "res://t
 2d_physics/layer_2="Dish"
 2d_physics/layer_3="Table"
 2d_physics/layer_4="NPC"
+2d_physics/layer_5="Ground"
 
 [rendering]
 
