@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f3axspalvvjc"
-path="res://.godot/imported/grill.png-eaeeb76a522233e0a2f93f47542dc3af.ctex"
+uid="uid://bio4x4mjrtyed"
+path="res://.godot/imported/counter.png-7e64af551ca9d7c5233bf855a79548b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/grill.png"
-dest_files=["res://.godot/imported/grill.png-eaeeb76a522233e0a2f93f47542dc3af.ctex"]
+source_file="res://assets/sprites/objects/counter.png"
+dest_files=["res://.godot/imported/counter.png-7e64af551ca9d7c5233bf855a79548b1.ctex"]
 
 [params]
 

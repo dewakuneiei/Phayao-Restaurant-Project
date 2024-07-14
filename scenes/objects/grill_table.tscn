@@ -1,49 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjr0aovrdpolb"]
+[gd_scene load_steps=4 format=3 uid="uid://cn4h1kjisfx5o"]
 
-[ext_resource type="Script" path="res://scenes/objects/grill_table.gd" id="1_svkif"]
-[ext_resource type="Texture2D" uid="uid://f3axspalvvjc" path="res://assets/sprites/grill.png" id="2_0v8kh"]
-[ext_resource type="Texture2D" uid="uid://f63kvsuxqk4h" path="res://assets/sprites/gui/circle_bg.png" id="2_btp7o"]
-[ext_resource type="Texture2D" uid="uid://bdyxwr3gf1sqg" path="res://assets/sprites/gui/circle_prg.png" id="3_ts585"]
+[ext_resource type="PackedScene" uid="uid://di7prcproj5cm" path="res://scenes/objects/cooking_table.tscn" id="1_wk0yp"]
+[ext_resource type="Script" path="res://scenes/objects/grill_table.gd" id="2_7k5rm"]
+[ext_resource type="Texture2D" uid="uid://bset2soyt4o05" path="res://assets/sprites/objects/grill.png" id="3_vxawo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fasdj"]
-size = Vector2(64, 31)
+[node name="GrillTable" instance=ExtResource("1_wk0yp")]
+script = ExtResource("2_7k5rm")
 
-[node name="GrillTable" type="Area2D"]
-z_index = 1
-y_sort_enabled = true
-collision_layer = 4
-script = ExtResource("1_svkif")
-
-[node name="Table" type="Sprite2D" parent="."]
-position = Vector2(0, -31)
-scale = Vector2(4, 4)
-texture = ExtResource("2_0v8kh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -14.5)
-shape = SubResource("RectangleShape2D_fasdj")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-visible = false
-modulate = Color(0.223491, 1, 0.201554, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -33.0
-offset_top = -107.0
-offset_right = 31.0
-offset_bottom = -43.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(32, 32)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-max_value = 6.0
-step = 0.01
-value = 4.73
-fill_mode = 4
-texture_under = ExtResource("2_btp7o")
-texture_progress = ExtResource("3_ts585")
+[node name="Table" parent="." index="0"]
+texture = ExtResource("3_vxawo")

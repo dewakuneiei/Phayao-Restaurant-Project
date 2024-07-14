@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://expstserh8fa"
-path="res://.godot/imported/shopping_basket.png-95827ecbdb8f8730e9faf2f7bfff3535.ctex"
+uid="uid://cyny52jhpn2mq"
+path="res://.godot/imported/boiler.png-827c1427966d1cbf922c880509f0cd31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/shopping_basket.png"
-dest_files=["res://.godot/imported/shopping_basket.png-95827ecbdb8f8730e9faf2f7bfff3535.ctex"]
+source_file="res://assets/sprites/objects/boiler.png"
+dest_files=["res://.godot/imported/boiler.png-827c1427966d1cbf922c880509f0cd31.ctex"]
 
 [params]
 

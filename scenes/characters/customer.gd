@@ -4,9 +4,13 @@ class_name Customer
 enum CustomerState {NONE, REQUEST, WAITING, FINISHED}
 
 const MAX_WAITING = 60
+const FRONT = 3
+const BACK = 4
+const SIDE = 5
 
 @onready var _control: Control = $Control
 @onready var _label: Label = $Control/Label
+@onready var _sprite: Sprite2D = $Sprite2D
 
 var order_food: FoodData
 
@@ -21,6 +25,12 @@ func _ready():
 	set_physics_process(false)
 	_timer = 0
 	_is_good = true
+	_sprite.frame = get_random_sprite_frame()
+
+func get_random_sprite_frame():
+	var frame_options = [0, 3, 6, 9, 12, 15]
+	var random_frame = frame_options[randi() % frame_options.size()]
+	return FRONT + random_frame
 
 func _process(delta):
 	if _state == CustomerState.NONE:

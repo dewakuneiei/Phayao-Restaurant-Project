@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5423x"]
 size = Vector2(11.6667, 10.1667)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y1vsi"]
-radius = 64.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_sksym"]
+radius = 32.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -16,8 +16,8 @@ collision_mask = 31
 script = ExtResource("1_b5bgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -46)
-scale = Vector2(3, 3)
+position = Vector2(2, -37)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_krgrx")
 hframes = 3
 vframes = 6
@@ -29,12 +29,16 @@ shape = SubResource("RectangleShape2D_5423x")
 debug_color = Color(0.77248, 0.44309, 1.92523e-07, 0.42)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -82)
+z_index = 2
+position = Vector2(0, -55)
 
-[node name="InteractiveArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_mask = 6
+position = Vector2(2, -20)
+collision_mask = 14
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
-position = Vector2(0, -30)
-shape = SubResource("CircleShape2D_y1vsi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_sksym")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

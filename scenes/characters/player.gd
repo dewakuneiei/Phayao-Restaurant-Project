@@ -12,7 +12,7 @@ const SIDE_FRAME = 2
 @export var _moveSpeed: float = 200.0
 @export var _dist_mark_x: int = 30
 
-@onready var interactive_area: Area2D = %InteractiveArea
+@onready var interactive_area: Area2D = %InteractionArea
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _hand_mark: Marker2D = $Marker2D
 
@@ -101,7 +101,6 @@ func get_interactable_object() -> Interactive:
 	var overlappings = interactive_area.get_overlapping_areas()
 	var nearest_interactive: Interactive = null
 	var shortest_distance_squared = INF
-	
 	for body in overlappings:
 		if body is Interactive:
 			var distance_squared = interactive_area.global_position.distance_squared_to(body.global_position)
@@ -145,4 +144,3 @@ func get_dish() -> Dish:
 
 func is_holding_dish() -> bool:
 	return _hold_dish != null
-

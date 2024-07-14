@@ -1,5 +1,5 @@
 extends CookingTable
-class_name BoilTable
+class_name BoilerTable
 
 func _match_food_data(keys: Array) -> FoodData:
 	keys.sort()

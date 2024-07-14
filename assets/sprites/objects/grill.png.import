@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwuqqo82qly7l"
-path="res://.godot/imported/shopkeeper.png-346cd39e706b7a324272f59e2f6ea20a.ctex"
+uid="uid://bset2soyt4o05"
+path="res://.godot/imported/grill.png-55df7d9f171c21865ea86541a17c3f83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/shopkeeper.png"
-dest_files=["res://.godot/imported/shopkeeper.png-346cd39e706b7a324272f59e2f6ea20a.ctex"]
+source_file="res://assets/sprites/objects/grill.png"
+dest_files=["res://.godot/imported/grill.png-55df7d9f171c21865ea86541a17c3f83.ctex"]
 
 [params]
 

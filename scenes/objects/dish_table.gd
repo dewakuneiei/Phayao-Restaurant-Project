@@ -1,5 +1,5 @@
 extends Interactive
-class_name PreparingTable
+class_name DishTable
 
 @onready var dish_template = preload("res://scenes/objects/raw_dish.tscn")
 @onready var mark: Marker2D = $DishMark

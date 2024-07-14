@@ -1,4 +1,4 @@
-extends Area2D
+extends CollisionObject2D
 class_name Interactive
 
 @export var interact_name: StringName;

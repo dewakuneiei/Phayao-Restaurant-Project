@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu4iahgpqddbo"]
+[gd_scene load_steps=8 format=3 uid="uid://cu4iahgpqddbo"]
 
 [ext_resource type="Script" path="res://scenes/objects/counter.gd" id="1_gnhql"]
-[ext_resource type="Texture2D" uid="uid://bprfr6j2xtutl" path="res://assets/sprites/preparing_table.png" id="2_cvos3"]
+[ext_resource type="Texture2D" uid="uid://bio4x4mjrtyed" path="res://assets/sprites/objects/counter.png" id="2_jbp44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsw55"]
-size = Vector2(137, 27)
+size = Vector2(185, 50.5)
 
 [sub_resource type="Animation" id="Animation_twxj2"]
 length = 0.001
@@ -67,21 +67,24 @@ _data = {
 "earn_money": SubResource("Animation_tr6w8")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i13vw"]
+size = Vector2(185, 38)
+
 [node name="Counter" type="Area2D"]
 z_index = 1
 y_sort_enabled = true
+collision_layer = 4
 script = ExtResource("1_gnhql")
 
 [node name="StartQeue" type="Marker2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(69, 45)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-41, -18)
-scale = Vector2(10, 3)
-texture = ExtResource("2_cvos3")
+scale = Vector2(2, 2)
+texture = ExtResource("2_jbp44")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-41, -45.5)
+position = Vector2(-1.5, -26.25)
 shape = SubResource("RectangleShape2D_jsw55")
 
 [node name="Label" type="Label" parent="."]
@@ -105,3 +108,10 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_tx5vb")
 }
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.5, 8)
+shape = SubResource("RectangleShape2D_i13vw")
