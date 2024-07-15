@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dey5dj6qscuow"]
 
 [ext_resource type="Script" path="res://scenes/objects/dish_table.gd" id="1_af4eg"]
-[ext_resource type="Texture2D" uid="uid://cm4n4fep01ae4" path="res://assets/sprites/objects/cooking_table.png" id="2_o10j4"]
+[ext_resource type="Texture2D" uid="uid://cm4n4fep01ae4" path="res://assets/sprites/others/cooking_table.png" id="2_o10j4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csv05"]
 size = Vector2(76, 64)

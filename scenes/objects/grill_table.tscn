@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://di7prcproj5cm" path="res://scenes/objects/cooking_table.tscn" id="1_wk0yp"]
 [ext_resource type="Script" path="res://scenes/objects/grill_table.gd" id="2_7k5rm"]
-[ext_resource type="Texture2D" uid="uid://bset2soyt4o05" path="res://assets/sprites/objects/grill.png" id="3_vxawo"]
+[ext_resource type="Texture2D" uid="uid://bset2soyt4o05" path="res://assets/sprites/others/grill.png" id="3_vxawo"]
 
 [node name="GrillTable" instance=ExtResource("1_wk0yp")]
 script = ExtResource("2_7k5rm")

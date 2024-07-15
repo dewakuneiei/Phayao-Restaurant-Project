@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfh3q5v11w3g"]
+[gd_scene load_steps=22 format=3 uid="uid://cfh3q5v11w3g"]
 
 [ext_resource type="PackedScene" uid="uid://idacl1vytymb" path="res://scenes/characters/player.tscn" id="1_wtq63"]
 [ext_resource type="Script" path="res://scenes/camera_following.gd" id="2_20rg8"]
@@ -123,6 +123,12 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_e5hla")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8a6s4"]
+vertices = PackedVector2Array(131, 393, 1412, 398, 1402, 553, -1076, 543, 67, 322, -322, 394, -1075, 398, -286, 322)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(3, 6, 5), PackedInt32Array(4, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1085, 389, -328, 384, -292, 312, 72, 313, 135, 383, 1423, 389, 1412, 564, -1087, 553)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="University_Point" type="Node2D"]
 y_sort_enabled = true
 
@@ -205,7 +211,7 @@ position = Vector2(586, 92)
 shop_ui = NodePath("../../CanvasLayer/Control/ShopControl")
 
 [node name="Counter" parent="Interactable Object" instance=ExtResource("15_82idv")]
-position = Vector2(-140, 227)
+position = Vector2(-93, 320)
 interact_name = &"CounterTable"
 
 [node name="GrillTable" parent="Interactable Object" instance=ExtResource("13_sx4kn")]
@@ -222,20 +228,16 @@ position = Vector2(-54, 81)
 interact_name = &"Boiler"
 
 [node name="Endpoint" parent="." instance=ExtResource("16_c62xb")]
-position = Vector2(952, 298)
+position = Vector2(1372, 410)
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("customer_spawn_mark", "npc_spawn_mark") instance=ExtResource("18_jcqyn")]
+[node name="Spawner" parent="." node_paths=PackedStringArray("customer_spawn_mark") instance=ExtResource("18_jcqyn")]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-330, -49)
 customer_spawn_mark = NodePath("PointA")
-npc_spawn_mark = NodePath("PointB")
 
 [node name="PointA" type="Marker2D" parent="Spawner"]
-position = Vector2(-176, 353)
-
-[node name="PointB" type="Marker2D" parent="Spawner"]
-position = Vector2(514, 516)
+position = Vector2(-718, 470)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -247,6 +249,9 @@ layer_0/tile_data = PackedInt32Array(-589861, 65536, 3, -524325, 65536, 3, -4587
 layer_1/name = "Object"
 layer_1/y_sort_enabled = true
 layer_1/tile_data = PackedInt32Array(-196607, 262144, 4, 262134, 327680, 0, 262128, 327680, 0, 196620, 327680, 0, 196626, 327680, 0, 655346, 327680, 0, 655355, 327680, 0, 589829, 327680, 0, 589840, 327680, 0, 655349, 0, 4, 655352, 0, 4, 589825, 0, 4, 589833, 0, 4, 589836, 0, 4, 196613, 262144, 3, 196614, 262144, 2, 196612, 196608, 2, 196610, 262144, 3, 196609, 196608, 2, 196611, 262144, 2, 393203, 196608, 3, 327688, 196608, 3, 327689, 196608, 3, 655358, 196608, 3, 589834, 196608, 3, 589835, 196608, 3, 131059, 65536, 4, 14, 65536, 4, 327672, 0, 2, 327673, 65536, 2, 327674, 131072, 2, 262151, 0, 2, 262152, 65536, 2, 262153, 131072, 2, 589813, 0, 2, 589814, 65536, 2, 589815, 131072, 2, 589823, 0, 2, 524288, 65536, 2, 524289, 131072, 2, 524300, 0, 2, 524301, 65536, 2, 524302, 131072, 2)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_8a6s4")
 
 [connection signal="pressed" from="CanvasLayer/Control/GameplayControl/Button" to="GameSystem" method="_on_button_pressed"]
 

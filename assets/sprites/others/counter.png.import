@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdfspurqexmkq"
-path="res://.godot/imported/trash.png-77d35b191adc4b45fd172364b70bc833.ctex"
+uid="uid://bio4x4mjrtyed"
+path="res://.godot/imported/counter.png-187cf3c6ea6f79e3915437a7bba991f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/trash.png"
-dest_files=["res://.godot/imported/trash.png-77d35b191adc4b45fd172364b70bc833.ctex"]
+source_file="res://assets/sprites/others/counter.png"
+dest_files=["res://.godot/imported/counter.png-187cf3c6ea6f79e3915437a7bba991f4.ctex"]
 
 [params]
 

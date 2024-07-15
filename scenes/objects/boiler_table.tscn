@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://di7prcproj5cm" path="res://scenes/objects/cooking_table.tscn" id="1_qv5bc"]
 [ext_resource type="Script" path="res://scenes/objects/boiler_table.gd" id="2_hlbee"]
-[ext_resource type="Texture2D" uid="uid://cyny52jhpn2mq" path="res://assets/sprites/objects/boiler.png" id="3_233tu"]
+[ext_resource type="Texture2D" uid="uid://cyny52jhpn2mq" path="res://assets/sprites/others/boiler.png" id="3_233tu"]
 
 [node name="BoilerTable" instance=ExtResource("1_qv5bc")]
 script = ExtResource("2_hlbee")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://di7prcproj5cm"]
 
 [ext_resource type="Script" path="res://scenes/objects/cooking_table.gd" id="1_bbleq"]
-[ext_resource type="Texture2D" uid="uid://c1smi7y48q8lp" path="res://assets/sprites/objects/frying_pan.png" id="2_h22om"]
+[ext_resource type="Texture2D" uid="uid://c1smi7y48q8lp" path="res://assets/sprites/others/frying_pan.png" id="2_h22om"]
 [ext_resource type="Texture2D" uid="uid://f63kvsuxqk4h" path="res://assets/sprites/gui/circle_bg.png" id="3_lvncs"]
 [ext_resource type="Texture2D" uid="uid://bdyxwr3gf1sqg" path="res://assets/sprites/gui/circle_prg.png" id="4_cmeli"]
 

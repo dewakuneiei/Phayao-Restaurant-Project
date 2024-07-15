@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm4n4fep01ae4"
-path="res://.godot/imported/cooking_table.png-f3df46c5dfc3da37640a212097d64fe3.ctex"
+uid="uid://c1smi7y48q8lp"
+path="res://.godot/imported/frying_pan.png-6b097442ee2ce9914a81233544110c7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/cooking_table.png"
-dest_files=["res://.godot/imported/cooking_table.png-f3df46c5dfc3da37640a212097d64fe3.ctex"]
+source_file="res://assets/sprites/others/frying_pan.png"
+dest_files=["res://.godot/imported/frying_pan.png-6b097442ee2ce9914a81233544110c7e.ctex"]
 
 [params]
 

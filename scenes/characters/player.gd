@@ -92,7 +92,6 @@ func interact_with_object():
 	if object != null:
 		if object is Interactive and object.has_method("interact"):
 			object.interact(self)
-			print(object.interact_name)
 			return
 			
 	drop_item()

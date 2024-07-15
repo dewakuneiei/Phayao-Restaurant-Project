@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b17k2hoxj3hm5"]
 
 [ext_resource type="Script" path="res://scenes/objects/shop.gd" id="1_lmvob"]
-[ext_resource type="Texture2D" uid="uid://dglbisc6jyni7" path="res://assets/sprites/objects/vending_machine.png" id="2_4fqeh"]
+[ext_resource type="Texture2D" uid="uid://dglbisc6jyni7" path="res://assets/sprites/others/vending_machine.png" id="2_4fqeh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpoy0"]
 size = Vector2(101, 122)

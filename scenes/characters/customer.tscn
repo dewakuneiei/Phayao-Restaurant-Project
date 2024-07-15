@@ -1,15 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnfxvjy5jdttm"]
+[gd_scene load_steps=9 format=3 uid="uid://bnfxvjy5jdttm"]
 
 [ext_resource type="Texture2D" uid="uid://7aljo7u4qmij" path="res://assets/sprite_sheets/character_sprite_sheet.png" id="2_kj0ls"]
 [ext_resource type="Script" path="res://scenes/characters/customer.gd" id="2_wuily"]
+[ext_resource type="AudioStream" uid="uid://c0hc8u8agnknd" path="res://assets/sfx/slap.mp3" id="3_m7opb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ufcw4"]
+load_path = "res://.godot/imported/heart.png-08b38704c5e534bb0e9b650831275497.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xjj7"]
-size = Vector2(22, 22.75)
+size = Vector2(51, 67.75)
+
+[sub_resource type="Animation" id="Animation_jixe4"]
+resource_name = "show_feedback"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-25, -60), Vector2(-25, -106)]
+}
+
+[sub_resource type="Animation" id="Animation_afkmi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-25, -60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shcli"]
+_data = {
+"RESET": SubResource("Animation_afkmi"),
+"show_feedback": SubResource("Animation_jixe4")
+}
 
 [node name="Customer" type="Area2D" groups=["customer", "npc"]]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("2_wuily")
+move_speed = 120.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -38)
@@ -20,35 +86,88 @@ vframes = 6
 frame = 3
 
 [node name="Control" type="Control" parent="."]
-visible = false
+z_index = 1
+y_sort_enabled = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.75
-offset_top = -28.0
-offset_right = 95.25
-offset_bottom = 72.0
+offset_left = -25.0
+offset_top = -60.0
+offset_right = 75.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
 
-[node name="Label" type="Label" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -22.5
+offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("CompressedTexture2D_ufcw4")
+expand_mode = 2
+
+[node name="feedbackValueLabel" type="Label" parent="Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(0.894118, 0.0705882, 0.266667, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "..."
+text = "-1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -11.625)
+position = Vector2(-0.5, -34.125)
 shape = SubResource("RectangleShape2D_6xjj7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m7opb")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(0, -36)
+emitting = false
+amount = 7
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = SubResource("CompressedTexture2D_ufcw4")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+angular_velocity_min = 90.0
+angular_velocity_max = 720.0
+linear_accel_min = -25.0
+linear_accel_max = -25.0
+damping_min = 10.0
+damping_max = 10.0
+scale_amount_min = 0.5
+
+[node name="Agent" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_shcli")
+}
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

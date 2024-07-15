@@ -1,13 +1,20 @@
 extends Interactive
 class_name Counter
 
-const dist_of_queue: int = 40
+const dist_of_queue: int = 45
 
 @onready var start_mart: Marker2D = $StartQeue
 @onready var label: Label = $Label
 @onready var animplayer: AnimationPlayer = $AnimationPlayer
 
 var our_queue = []
+
+func interact(player: Player):
+	var front_customer = our_queue.front() as Customer
+	if front_customer == null: return;
+	var food_name = front_customer.order_food.get_name()
+	var reciption = Recipe.get_ingredient_ids_for_food(food_name)
+	print(reciption)
 
 func update_queue():
 	var count = 0
@@ -24,6 +31,12 @@ func add_to_queue(customer: Customer):
 func finish_queue_front():
 	our_queue.pop_front()
 	update_queue()
+
+func remove_me_at(customer: Customer):
+	var index = our_queue.find(customer)
+	if index != -1:  # If the customer is found in the queue
+		our_queue.remove_at(index)
+		update_queue()
 
 func earn_money_play(value: int):
 	GameSystem.instance.earn_money(value)

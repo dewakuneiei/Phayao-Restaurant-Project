@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyny52jhpn2mq"
-path="res://.godot/imported/boiler.png-827c1427966d1cbf922c880509f0cd31.ctex"
+uid="uid://bset2soyt4o05"
+path="res://.godot/imported/grill.png-65d06b414bfd6a38ded54500adcb0b1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/boiler.png"
-dest_files=["res://.godot/imported/boiler.png-827c1427966d1cbf922c880509f0cd31.ctex"]
+source_file="res://assets/sprites/others/grill.png"
+dest_files=["res://.godot/imported/grill.png-65d06b414bfd6a38ded54500adcb0b1e.ctex"]
 
 [params]
 

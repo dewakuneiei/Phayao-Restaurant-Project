@@ -49,7 +49,9 @@ func get_money():
 	return _money
 
 func get_all_food_menus() -> Array:
-	return GameManager.all_food_menus.values()
+	return GameManager.all_food_menus.values().filter(func(food): 
+		return food.get_name() != "UNKNOWN" and food.get_name() != "BURNT_FOOD"
+	)
 
 func get_random_food_menu() -> FoodData:
 	var all_menus = get_all_food_menus()

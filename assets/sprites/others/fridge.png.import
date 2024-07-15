@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1smi7y48q8lp"
-path="res://.godot/imported/frying_pan.png-db46f54b0210f3c9fbc77f89129be46a.ctex"
+uid="uid://b4t0wh2ugph3n"
+path="res://.godot/imported/fridge.png-8cf359f6348e05815211c4d93a1deb52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/frying_pan.png"
-dest_files=["res://.godot/imported/frying_pan.png-db46f54b0210f3c9fbc77f89129be46a.ctex"]
+source_file="res://assets/sprites/others/fridge.png"
+dest_files=["res://.godot/imported/fridge.png-8cf359f6348e05815211c4d93a1deb52.ctex"]
 
 [params]
 

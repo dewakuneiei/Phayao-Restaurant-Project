@@ -1,7 +1,7 @@
 extends Area2D
 class_name NPC
 
-var move_speed: float = 100.0  # pixels per second
+@export var move_speed: float = 100.0  # pixels per second
 
 func set_move_to_target(target: Vector2):
 	var distance = global_position.distance_to(target)

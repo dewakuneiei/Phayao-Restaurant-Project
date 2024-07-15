@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmtlc3i8e534t"]
 
 [ext_resource type="Script" path="res://scenes/objects/fridge.gd" id="1_0ref2"]
-[ext_resource type="Texture2D" uid="uid://b4t0wh2ugph3n" path="res://assets/sprites/objects/fridge.png" id="2_ixjm8"]
+[ext_resource type="Texture2D" uid="uid://b4t0wh2ugph3n" path="res://assets/sprites/others/fridge.png" id="2_ixjm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wb0fc"]
 size = Vector2(56, 117.5)

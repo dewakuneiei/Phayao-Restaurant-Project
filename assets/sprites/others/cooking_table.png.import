@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dglbisc6jyni7"
-path="res://.godot/imported/vending_machine.png-0f9efbd8517591d1b15eabf6e5475d42.ctex"
+uid="uid://cm4n4fep01ae4"
+path="res://.godot/imported/cooking_table.png-5b3e1d3a35f92c43e25c77ddddd498ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/vending_machine.png"
-dest_files=["res://.godot/imported/vending_machine.png-0f9efbd8517591d1b15eabf6e5475d42.ctex"]
+source_file="res://assets/sprites/others/cooking_table.png"
+dest_files=["res://.godot/imported/cooking_table.png-5b3e1d3a35f92c43e25c77ddddd498ec.ctex"]
 
 [params]
 
