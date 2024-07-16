@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://06fw6hr15yfc"]
+
+[ext_resource type="PackedScene" uid="uid://bjsn3r7ppa3te" path="res://scenes/GUI/ui_aeb_pla_nil_item.tscn" id="1_b5iwe"]
+[ext_resource type="Texture2D" uid="uid://b873d6nqitdd0" path="res://assets/sprites/ingredients/pork.png" id="2_yqnns"]
+[ext_resource type="Texture2D" uid="uid://r0ltblosspwj" path="res://assets/sprites/ingredients/chili.png" id="3_wuwva"]
+[ext_resource type="Texture2D" uid="uid://c1smi7y48q8lp" path="res://assets/sprites/others/frying_pan.png" id="4_flav8"]
+[ext_resource type="Texture2D" uid="uid://w1g0dcvtmhm2" path="res://assets/sprites/foods/lon_pla_som.png" id="5_vj45d"]
+
+[node name="UILON_PLA_SOM" instance=ExtResource("1_b5iwe")]
+
+[node name="TextureRect2" parent="GridContainer" index="1"]
+texture = ExtResource("2_yqnns")
+
+[node name="TextureRect4" parent="GridContainer" index="3"]
+texture = ExtResource("3_wuwva")
+
+[node name="TextureRect" parent="." index="1"]
+texture = ExtResource("4_flav8")
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("5_vj45d")
+
+[node name="Label" parent="VBoxContainer" index="1"]
+text = "LON_PLA_SOM"

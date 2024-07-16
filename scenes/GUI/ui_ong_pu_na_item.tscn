@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce6q7cf74bpow"]
+
+[ext_resource type="PackedScene" uid="uid://bjsn3r7ppa3te" path="res://scenes/GUI/ui_aeb_pla_nil_item.tscn" id="1_b6y4l"]
+[ext_resource type="Texture2D" uid="uid://dqhkk1xagc0jq" path="res://assets/sprites/ingredients/crab.png" id="2_q2msb"]
+[ext_resource type="Texture2D" uid="uid://r0ltblosspwj" path="res://assets/sprites/ingredients/chili.png" id="3_f2t70"]
+[ext_resource type="Texture2D" uid="uid://mp2grftcghwn" path="res://assets/sprites/foods/ong_pu_na.png" id="4_ab5tr"]
+
+[node name="UI_ONG_PU_NA_item" instance=ExtResource("1_b6y4l")]
+
+[node name="TextureRect" parent="GridContainer" index="0"]
+texture = ExtResource("2_q2msb")
+
+[node name="TextureRect2" parent="GridContainer" index="1"]
+texture = ExtResource("2_q2msb")
+
+[node name="TextureRect4" parent="GridContainer" index="3"]
+texture = ExtResource("3_f2t70")
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("4_ab5tr")
+
+[node name="Label" parent="VBoxContainer" index="1"]
+text = "ONG_PU_NA"

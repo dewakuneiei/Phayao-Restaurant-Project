@@ -146,6 +146,9 @@ func _on_mouse_exited():
 	
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
+func is_waiting():
+	return _state == CustomerState.WAITING
+
 func hit():
 	if _state != CustomerState.WAITING: return;
 	_hit_count += 1
@@ -174,7 +177,7 @@ func leve():
 	_streamPlayer.play()
 	GameManager.decrease_rating()
 	show_feedback(-1)
-	_counter.remove_me_at(self)
+	_counter.remove_from_queue(self)
 	set_move_to_target(GameSystem.instance.endPoint.position)
 
 func show_feedback(value: int):

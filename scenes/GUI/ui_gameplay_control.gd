@@ -1,9 +1,12 @@
 extends Control
+class_name GamePlayUI
 
 @export var gameSytem: GameSystem
 @export_range(120, 10*60) var gameTime: int = 5 * 60
 @onready var money_l : Label = %MoneyLabel
-@onready var time_left_l : Label = $Label
+@onready var time_left_l : Label = %TimeLeft
+@onready var recipe_btn : Button = %Recipe
+@onready var open_btn : Button = %Open
 var time_left: float
 
 func _ready():
@@ -50,6 +53,6 @@ func _on_game_time_up():
 	GameManager.set_game_state(GameManager.GameState.ENDED)
 
 func _on_button_pressed():
-	$Button.hide()
+	open_btn.hide()
 	time_left_l.show()
 	set_process(true)

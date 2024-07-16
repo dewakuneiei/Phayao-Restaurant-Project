@@ -7,10 +7,13 @@ static var instance: GameSystem
 @export var player: Player
 @export var fridge: Fridge
 @export var shop: Shop
-@export var ui_ended_game: GameEndUi
 @export var counter: Counter
 @export var endPoint: Marker2D
 @export var spawner: Spawner
+@export_category("Game UI")
+@export var ui_gameplay: GamePlayUI
+@export var ui_ended_game: GameEndUi
+@export var ui_recipt: RecipeUI
 
 signal money_updated(new_value: int)
 
@@ -58,7 +61,13 @@ func get_random_food_menu() -> FoodData:
 	var random_index = randi() % all_menus.size()
 	return all_menus[random_index]
 
-func _on_button_pressed():
+func visible_recipe_btn(isVisible: bool):
+	if isVisible:
+		ui_gameplay.recipe_btn.show()
+	else:
+		ui_gameplay.recipe_btn.hide()
+
+func _on_open_pressed():
 	started_game()
 
 func _on_game_state_changed(new_state):
@@ -69,3 +78,6 @@ func _on_game_state_changed(new_state):
 			print("Game has STARTED")
 		GameManager.GameState.ENDED:
 			ended_game()
+
+func _on_recipe_pressed():
+	ui_recipt.show()

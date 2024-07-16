@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://p2vj2g7lgmxd" path="res://assets/sprites/foods/dish.png" id="2_punf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opofv"]
-size = Vector2(32, 32)
+size = Vector2(60, 38)
 
 [node name="IngredientDish" type="Area2D" groups=["dish"]]
 z_index = 1
@@ -14,10 +14,10 @@ script = ExtResource("1_p6axd")
 interact_name = &"Dish"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -17)
-scale = Vector2(2, 2)
+position = Vector2(0, -26)
+scale = Vector2(3, 3)
 texture = ExtResource("2_punf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(-1, -17)
 shape = SubResource("RectangleShape2D_opofv")

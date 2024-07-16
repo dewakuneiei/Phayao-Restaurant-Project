@@ -49,10 +49,14 @@ func _process(delta):
 	if not _state == CookingState.FINISHED: return
 	
 	if _heat_time >= overheat_duration:
-		what_cooking = GameManager.all_food_menus["BURNT_FOOD"]
+		_burnt()
 		set_process(false)
 	else:
 		_heat_time += delta
+
+func _burnt():
+	_prgbar.modulate = Color.RED
+	what_cooking = GameManager.all_food_menus["BURNT_FOOD"]
 
 func _create_food_dish() -> FoodDish:
 	var new_food_dish = _dish_template.instantiate() as FoodDish
@@ -74,4 +78,5 @@ func cooked(keys: Array):
 	_prgbar.show()
 	_prgbar.value = 0
 	_prgbar.max_value = cook_duration
+	_prgbar.modulate = Color.GREEN
 	set_process(true)

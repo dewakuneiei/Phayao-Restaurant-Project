@@ -34,6 +34,7 @@ func take_to_player(player:Player, key):
 			new_sprite.texture = item.icon
 			new_sprite.rotation_degrees = randf_range(0, 360)
 			new_sprite.flip_h = randf() > 0.5
+			new_sprite.scale = Vector2.ONE * 2
 			dish.add_child(new_sprite)
 			
 	elif dish == null:

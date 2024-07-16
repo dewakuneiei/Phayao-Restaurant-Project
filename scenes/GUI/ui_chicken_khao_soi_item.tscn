@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtnookoq13euu"]
+
+[ext_resource type="PackedScene" uid="uid://bjsn3r7ppa3te" path="res://scenes/GUI/ui_aeb_pla_nil_item.tscn" id="1_m8tbi"]
+[ext_resource type="Texture2D" uid="uid://cbpgnas07mi30" path="res://assets/sprites/ingredients/chicken.png" id="2_nnwmo"]
+[ext_resource type="Texture2D" uid="uid://8vkd0g3g3dxb" path="res://assets/sprites/ingredients/noodle.png" id="3_1nl5w"]
+[ext_resource type="Texture2D" uid="uid://c5nwxni85rt6r" path="res://assets/sprites/ingredients/lime.png" id="4_gv41x"]
+[ext_resource type="Texture2D" uid="uid://cyny52jhpn2mq" path="res://assets/sprites/others/boiler.png" id="5_bwkoq"]
+[ext_resource type="Texture2D" uid="uid://c3jarehb07mcv" path="res://assets/sprites/foods/chicken_khao_soi.png" id="6_fgeuk"]
+
+[node name="UI_CHICKEN_KHAO_SOI_Item" instance=ExtResource("1_m8tbi")]
+
+[node name="TextureRect" parent="GridContainer" index="0"]
+texture = ExtResource("2_nnwmo")
+
+[node name="TextureRect2" parent="GridContainer" index="1"]
+texture = ExtResource("3_1nl5w")
+
+[node name="TextureRect3" parent="GridContainer" index="2"]
+texture = ExtResource("4_gv41x")
+
+[node name="TextureRect" parent="." index="1"]
+texture = ExtResource("5_bwkoq")
+
+[node name="TextureRect" parent="VBoxContainer" index="0"]
+texture = ExtResource("6_fgeuk")
+
+[node name="Label" parent="VBoxContainer" index="1"]
+text = "CHICKEN_KHAO_SOI"

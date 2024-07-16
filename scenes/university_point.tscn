@@ -1,15 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfh3q5v11w3g"]
+[gd_scene load_steps=23 format=3 uid="uid://cfh3q5v11w3g"]
 
 [ext_resource type="PackedScene" uid="uid://idacl1vytymb" path="res://scenes/characters/player.tscn" id="1_wtq63"]
 [ext_resource type="Script" path="res://scenes/camera_following.gd" id="2_20rg8"]
 [ext_resource type="PackedScene" uid="uid://duoo88uw8sxnf" path="res://scenes/objects/trash.tscn" id="3_rl3ih"]
-[ext_resource type="PackedScene" uid="uid://b5nnv2vttb7g8" path="res://scenes/GUI/ui_fridgeUI.tscn" id="4_hdc55"]
+[ext_resource type="PackedScene" uid="uid://b5nnv2vttb7g8" path="res://scenes/GUI/ui_fridge.tscn" id="4_a6u6n"]
 [ext_resource type="PackedScene" uid="uid://b17k2hoxj3hm5" path="res://scenes/objects/shop.tscn" id="4_s0p6o"]
 [ext_resource type="PackedScene" uid="uid://cmtlc3i8e534t" path="res://scenes/objects/fridge.tscn" id="4_wh1di"]
 [ext_resource type="Script" path="res://scenes/game_system.gd" id="5_20htw"]
 [ext_resource type="PackedScene" uid="uid://borvcvamckk6b" path="res://scenes/GUI/ui_shop.tscn" id="6_jteyj"]
 [ext_resource type="PackedScene" uid="uid://dmuyxkhwbcgl5" path="res://scenes/GUI/gameplay_control.tscn" id="6_nsldg"]
 [ext_resource type="PackedScene" uid="uid://b1ojffe6mxgr" path="res://scenes/GUI/ui_game_ending.tscn" id="7_ixs2a"]
+[ext_resource type="PackedScene" uid="uid://cqj6plxkdj8ph" path="res://scenes/GUI/ui_recipe.tscn" id="7_qr10m"]
 [ext_resource type="PackedScene" uid="uid://dey5dj6qscuow" path="res://scenes/objects/dish_table.tscn" id="8_3mwod"]
 [ext_resource type="PackedScene" uid="uid://cn4h1kjisfx5o" path="res://scenes/objects/grill_table.tscn" id="13_sx4kn"]
 [ext_resource type="PackedScene" uid="uid://cu4iahgpqddbo" path="res://scenes/objects/counter.tscn" id="15_82idv"]
@@ -157,7 +158,7 @@ layout_mode = 1
 gameSytem = NodePath("../../../GameSystem")
 gameTime = 120
 
-[node name="Storage" parent="CanvasLayer/Control" instance=ExtResource("4_hdc55")]
+[node name="Storage" parent="CanvasLayer/Control" instance=ExtResource("4_a6u6n")]
 visible = false
 layout_mode = 1
 
@@ -171,16 +172,26 @@ offset_right = 250.0
 visible = false
 layout_mode = 1
 
-[node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("player", "fridge", "shop", "ui_ended_game", "counter", "endPoint", "spawner")]
+[node name="RecipeContainer" parent="CanvasLayer/Control" instance=ExtResource("7_qr10m")]
+visible = false
+layout_mode = 1
+offset_left = -232.5
+offset_top = -125.0
+offset_right = 232.5
+offset_bottom = 125.0
+
+[node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("player", "fridge", "shop", "counter", "endPoint", "spawner", "ui_gameplay", "ui_ended_game", "ui_recipt")]
 process_priority = -1
 script = ExtResource("5_20htw")
 player = NodePath("../Player")
 fridge = NodePath("../Interactable Object/Fridge")
 shop = NodePath("../Interactable Object/Shop")
-ui_ended_game = NodePath("../CanvasLayer/Control/UIEndedGame")
 counter = NodePath("../Interactable Object/Counter")
 endPoint = NodePath("../Endpoint")
 spawner = NodePath("../Spawner")
+ui_gameplay = NodePath("../CanvasLayer/Control/GameplayControl")
+ui_ended_game = NodePath("../CanvasLayer/Control/UIEndedGame")
+ui_recipt = NodePath("../CanvasLayer/Control/RecipeContainer")
 
 [node name="Interactable Object" type="Node2D" parent="."]
 process_priority = -2
@@ -210,8 +221,9 @@ ui_inventory = NodePath("../../CanvasLayer/Control/Storage")
 position = Vector2(586, 92)
 shop_ui = NodePath("../../CanvasLayer/Control/ShopControl")
 
-[node name="Counter" parent="Interactable Object" instance=ExtResource("15_82idv")]
+[node name="Counter" parent="Interactable Object" node_paths=PackedStringArray("gameSystem") instance=ExtResource("15_82idv")]
 position = Vector2(-93, 320)
+gameSystem = NodePath("../../GameSystem")
 interact_name = &"CounterTable"
 
 [node name="GrillTable" parent="Interactable Object" instance=ExtResource("13_sx4kn")]
@@ -253,6 +265,7 @@ layer_1/tile_data = PackedInt32Array(-196607, 262144, 4, 262134, 327680, 0, 2621
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_8a6s4")
 
-[connection signal="pressed" from="CanvasLayer/Control/GameplayControl/Button" to="GameSystem" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GameplayControl/Open" to="GameSystem" method="_on_open_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GameplayControl/Recipe" to="GameSystem" method="_on_recipe_pressed"]
 
 [editable path="CanvasLayer/Control/GameplayControl"]
