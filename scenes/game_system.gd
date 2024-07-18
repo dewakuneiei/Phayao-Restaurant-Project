@@ -13,7 +13,6 @@ static var instance: GameSystem
 @export_category("Game UI")
 @export var ui_gameplay: GamePlayUI
 @export var ui_ended_game: GameEndUi
-@export var ui_recipt: RecipeUI
 
 signal money_updated(new_value: int)
 
@@ -79,5 +78,3 @@ func _on_game_state_changed(new_state):
 		GameManager.GameState.ENDED:
 			ended_game()
 
-func _on_recipe_pressed():
-	ui_recipt.show()

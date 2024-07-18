@@ -1,4 +1,4 @@
-extends NPC
+extends Area2D
 class_name Customer
 
 enum CustomerState {NONE, REQUEST, WAITING, FINISHED}
@@ -8,7 +8,13 @@ const FRONT = 3
 const BACK = 4
 const SIDE = 5
 
+### ANimation name
+const SHOW_FEEDBACK = "show_feedback"
+const SHOW_ORDER = "show_order"
+const INVISIBLE_ORDER = "invisible_order"
 
+@export_category("settings")
+@export var move_speed: float = 100.0  # pixels per second
 @export var max_players = 3
 @export var max_particle_systems = 3
 @onready var _nuh_sound = preload("res://assets/sfx/nuuuh.mp3")
@@ -18,6 +24,8 @@ const SIDE = 5
 @onready var _particle_template: CPUParticles2D = $CPUParticles2D
 @onready var _agent: NavigationAgent2D = %Agent
 @onready var _animation_ply: AnimationPlayer = $AnimationPlayer
+@onready var _food_texture: TextureRect = %FoodMenu
+
 
 var order_food: FoodData
 var is_mouse_enter: bool = false
@@ -37,10 +45,10 @@ func _ready():
 	set_process(true)
 	set_physics_process(false)
 	_create_pool_audio_stream()
-	$Control.hide()
 	_timer = 0
 	_is_good = true
 	_sprite.frame = get_random_sprite_frame()
+	$Control/HBoxContainer.hide()
 
 func _create_pool_audio_stream():
 	# Create the pool of AudioStreamPlayer2D nodes
@@ -109,15 +117,18 @@ func sent_order_request():
 	if _gameSystem:
 		_counter = _gameSystem.counter
 	
-	order_food = _gameSystem.get_random_food_menu()
+	order_food = _gameSystem.get_random_food_menu() as FoodData
 	_state = CustomerState.REQUEST
 	_counter.add_to_queue(self)
-	
+	_food_texture.texture = order_food.icon
 
 func pay_food(foodData: FoodData):
 	_state = CustomerState.FINISHED
 	set_move_to_target(_gameSystem.endPoint.global_position)
 	feed_back(order_food == foodData)
+	
+	if is_mouse_enter:
+		_animation_ply.play(INVISIBLE_ORDER)
 
 func feed_back(is_it_right_food: bool):
 	# right food and less wating
@@ -140,11 +151,14 @@ func _on_mouse_entered():
 	
 	if _state == CustomerState.WAITING:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+		_animation_ply.play(SHOW_ORDER)
 
 func _on_mouse_exited():
 	is_mouse_enter = false
 	
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	if _state == CustomerState.WAITING:
+		_animation_ply.play(INVISIBLE_ORDER)
 
 func is_waiting():
 	return _state == CustomerState.WAITING
@@ -179,10 +193,13 @@ func leve():
 	show_feedback(-1)
 	_counter.remove_from_queue(self)
 	set_move_to_target(GameSystem.instance.endPoint.position)
+	
+	if is_mouse_enter:
+		_animation_ply.play(INVISIBLE_ORDER)
 
 func show_feedback(value: int):
 	if value > 0:
 		_label.text = "+" + str(value)
 	else:
 		_label.text = str(value)
-	_animation_ply.play("show_feedback")
+	_animation_ply.play(SHOW_FEEDBACK)

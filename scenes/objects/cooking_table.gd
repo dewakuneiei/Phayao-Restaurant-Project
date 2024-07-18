@@ -10,7 +10,7 @@ enum CookingState {
 @onready var _prgbar: TextureProgressBar = $TextureProgressBar
 
 @export var cook_duration = 5
-@export var overheat_duration = 5
+@export var overheat_duration = 10
 
 var _state = CookingState.FREE
 var _heat_time = 0

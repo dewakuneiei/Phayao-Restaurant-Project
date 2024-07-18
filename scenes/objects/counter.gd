@@ -38,7 +38,7 @@ func update_queue():
 	var front_customer = queue.front()
 	var food_name = front_customer.order_food.get_name()
 	var ingredient_arr = Recipe.get_ingredient_ids_for_food(food_name)
-	gameSystem.ui_recipt.update_recipe(self, ingredient_arr)
+	print("Ingredient Array: ", ingredient_arr)
 	
 	for i in queue.size():
 		var target = start_queue.global_position + (Vector2.LEFT * i * QUEUE_DISTANCE)
