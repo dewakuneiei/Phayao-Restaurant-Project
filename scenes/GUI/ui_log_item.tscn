@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8k8lxsirb6a0"]
+
+[ext_resource type="Texture2D" uid="uid://cbpgnas07mi30" path="res://assets/sprites/ingredients/chicken.png" id="1_3brhs"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_3brhs")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Menu Name"
+vertical_alignment = 1

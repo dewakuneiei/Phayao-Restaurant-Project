@@ -48,7 +48,6 @@ func _ready():
 	_timer = 0
 	_is_good = true
 	_sprite.frame = get_random_sprite_frame()
-	$Control/HBoxContainer.hide()
 
 func _create_pool_audio_stream():
 	# Create the pool of AudioStreamPlayer2D nodes
@@ -190,16 +189,19 @@ func leve():
 	_streamPlayer.stream = _nuh_sound
 	_streamPlayer.play()
 	GameManager.decrease_rating()
-	show_feedback(-1)
 	_counter.remove_from_queue(self)
 	set_move_to_target(GameSystem.instance.endPoint.position)
 	
 	if is_mouse_enter:
-		_animation_ply.play(INVISIBLE_ORDER)
+		_animation_ply.play("RESET")
+	
+	show_feedback(-1)
 
 func show_feedback(value: int):
 	if value > 0:
 		_label.text = "+" + str(value)
 	else:
 		_label.text = str(value)
+	
+	_animation_ply.stop()
 	_animation_ply.play(SHOW_FEEDBACK)

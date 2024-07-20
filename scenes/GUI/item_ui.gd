@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 class_name ItemUi
 
 @onready var name_l : Label = %ItemName

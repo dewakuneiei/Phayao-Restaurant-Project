@@ -13,15 +13,16 @@ func remove_all_children():
 	for child in container.get_children():
 		container.remove_child(child)
 
-func update_item_data(fridge: Fridge, player: Player, inventory: Dictionary):
+func update_item_data(fridge: Fridge, player: Player, storage: Dictionary):
 	remove_all_children()
-	for key in inventory.keys():
+	
+	for key in storage.keys():
 		var new_item = template.instantiate()
 		container.add_child(new_item)
-		
 		if new_item is ItemUi:
-			var ingredient : IngredientData = inventory[key]
-			new_item.amount_l.text = "x"+ str(ingredient.amount)
+			var ingredient = storage[key][0] as IngredientData
+			var amount = storage[key][1]
+			new_item.amount_l.text = "x"+ str(amount)
 			new_item.name_l.text = ingredient.get_name()
 			
 			var btn : TextureButton = new_item.btn

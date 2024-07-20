@@ -24,16 +24,17 @@ func handle_existing_task(player: Player, is_holding_dish: bool):
 		give_dish_to_player(player)
 
 func mix_ingredients(player: Player):
-	var other_item: Dish = player.transfer_dish()
-	if not other_item.is_in_group("raw_dish") and task is RawDish:
-		var raw_task := task as RawDish
-		raw_task.add_ingredient(other_item.ingredient_id)
-		raw_task.add_child(create_sprite(other_item.get_texutre()))
+	var other_item = player.transfer_dish() as IngredientDish
+	if other_item and not other_item is RawDish and task is RawDish:
+		var id = other_item.ingredientData.get_id()
+		task.add_ingredient(id)
+		task.add_child(create_sprite(other_item.get_texutre()))
 
 func add_ingredient_to_player_dish(player: Player):
 	var dish = player.get_dish()
-	if dish is RawDish and task is Dish:
-		dish.add_ingredient(task.ingredient_id)
+	if dish is RawDish and task is IngredientDish:
+		var id = task.ingredientData.get_id()
+		dish.add_ingredient(id)
 		dish.add_child(create_sprite(task.get_texutre()))
 		task.queue_free()
 		task = null
@@ -63,3 +64,4 @@ func _ready():
 	set_process(false)
 	set_physics_process(false)
 	set_process_input(false)
+

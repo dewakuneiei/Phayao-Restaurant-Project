@@ -1,48 +1,73 @@
 extends Interactive
 class_name Fridge
 
-@export var ui_inventory: FridgeUI
+@export var ui_storage: FridgeUI
 @onready var dishTemplate = preload("res://scenes/objects/ingredient_dish.tscn")
-var inventory: Dictionary = {}
+var storage: Dictionary = {}
 
 func interact(player: Player):
-	if ui_inventory.visible:
-		ui_inventory.deactivate()
+	if ui_storage.visible:
+		ui_storage.deactivate()
 		return
-	ui_inventory.update_item_data(self, player, inventory)
-	ui_inventory.activate()
 
-func update_inventory(key, ingredientData: IngredientData):
-	if inventory.has(key):
-		inventory[key].amount += ingredientData.amount
+	var dish = player.get_dish()
+	if dish is Box:
+		
+		var box = player.transfer_dish() as Box
+		var basket = box.basket
+		update_storage(basket)
+		box.queue_free()
+		return
+	elif dish is IngredientDish:
+		insert_ingredient(dish.ingredientData)
+		player.transfer_dish().queue_free()
+		return
+	
+	ui_storage.activate()
+	ui_storage.update_item_data(self, player, storage)
+
+func update_storage(basket: Dictionary):
+	for key in basket.keys():
+		var data = basket[key][0]
+		var amount = basket[key][1]
+		if storage.has(key):
+			print(storage[key][1])
+			storage[key][1] += amount
+		else:
+			storage[key] = [data, amount]
+
+func insert_ingredient(data: IngredientData):
+	var key = data.get_id()
+	if storage.has(key):
+		storage[key][1] += 1
 	else:
-		inventory[key] = ingredientData.clone()
+		storage[key] = [data, 1]
 
-func decrease_item(key, item: IngredientData):
-	item.amount -= 1
-	if item.amount < 1:
-		inventory.erase(key)
+func decrease_item(key):
+	var slot = storage[key]
+	slot[1 as int] -= 1
+	if slot[1 as int] < 1:
+		storage.erase(key)
 
 func take_to_player(player:Player, key):
-	if not inventory.has(key): return
-	var item: IngredientData = inventory[key]
+	if not storage.has(key): return
+	var item: IngredientData = storage[key][0]
 	var dish = player.get_dish()
 	if dish and dish is RawDish:        
 		if dish.add_ingredient(key):
-			decrease_item(key, item)
+			decrease_item(key)
 			var new_sprite = Sprite2D.new()
 			new_sprite.texture = item.icon
 			new_sprite.rotation_degrees = randf_range(0, 360)
 			new_sprite.flip_h = randf() > 0.5
-			new_sprite.scale = Vector2.ONE * 2
+			new_sprite.scale = Vector2i.ONE * 1.5
 			dish.add_child(new_sprite)
 			
 	elif dish == null:
-		var new_dish = dishTemplate.instantiate()
-		if new_dish is Dish:
-			new_dish.set_sprite_texture(item.icon)
-			new_dish.ingredient_id = item.get_id()
-			player.take_item(new_dish)
-			decrease_item(key, item)
+		var new_dish = dishTemplate.instantiate() as IngredientDish
+		new_dish.set_sprite_texture(item.icon)
+		new_dish.ingredientData = item
+		player.take_item(new_dish)
+		decrease_item(key)
 	
-	ui_inventory.update_item_data(self, player, inventory)
+	ui_storage.update_item_data(self, player, storage)

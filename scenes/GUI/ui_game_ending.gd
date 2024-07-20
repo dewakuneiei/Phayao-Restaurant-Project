@@ -1,29 +1,32 @@
 extends Control
 class_name GameEndUi
 
+@onready var ui_template = preload("res://scenes/GUI/ui_log_item.tscn") 
+@onready var container = %ItemContainer
+
 func _ready():
 	set_process(false)
 	set_physics_process(false)
 	set_process_input(false)
+	hide()
 
-func update_ui():
-	var score = GameManager.calculate_score()
-	match (score):
-		3:
-			%scoreA.show()
-			%scoreB.show()
-			%scoreC.show()
-			
-		2:
-			%scoreA.show()
-			%scoreB.show()
-			
-		1:
-			%scoreA.show()
-	%Revenuel.text = str(GameManager.revenue) + " B"
-	%Cost.text = str(GameManager.cost) + " B"
-	%Profit.text = str(GameManager.get_profit()) + " B"
-
+func show_me(log: Dictionary):
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	GameManager.pause_game()
+	show()
+	for key in log.keys():
+		var data = log[key][0] as FoodData
+		var amount = log[key][1] as int
+		
+		var new_entry = ui_template.instantiate()
+		var textureRect = new_entry.get_child(0) as TextureRect
+		var label = new_entry.get_child(1) as Label
+		
+		label.text = data.get_name() + " x" + str(amount)
+		textureRect.texture = data.icon
+		
+		container.add_child(new_entry)
+		
 
 func _on_play_again_pressed():
 	GameManager.load_game_scene()

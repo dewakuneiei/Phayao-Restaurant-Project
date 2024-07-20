@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs2n83udg8ov3"]
 
-[ext_resource type="Texture2D" uid="uid://cwjogcp17rgah" path="res://assets/sprites/dish.png" id="1_2mker"]
 [ext_resource type="Script" path="res://scenes/GUI/ui_shop_item.gd" id="1_3oggs"]
+[ext_resource type="Texture2D" uid="uid://cbpgnas07mi30" path="res://assets/sprites/ingredients/chicken.png" id="2_ghdnn"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 script = ExtResource("1_3oggs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(90, 90)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-texture = ExtResource("1_2mker")
+texture = ExtResource("2_ghdnn")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -20,31 +21,43 @@ size_flags_stretch_ratio = 2.0
 [node name="name_l" type="Label" parent="VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 1
 text = "Name"
 
-[node name="amount_l" type="Label" parent="VBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 1
-text = "Amount"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="price_l" type="Label" parent="VBoxContainer"]
+[node name="price_l" type="Label" parent="VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "90 B
 "
-horizontal_alignment = 1
 
-[node name="buy_btn" type="Button" parent="VBoxContainer"]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Decrease" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+text = "<"
+
+[node name="number" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_stretch_ratio = 2.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Increase" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+text = ">"

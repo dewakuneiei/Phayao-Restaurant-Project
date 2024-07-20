@@ -39,7 +39,6 @@ func _ready():
 	set_process(false)
 	set_physics_process(false)
 	set_process_input(false)
-	
 
 func _process(delta):
 	_prgbar.value += delta
@@ -80,3 +79,4 @@ func cooked(keys: Array):
 	_prgbar.max_value = cook_duration
 	_prgbar.modulate = Color.GREEN
 	set_process(true)
+

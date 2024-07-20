@@ -1,9 +1,8 @@
-extends Interactive
+extends Area2D
 class_name Counter
 
 const QUEUE_DISTANCE: int = 45
 
-@export var gameSystem: GameSystem
 @onready var start_queue: Marker2D = $StartQeue
 @onready var label: Label = $Label
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -14,22 +13,8 @@ func _ready():
 	initialize()
 
 func initialize():
-	gameSystem = gameSystem if gameSystem else GameSystem.instance
 	connect("body_entered", _on_body_entered)
-	connect("body_exited", _on_body_exited)
 	label.hide()
-
-func interact(player: Player):
-	if gameSystem.ui_recipt.visible:
-		gameSystem.ui_recipt.hide()
-		return
-	
-	if queue.is_empty():
-		return
-	
-	var front_customer = queue.front()
-	if front_customer.is_waiting():
-		gameSystem.ui_recipt.show()
 
 func update_queue():
 	if queue.is_empty():
@@ -57,25 +42,19 @@ func remove_from_queue(customer: Customer):
 	update_queue()
 
 func earn_money(value: int):
-	GameSystem.instance.earn_money(value)
+	GameManager.update_money(value)
 	label.text = str(value) + " B"
 	anim_player.play("earn_money")
 
 func _on_body_entered(body: Node):
 	if body is Player:
-		visible_ui(true)
 		var food = body.get_dish() as FoodDish
 		if food and not queue.is_empty():
 			var customer = queue.front()
-			customer.pay_food(food.food_data)
-			earn_money(food.food_data.value)
+			var foodData = food.food_data as FoodData
+			customer.pay_food(foodData)
+			earn_money(foodData.value)
+			GameManager.update_log(foodData)
 			body.destroy_dish()
 			finish_queue_front()
 
-func _on_body_exited(body: Node):
-	if body is Player:
-		visible_ui(false)
-
-func visible_ui(value: bool):
-	# Implement UI visibility logic here
-	pass

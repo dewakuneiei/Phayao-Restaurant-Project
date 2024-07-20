@@ -1,0 +1,542 @@
+[gd_scene load_steps=20 format=3 uid="uid://b8k8xxy2d5uhs"]
+
+[ext_resource type="Texture2D" uid="uid://w1g0dcvtmhm2" path="res://assets/sprites/foods/lon_pla_som.png" id="1_b327h"]
+[ext_resource type="Texture2D" uid="uid://cyny52jhpn2mq" path="res://assets/sprites/others/boiler.png" id="1_pieny"]
+[ext_resource type="Script" path="res://scenes/GUI/ui_recipe_book.gd" id="1_y37x8"]
+[ext_resource type="Texture2D" uid="uid://c1smi7y48q8lp" path="res://assets/sprites/others/frying_pan.png" id="2_7jqrm"]
+[ext_resource type="Texture2D" uid="uid://biixdp45g7ckq" path="res://assets/sprites/ingredients/fish.png" id="2_r38y7"]
+[ext_resource type="Texture2D" uid="uid://b873d6nqitdd0" path="res://assets/sprites/ingredients/pork.png" id="3_45p5m"]
+[ext_resource type="Texture2D" uid="uid://bset2soyt4o05" path="res://assets/sprites/others/grill.png" id="3_d6dyq"]
+[ext_resource type="Texture2D" uid="uid://bgelt4beb5hq" path="res://assets/sprites/ingredients/salt.png" id="4_ev15s"]
+[ext_resource type="Texture2D" uid="uid://r0ltblosspwj" path="res://assets/sprites/ingredients/chili.png" id="5_m7cxe"]
+[ext_resource type="Texture2D" uid="uid://c3jarehb07mcv" path="res://assets/sprites/foods/chicken_khao_soi.png" id="7_n7vjp"]
+[ext_resource type="Texture2D" uid="uid://cbpgnas07mi30" path="res://assets/sprites/ingredients/chicken.png" id="8_2fx3g"]
+[ext_resource type="Texture2D" uid="uid://8vkd0g3g3dxb" path="res://assets/sprites/ingredients/noodle.png" id="9_xmi70"]
+[ext_resource type="Texture2D" uid="uid://c5nwxni85rt6r" path="res://assets/sprites/ingredients/lime.png" id="10_3wbmb"]
+[ext_resource type="Texture2D" uid="uid://dfm20ax6dndov" path="res://assets/sprites/ingredients/coriander.png" id="11_l2lke"]
+[ext_resource type="Texture2D" uid="uid://bm4gqi0jnppi3" path="res://assets/sprites/foods/khai_pam.png" id="13_vsy2k"]
+[ext_resource type="Texture2D" uid="uid://dq4o5m17yprl2" path="res://assets/sprites/ingredients/chicken_egg.png" id="14_cl6qy"]
+[ext_resource type="Texture2D" uid="uid://mp2grftcghwn" path="res://assets/sprites/foods/ong_pu_na.png" id="16_5cy0j"]
+[ext_resource type="Texture2D" uid="uid://dqhkk1xagc0jq" path="res://assets/sprites/ingredients/crab.png" id="17_o8ftp"]
+[ext_resource type="Texture2D" uid="uid://claevdncwykha" path="res://assets/sprites/foods/aeb_pla_nil.png" id="18_b0ip6"]
+
+[node name="RecipeBook" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_y37x8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -279.0
+offset_right = 300.0
+offset_bottom = 279.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MarginContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Row" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/Menu"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 7
+texture = ExtResource("1_b327h")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/Menu"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "LON_PLA_SOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+columns = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_r38y7")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "FISH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("3_45p5m")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer2"]
+layout_mode = 2
+text = "PORK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_ev15s")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer3"]
+layout_mode = 2
+text = "SALT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_m7cxe")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer4"]
+layout_mode = 2
+text = "CHILI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("2_7jqrm")
+
+[node name="Row2" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/Menu"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 7
+texture = ExtResource("7_n7vjp")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/Menu"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "CHICKEN_KHAO_SOI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+columns = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("8_2fx3g")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "CHICKEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("9_xmi70")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer2"]
+layout_mode = 2
+text = "RICE_NOODLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("10_3wbmb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer3"]
+layout_mode = 2
+text = "LIME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("11_l2lke")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer4"]
+layout_mode = 2
+text = "CILANTRO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("1_pieny")
+
+[node name="Row3" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/Menu"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 7
+texture = ExtResource("13_vsy2k")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/Menu"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "KHAI_PAM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+columns = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("14_cl6qy")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "CHICKEN_EGG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("14_cl6qy")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer2"]
+layout_mode = 2
+text = "CHICKEN_EGG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_ev15s")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer5"]
+layout_mode = 2
+text = "SALT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_m7cxe")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer6"]
+layout_mode = 2
+text = "CHILI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_d6dyq")
+
+[node name="Row4" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/Menu"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 7
+texture = ExtResource("16_5cy0j")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/Menu"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "ONG_PU_NA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+columns = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("17_o8ftp")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "FIELD_CRAB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("17_o8ftp")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer2"]
+layout_mode = 2
+text = "FIELD_CRAB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("14_cl6qy")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer6"]
+layout_mode = 2
+text = "CHICKEN_EGG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_ev15s")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer5"]
+layout_mode = 2
+text = "SALT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_d6dyq")
+
+[node name="Row5" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/Menu"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 7
+texture = ExtResource("18_b0ip6")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/Menu"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "AEB_PLA_NIL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+columns = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_r38y7")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "FISH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_m7cxe")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer2"]
+layout_mode = 2
+text = "CHILI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_ev15s")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer5"]
+layout_mode = 2
+text = "SALT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("11_l2lke")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer6"]
+layout_mode = 2
+text = "CILANTRO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_d6dyq")
+
+[node name="Close" type="Button" parent="PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+text = "X"
+
+[connection signal="pressed" from="PanelContainer/Close" to="." method="_on_close_pressed"]

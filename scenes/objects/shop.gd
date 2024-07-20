@@ -6,12 +6,13 @@ var entry: Dictionary
 
 func _ready():
 	populate_entry()
+	shop_ui.update_shop(entry)
 
 func interact(player: Player):
+	if player.is_holding_dish(): return;
 	if shop_ui.visible:
 		shop_ui.deactivate()
 	else:
-		shop_ui.update_shop(entry)
 		shop_ui.activate()
 
 func populate_entry():

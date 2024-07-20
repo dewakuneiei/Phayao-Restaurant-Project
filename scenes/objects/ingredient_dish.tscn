@@ -14,8 +14,8 @@ script = ExtResource("1_p6axd")
 interact_name = &"Dish"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -26)
-scale = Vector2(3, 3)
+position = Vector2(0, -19)
+scale = Vector2(2, 2)
 texture = ExtResource("2_punf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

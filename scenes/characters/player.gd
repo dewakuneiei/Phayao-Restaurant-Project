@@ -40,6 +40,8 @@ func _process(delta: float):
 	handle_movement()
 	if Input.is_action_just_pressed("interact"):
 		interact_with_object()
+	elif Input.is_action_just_pressed("recipe"):
+		GameSystem.instance.toggle_recipe()
 
 func handle_movement():
 	if not can_move:
@@ -121,6 +123,7 @@ func transfer_dish() -> Dish:
 	var temp = _hold_dish
 	_hand_mark.remove_child(_hold_dish)
 	_hold_dish = null
+
 	return temp
 
 func destroy_dish():

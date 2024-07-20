@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfh3q5v11w3g"]
+[gd_scene load_steps=23 format=3 uid="uid://cfh3q5v11w3g"]
 
 [ext_resource type="PackedScene" uid="uid://idacl1vytymb" path="res://scenes/characters/player.tscn" id="1_wtq63"]
 [ext_resource type="Script" path="res://scenes/camera_following.gd" id="2_20rg8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://borvcvamckk6b" path="res://scenes/GUI/ui_shop.tscn" id="6_jteyj"]
 [ext_resource type="PackedScene" uid="uid://dmuyxkhwbcgl5" path="res://scenes/GUI/gameplay_control.tscn" id="6_nsldg"]
 [ext_resource type="PackedScene" uid="uid://b1ojffe6mxgr" path="res://scenes/GUI/ui_game_ending.tscn" id="7_ixs2a"]
+[ext_resource type="PackedScene" uid="uid://b8k8xxy2d5uhs" path="res://scenes/GUI/recipe_book.tscn" id="7_tlxpb"]
 [ext_resource type="PackedScene" uid="uid://dey5dj6qscuow" path="res://scenes/objects/dish_table.tscn" id="8_3mwod"]
 [ext_resource type="PackedScene" uid="uid://cn4h1kjisfx5o" path="res://scenes/objects/grill_table.tscn" id="13_sx4kn"]
 [ext_resource type="PackedScene" uid="uid://cu4iahgpqddbo" path="res://scenes/objects/counter.tscn" id="15_82idv"]
@@ -133,7 +134,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_wtq63")]
-position = Vector2(153, 116)
+position = Vector2(-21, 194)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow_object")]
 position = Vector2(268, 157)
@@ -152,10 +153,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="GameplayControl" parent="CanvasLayer/Control" node_paths=PackedStringArray("gameSytem") instance=ExtResource("6_nsldg")]
+[node name="GameplayControl" parent="CanvasLayer/Control" instance=ExtResource("6_nsldg")]
 layout_mode = 1
-gameSytem = NodePath("../../../GameSystem")
-gameTime = 120
 
 [node name="Storage" parent="CanvasLayer/Control" instance=ExtResource("4_a6u6n")]
 visible = false
@@ -171,8 +170,14 @@ offset_right = 250.0
 visible = false
 layout_mode = 1
 
-[node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("player", "fridge", "shop", "counter", "endPoint", "spawner", "ui_gameplay", "ui_ended_game")]
-process_priority = -1
+[node name="RecipeBook" parent="CanvasLayer/Control" instance=ExtResource("7_tlxpb")]
+visible = false
+layout_mode = 1
+offset_left = -321.0
+offset_right = 321.0
+
+[node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("player", "fridge", "shop", "counter", "endPoint", "spawner", "ui_gameplay", "ui_ended_game", "ui_recipe")]
+process_priority = 1
 script = ExtResource("5_20htw")
 player = NodePath("../Player")
 fridge = NodePath("../Interactable Object/Fridge")
@@ -182,9 +187,10 @@ endPoint = NodePath("../Endpoint")
 spawner = NodePath("../Spawner")
 ui_gameplay = NodePath("../CanvasLayer/Control/GameplayControl")
 ui_ended_game = NodePath("../CanvasLayer/Control/UIEndedGame")
+ui_recipe = NodePath("../CanvasLayer/Control/RecipeBook")
 
 [node name="Interactable Object" type="Node2D" parent="."]
-process_priority = -2
+process_priority = 1
 y_sort_enabled = true
 
 [node name="PreparingTable" parent="Interactable Object" instance=ExtResource("8_3mwod")]
@@ -192,41 +198,38 @@ position = Vector2(250, 84)
 interact_name = &"Table Preparing"
 
 [node name="PreparingTable2" parent="Interactable Object" instance=ExtResource("8_3mwod")]
-position = Vector2(187, 84)
+position = Vector2(186, 84)
 interact_name = &"Table Preparing"
 
 [node name="PreparingTable3" parent="Interactable Object" instance=ExtResource("8_3mwod")]
-position = Vector2(120, 84)
+position = Vector2(122, 84)
 interact_name = &"Table Preparing"
 
 [node name="Trash" parent="Interactable Object" instance=ExtResource("3_rl3ih")]
 position = Vector2(402, 85)
 interact_name = &"Trash"
 
-[node name="Fridge" parent="Interactable Object" node_paths=PackedStringArray("ui_inventory") instance=ExtResource("4_wh1di")]
+[node name="Fridge" parent="Interactable Object" node_paths=PackedStringArray("ui_storage") instance=ExtResource("4_wh1di")]
 position = Vector2(338, 86)
-ui_inventory = NodePath("../../CanvasLayer/Control/Storage")
+ui_storage = NodePath("../../CanvasLayer/Control/Storage")
 
 [node name="Shop" parent="Interactable Object" node_paths=PackedStringArray("shop_ui") instance=ExtResource("4_s0p6o")]
 position = Vector2(586, 92)
 shop_ui = NodePath("../../CanvasLayer/Control/ShopControl")
 
-[node name="Counter" parent="Interactable Object" node_paths=PackedStringArray("gameSystem") instance=ExtResource("15_82idv")]
+[node name="Counter" parent="Interactable Object" instance=ExtResource("15_82idv")]
 position = Vector2(-93, 320)
-gameSystem = NodePath("../../GameSystem")
-interact_name = &"CounterTable"
 
 [node name="GrillTable" parent="Interactable Object" instance=ExtResource("13_sx4kn")]
-position = Vector2(-197, 81)
+position = Vector2(-197, 80)
 interact_name = &"Grill"
 
 [node name="FryingTable" parent="Interactable Object" instance=ExtResource("18_eu8ic")]
-position = Vector2(-123, 83)
-collision_mask = 0
+position = Vector2(-123, 80)
 interact_name = &"Frying"
 
 [node name="BoilerTable" parent="Interactable Object" instance=ExtResource("17_4xpdv")]
-position = Vector2(-54, 81)
+position = Vector2(-54, 80)
 interact_name = &"Boiler"
 
 [node name="Endpoint" parent="." instance=ExtResource("16_c62xb")]
@@ -256,6 +259,5 @@ layer_1/tile_data = PackedInt32Array(-196607, 262144, 4, 262134, 327680, 0, 2621
 navigation_polygon = SubResource("NavigationPolygon_8a6s4")
 
 [connection signal="pressed" from="CanvasLayer/Control/GameplayControl/Open" to="GameSystem" method="_on_open_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/GameplayControl/Recipe" to="GameSystem" method="_on_recipe_pressed"]
 
 [editable path="CanvasLayer/Control/GameplayControl"]
