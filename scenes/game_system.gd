@@ -31,14 +31,6 @@ func toggle_recipe():
 	else:
 		ui_recipe.show()
 
-func visible_recipe_btn(isVisible: bool):
-	if isVisible:
-		ui_gameplay.recipe_btn.show()
-	else:
-		ui_gameplay.recipe_btn.hide()
-
-
-
 func _ready():
 	instance = self
 	GameManager.gameSystem = self
@@ -47,7 +39,10 @@ func _ready():
 func _on_game_state_changed(newState: GameManager.GameState):
 	match (newState):
 		GameManager.GameState.ENDED:
-			ui_ended_game.show_me(GameManager.get_game_log())
+			fridge.ui_storage.hide()
+			ui_recipe.hide()
+			shop.shop_ui.hide()
+			ui_ended_game.show_me()
 
 func _on_open_pressed():
 	GameManager.started()

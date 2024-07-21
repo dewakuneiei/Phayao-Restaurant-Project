@@ -156,6 +156,9 @@ mouse_filter = 2
 [node name="GameplayControl" parent="CanvasLayer/Control" instance=ExtResource("6_nsldg")]
 layout_mode = 1
 
+[node name="Open" parent="CanvasLayer/Control/GameplayControl" index="1"]
+visible = false
+
 [node name="Storage" parent="CanvasLayer/Control" instance=ExtResource("4_a6u6n")]
 visible = false
 layout_mode = 1
@@ -219,6 +222,7 @@ shop_ui = NodePath("../../CanvasLayer/Control/ShopControl")
 
 [node name="Counter" parent="Interactable Object" instance=ExtResource("15_82idv")]
 position = Vector2(-93, 320)
+interact_name = &""
 
 [node name="GrillTable" parent="Interactable Object" instance=ExtResource("13_sx4kn")]
 position = Vector2(-197, 80)

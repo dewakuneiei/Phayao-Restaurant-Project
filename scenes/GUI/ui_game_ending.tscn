@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/GUI/ui_game_ending.gd" id="1_ojxtf"]
 
 [node name="UIEndedGame" type="PanelContainer"]
+process_mode = 4
 top_level = true
 custom_minimum_size = Vector2(250, 0)
 anchors_preset = 15
@@ -26,7 +27,22 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Money" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 42
+text = "5000 BAHT"
+vertical_alignment = 1
+
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Yay!"
@@ -35,21 +51,33 @@ text = "Yay!"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Again"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Home" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Home"
+
+[node name="Again" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+text = "Again"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Again" to="." method="_on_again_pressed"]

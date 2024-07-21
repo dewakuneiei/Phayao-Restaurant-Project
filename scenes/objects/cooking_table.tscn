@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://di7prcproj5cm"]
+[gd_scene load_steps=8 format=3 uid="uid://di7prcproj5cm"]
 
 [ext_resource type="Script" path="res://scenes/objects/cooking_table.gd" id="1_bbleq"]
 [ext_resource type="Texture2D" uid="uid://c1smi7y48q8lp" path="res://assets/sprites/others/frying_pan.png" id="2_h22om"]
 [ext_resource type="Texture2D" uid="uid://f63kvsuxqk4h" path="res://assets/sprites/gui/circle_bg.png" id="3_lvncs"]
 [ext_resource type="Texture2D" uid="uid://bdyxwr3gf1sqg" path="res://assets/sprites/gui/circle_prg.png" id="4_cmeli"]
+[ext_resource type="AudioStream" uid="uid://flyvpawslig6" path="res://assets/sfx/boiling-towel-loop.mp3" id="5_31vhe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fasdj"]
 size = Vector2(64, 42)
@@ -26,7 +27,8 @@ texture = ExtResource("2_h22om")
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_fasdj")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
 visible = false
 modulate = Color(0.223491, 1, 0.201554, 1)
 anchors_preset = 8
@@ -57,3 +59,8 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_av33r")
+
+[node name="StreamLoopPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_31vhe")
+bus = &"SFX"

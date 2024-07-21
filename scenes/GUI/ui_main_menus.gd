@@ -10,8 +10,10 @@ func _ready():
 
 
 func _on_play_clicked():
+	GameManager.play_sfx()
 	GameManager.load_game_scene()
 
 func _on_toggle_lang_bnt_pressed():
+	GameManager.play_sfx()
 	LanguageManager.toggle_language()
 	

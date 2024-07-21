@@ -6,8 +6,10 @@ enum CookingState {
 	COOKING,
 	FINISHED,
 }
+@onready var _stream = preload("res://assets/sfx/bell.mp3")
 @onready var _dish_template = preload("res://scenes/objects/food_dish.tscn")
-@onready var _prgbar: TextureProgressBar = $TextureProgressBar
+@onready var _prgbar: TextureProgressBar = %ProgressBar
+@onready var _streamPlayer : AudioStreamPlayer2D= %StreamLoopPlayer
 
 @export var cook_duration = 5
 @export var overheat_duration = 10
@@ -19,11 +21,13 @@ var what_cooking: FoodData
 
 func interact(player: Player):
 	if _state == CookingState.FINISHED:
+		if player.is_holding_dish(): return
 		if what_cooking:
 			var new_food_dish : FoodDish = _create_food_dish()
 			player.take_item(new_food_dish)
 		_prgbar.hide()
 		_state = CookingState.FREE
+		_streamPlayer.stop()
 	
 
 	if _state != CookingState.FREE: return
@@ -33,6 +37,22 @@ func interact(player: Player):
 		if keys:
 			player.destroy_dish()
 			cooked(keys)
+
+func finished():
+	_state = CookingState.FINISHED
+	play_sound(_stream)
+
+func cooked(keys: Array):
+	what_cooking = _match_food_data(keys)
+	
+	_state = CookingState.COOKING
+	_heat_time = 0
+	_prgbar.show()
+	_prgbar.value = 0
+	_prgbar.max_value = cook_duration
+	_prgbar.modulate = Color.GREEN
+	_streamPlayer.play()
+	set_process(true)
 
 
 func _ready():
@@ -65,18 +85,3 @@ func _create_food_dish() -> FoodDish:
 
 func _match_food_data(keys: Array) -> FoodData:
 	return FoodData.new("Don't Know Food");
-
-func finished():
-	_state = CookingState.FINISHED
-
-func cooked(keys: Array):
-	what_cooking = _match_food_data(keys)
-	
-	_state = CookingState.COOKING
-	_heat_time = 0
-	_prgbar.show()
-	_prgbar.value = 0
-	_prgbar.max_value = cook_duration
-	_prgbar.modulate = Color.GREEN
-	set_process(true)
-

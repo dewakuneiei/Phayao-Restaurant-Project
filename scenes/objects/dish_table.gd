@@ -2,12 +2,12 @@ extends Interactive
 class_name DishTable
 
 @onready var dish_template = preload("res://scenes/objects/raw_dish.tscn")
+@onready var stream = preload("res://assets/sfx/knocking-on-wood-door-2.wav")
 @onready var mark: Marker2D = $DishMark
 var task: Dish = null
 
 func interact(player: Player):
 	var is_holding_dish: bool = player.is_holding_dish()
-	
 	if task:
 		handle_existing_task(player, is_holding_dish)
 	elif is_holding_dish:
@@ -29,6 +29,7 @@ func mix_ingredients(player: Player):
 		var id = other_item.ingredientData.get_id()
 		task.add_ingredient(id)
 		task.add_child(create_sprite(other_item.get_texutre()))
+		play_sound(stream)
 
 func add_ingredient_to_player_dish(player: Player):
 	var dish = player.get_dish()
@@ -38,6 +39,7 @@ func add_ingredient_to_player_dish(player: Player):
 		dish.add_child(create_sprite(task.get_texutre()))
 		task.queue_free()
 		task = null
+		play_sound(stream)
 
 func give_dish_to_player(player: Player):
 	mark.remove_child(task)
@@ -52,6 +54,7 @@ func create_new_dish():
 	var new_dish = dish_template.instantiate()
 	mark.add_child(new_dish)
 	task = new_dish
+	play_sound(stream)
 
 func create_sprite(texture: Texture) -> Sprite2D:
 	var new_sprite = Sprite2D.new()

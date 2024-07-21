@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu4iahgpqddbo"]
+[gd_scene load_steps=10 format=3 uid="uid://cu4iahgpqddbo"]
 
 [ext_resource type="Script" path="res://scenes/objects/counter.gd" id="1_gnhql"]
+[ext_resource type="AudioStream" uid="uid://lbvcmu2qywct" path="res://assets/sfx/coin.wav" id="2_4xls2"]
 [ext_resource type="Texture2D" uid="uid://bio4x4mjrtyed" path="res://assets/sprites/others/counter.png" id="2_jbp44"]
+[ext_resource type="AudioStream" uid="uid://c0t3fo7l2nrdy" path="res://assets/sfx/shop-door-bell.mp3" id="3_djx8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i13vw"]
 size = Vector2(189, 45)
@@ -75,8 +77,12 @@ z_index = 1
 y_sort_enabled = true
 collision_layer = 4
 script = ExtResource("1_gnhql")
+coin_sound = ExtResource("2_4xls2")
+door_bell_sound = ExtResource("3_djx8w")
+interact_name = &"Counter"
 
 [node name="StartQeue" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(69, 9)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -117,6 +123,3 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_tx5vb")
 }
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]

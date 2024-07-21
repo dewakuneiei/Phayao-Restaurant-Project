@@ -2,10 +2,12 @@ extends Interactive
 class_name Fridge
 
 @export var ui_storage: FridgeUI
+@onready var stream = preload("res://assets/sfx/freezer-door.mp3")
 @onready var dishTemplate = preload("res://scenes/objects/ingredient_dish.tscn")
 var storage: Dictionary = {}
 
 func interact(player: Player):
+	play_sound(stream)
 	if ui_storage.visible:
 		ui_storage.deactivate()
 		return

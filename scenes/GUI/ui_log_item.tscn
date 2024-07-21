@@ -1,18 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8k8lxsirb6a0"]
+[gd_scene load_steps=3 format=3 uid="uid://bqhn3cor3n1pr"]
 
-[ext_resource type="Texture2D" uid="uid://cbpgnas07mi30" path="res://assets/sprites/ingredients/chicken.png" id="1_3brhs"]
+[ext_resource type="Texture2D" uid="uid://c3jarehb07mcv" path="res://assets/sprites/foods/chicken_khao_soi.png" id="1_h1xbk"]
+[ext_resource type="Script" path="res://scenes/GUI/ui_log_item.gd" id="1_wvbmg"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="LogItemUI" type="HBoxContainer"]
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+script = ExtResource("1_wvbmg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-texture = ExtResource("1_3brhs")
+texture = ExtResource("1_h1xbk")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-text = "Menu Name"
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 21
+text = "MenuName x2"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 21
+text = "200 BAHT"
+horizontal_alignment = 2
