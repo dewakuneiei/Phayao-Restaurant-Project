@@ -73,3 +73,8 @@ func take_to_player(player:Player, key):
 		decrease_item(key)
 	
 	ui_storage.update_item_data(self, player, storage)
+
+
+func _on_area_exited(area: Area2D):
+	if area.get_parent() is Player:
+		ui_storage.deactivate()

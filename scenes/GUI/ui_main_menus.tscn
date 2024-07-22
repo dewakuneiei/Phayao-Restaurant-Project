@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn24vrbhxim3d"]
+[gd_scene load_steps=4 format=3 uid="uid://bn24vrbhxim3d"]
 
 [ext_resource type="Script" path="res://scenes/GUI/ui_main_menus.gd" id="1_cpeln"]
+[ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="1_qii2r"]
+[ext_resource type="Script" path="res://scenes/GUI/volume_slide.gd" id="2_4yaat"]
 
 [node name="main_munus" type="Control"]
 layout_mode = 3
@@ -9,94 +11,152 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_qii2r")
 script = ExtResource("1_cpeln")
 
-[node name="TitleLabel" type="Label" parent="."]
+[node name="Menus" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -152.5
-offset_right = 152.5
-offset_bottom = 100.0
-grow_horizontal = 2
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 36
-text = "GAME_TITLE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.5
-offset_top = -214.0
-offset_right = 152.5
-offset_bottom = 214.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_bottom = 128
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+offset_left = 474.5
+offset_top = 183.0
+offset_right = 724.5
+offset_bottom = 353.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PlayBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="PlayBtn" type="Button" parent="Menus"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
 text = "PLAY"
 
-[node name="TutorialBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="TutorialBtn" type="Button" parent="Menus"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "TUTORIAL"
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="Settings" type="Button" parent="Menus"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 8
+theme_override_font_sizes/font_size = 21
+text = "SETTINGS"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+[node name="SettingPanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -60.0
+offset_right = 300.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SettingPanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="container" type="VBoxContainer" parent="SettingPanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Lang" type="HBoxContainer" parent="SettingPanelContainer/MarginContainer/container"]
+layout_mode = 2
 size_flags_vertical = 4
 
-[node name="LangTile" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="LangTile" type="Label" parent="SettingPanelContainer/MarginContainer/container/Lang"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "LANG_TITLE"
 
-[node name="LangLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="LangLabel" type="Label" parent="SettingPanelContainer/MarginContainer/container/Lang"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "LANG"
+horizontal_alignment = 1
 
-[node name="ToggleLangBnt" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="ToggleLangBnt" type="Button" parent="SettingPanelContainer/MarginContainer/container/Lang"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = ">"
 
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/ToggleLangBnt" to="." method="_on_toggle_lang_bnt_pressed"]
+[node name="Master" type="HBoxContainer" parent="SettingPanelContainer/MarginContainer/container"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="SettingPanelContainer/MarginContainer/container/Master"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "AUDIO_VOLUME"
+vertical_alignment = 1
+
+[node name="VolumeSlide" type="HSlider" parent="SettingPanelContainer/MarginContainer/container/Master"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 0.41
+script = ExtResource("2_4yaat")
+bus_name = &"Master"
+
+[node name="Music" type="HBoxContainer" parent="SettingPanelContainer/MarginContainer/container"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="SettingPanelContainer/MarginContainer/container/Music"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MUSIC_VOLUME"
+vertical_alignment = 1
+
+[node name="VolumeSlide" type="HSlider" parent="SettingPanelContainer/MarginContainer/container/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 0.41
+script = ExtResource("2_4yaat")
+bus_name = &"Music"
+
+[node name="SFX" type="HBoxContainer" parent="SettingPanelContainer/MarginContainer/container"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="SettingPanelContainer/MarginContainer/container/SFX"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "SFX_VOLUME"
+vertical_alignment = 1
+
+[node name="VolumeSlide" type="HSlider" parent="SettingPanelContainer/MarginContainer/container/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 0.41
+script = ExtResource("2_4yaat")
+bus_name = &"SFX"
+
+[node name="SettingClose" type="Button" parent="SettingPanelContainer/MarginContainer/container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "OK"
+
+[connection signal="pressed" from="SettingPanelContainer/MarginContainer/container/Lang/ToggleLangBnt" to="." method="_on_toggle_lang_bnt_pressed"]

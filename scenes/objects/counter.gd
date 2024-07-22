@@ -16,10 +16,6 @@ func _ready() -> void:
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
 	label.hide()
-	
-	for i in range(2):
-		for foodData in GameManager.all_food_menus.values():
-			GameManager.update_log(foodData)
 
 func interact(player: Player) -> void:
 	var customer := queue.front() as Customer

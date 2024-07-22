@@ -7,7 +7,7 @@
 size = Vector2(62, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acqe6"]
-size = Vector2(53, 20)
+size = Vector2(53, 41)
 
 [node name="DishTable" type="Area2D"]
 z_index = 1
@@ -31,5 +31,5 @@ position = Vector2(0, -38)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -9)
+position = Vector2(0, -19.5)
 shape = SubResource("RectangleShape2D_acqe6")

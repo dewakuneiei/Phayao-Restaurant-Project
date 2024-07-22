@@ -5,11 +5,12 @@ static var instance: Player
 const FRONT_FRAME = 0
 const BACK_FRAME = 1
 const SIDE_FRAME = 2
+const DIST_DROP_SIDE = 35
+const DIST_DROP = 60
 
 # Player attributes
 @export_category("Settings")
-@export var _dist_drop: int = 35
-@export var _moveSpeed: float = 200.0
+@export var _moveSpeed: float = 100
 @export var _dist_mark_x: int = 30
 
 @onready var interactive_area: Area2D = %InteractionArea
@@ -56,7 +57,20 @@ func handle_movement():
 			handle_sprite_dir(direction)
 	direction = direction.normalized()
 	velocity = direction * _moveSpeed
-	
+
+	# Calculate the new position
+	var new_position = global_position + velocity * get_physics_process_delta_time()
+
+	# Check boundaries
+	new_position.x = clamp(new_position.x, -977, 1200)
+	new_position.y = clamp(new_position.y, -133, 728)
+
+	# Set the new position
+	global_position = new_position
+
+	# Update velocity based on the actual movement
+	velocity = (global_position - position) / get_physics_process_delta_time()
+
 	move_and_slide()
 	
 
@@ -113,11 +127,23 @@ func get_interactable_object() -> Interactive:
 
 func drop_item():
 	if _hold_dish == null: return
-	_hand_mark.remove_child(_hold_dish)
-	get_parent().add_child(_hold_dish)
-	_hold_dish.global_position = _hand_mark.global_position + Vector2.DOWN * _dist_drop
-	_hold_dish.set_collistion(true)
-	_hold_dish = null
+	
+	var dropped_dish = _hold_dish  # Store a reference to the dish
+	_hand_mark.remove_child(dropped_dish)
+	get_parent().add_child(dropped_dish)
+	
+	# Set the position before nullifying _hold_dish
+	if _sprite.frame == FRONT_FRAME:
+		dropped_dish.global_position = _hand_mark.global_position + Vector2(0, DIST_DROP)
+	elif _sprite.frame == BACK_FRAME:
+		dropped_dish.global_position = _hand_mark.global_position + Vector2(0, DIST_DROP / 2)
+	elif _sprite.frame == SIDE_FRAME:
+		var drop_pos : Vector2 = Vector2(-DIST_DROP_SIDE, DIST_DROP) if _sprite.flip_h else Vector2(DIST_DROP_SIDE, DIST_DROP)
+		dropped_dish.global_position = _hand_mark.global_position + drop_pos
+	
+	dropped_dish.set_collistion(true)
+	_hold_dish = null  # Now set _hold_dish to null after using it
+
 
 func transfer_dish() -> Dish:
 	var temp = _hold_dish

@@ -8,16 +8,13 @@ size = Vector2(60, 38)
 
 [node name="IngredientDish" type="Area2D" groups=["dish"]]
 z_index = 1
-y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_p6axd")
 interact_name = &"Dish"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -19)
 scale = Vector2(2, 2)
 texture = ExtResource("2_punf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -17)
 shape = SubResource("RectangleShape2D_opofv")

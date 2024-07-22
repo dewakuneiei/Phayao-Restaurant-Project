@@ -7,7 +7,7 @@
 size = Vector2(101, 122)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2l7f"]
-size = Vector2(99, 22)
+size = Vector2(99, 32)
 
 [node name="VendingMachine" type="Area2D"]
 z_index = 1
@@ -29,5 +29,7 @@ shape = SubResource("RectangleShape2D_lpoy0")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.5, -14)
+position = Vector2(-0.5, -19)
 shape = SubResource("RectangleShape2D_h2l7f")
+
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

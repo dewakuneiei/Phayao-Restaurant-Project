@@ -8,9 +8,9 @@ enum GameState { NONE, STARTED, ENDED }
 const START_RATING = 3
 const GOAL_MONEY = 500
 const BASE_CUSTOMER_AMOUNT = 1
-const MAX_RATING = 10
-const MAX_CUSTOMER_AMOUNT = 3
-const GAME_DURATION = 4 # in seconds time
+const MAX_RATING = 100
+const MAX_CUSTOMER_AMOUNT = 5
+const GAME_DURATION = 120 # in seconds time
 
 var _game_state: GameState = GameState.NONE
 var rating: int = START_RATING
@@ -80,8 +80,14 @@ func load_main_scene() -> void:
 func decrease_rating():
 	rating = clamp(rating - 1, 1, MAX_RATING)
 
+func decrease_rating2():
+	rating = clamp(rating - 2, 1, MAX_RATING)
+
 func increase_rating():
 	rating = clamp(rating + 1, 1, MAX_RATING)
+
+func increase_rating2():
+	rating = clamp(rating + 2, 1, MAX_RATING)
 
 func pause_game() -> void:
 	get_tree().paused = true

@@ -10,7 +10,7 @@
 size = Vector2(64, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av33r"]
-size = Vector2(52, 27)
+size = Vector2(52, 37)
 
 [node name="CookingTable" type="Area2D"]
 z_index = 1
@@ -57,7 +57,7 @@ texture_progress = ExtResource("4_cmeli")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -15.5)
+position = Vector2(0, -20.5)
 shape = SubResource("RectangleShape2D_av33r")
 
 [node name="StreamLoopPlayer" type="AudioStreamPlayer2D" parent="."]

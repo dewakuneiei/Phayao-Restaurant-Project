@@ -1,9 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs2n83udg8ov3"]
+[gd_scene load_steps=13 format=3 uid="uid://bs2n83udg8ov3"]
 
 [ext_resource type="Script" path="res://scenes/GUI/ui_shop_item.gd" id="1_3oggs"]
 [ext_resource type="Texture2D" uid="uid://cbpgnas07mi30" path="res://assets/sprites/ingredients/chicken.png" id="2_ghdnn"]
+[ext_resource type="Texture2D" uid="uid://di6p3im684jkh" path="res://assets/gui/red/button_square_depth_gradient.png" id="3_l547t"]
+[ext_resource type="Texture2D" uid="uid://cljlx5lm5py5y" path="res://assets/gui/green/button_square_depth_gradient.png" id="3_pxyve"]
+[ext_resource type="Texture2D" uid="uid://dncx6juqo1tu5" path="res://assets/gui/red/button_square_gradient.png" id="4_aylq0"]
+[ext_resource type="Texture2D" uid="uid://bwrlmjjruxc6" path="res://assets/gui/green/button_square_gradient.png" id="4_pr6vh"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3d68y"]
+texture = ExtResource("3_l547t")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4qrp"]
+texture = ExtResource("4_aylq0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0avt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thit0"]
+texture = ExtResource("3_pxyve")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ve1m5"]
+texture = ExtResource("4_pr6vh")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd12x"]
+
+[node name="shop_item_ui" type="HBoxContainer"]
 script = ExtResource("1_3oggs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -12,11 +48,10 @@ layout_mode = 2
 texture = ExtResource("2_ghdnn")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-size_flags_stretch_ratio = 2.0
 
 [node name="name_l" type="Label" parent="VBoxContainer2"]
 unique_name_in_owner = true
@@ -35,13 +70,31 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
+[node name="Decrease5" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_3d68y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3d68y")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l4qrp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q0avt")
+text = "-5"
+
 [node name="Decrease" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 5
-text = "<"
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_3d68y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3d68y")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l4qrp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q0avt")
+text = "-1"
 
 [node name="number" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
@@ -50,6 +103,10 @@ custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 7
 size_flags_stretch_ratio = 2.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 42
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -60,4 +117,22 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 5
-text = ">"
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_thit0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_thit0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ve1m5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fd12x")
+text = "+1"
+
+[node name="Increase5" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_thit0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_thit0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ve1m5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fd12x")
+text = "+5"

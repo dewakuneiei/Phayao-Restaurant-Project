@@ -1,42 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5nnv2vttb7g8"]
+[gd_scene load_steps=3 format=3 uid="uid://b5nnv2vttb7g8"]
 
 [ext_resource type="Script" path="res://scenes/GUI/ui_fridge.gd" id="1_net1r"]
+[ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="1_prmve"]
 
 [node name="FridgeContainer" type="PanelContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(650, 500)
-anchors_preset = 8
+self_modulate = Color(1, 1, 1, 0.705882)
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -375.0
-offset_top = -32.0
-offset_right = 375.0
-offset_bottom = 32.0
+offset_left = -57.0
+offset_top = 8.0
+offset_right = 57.0
+offset_bottom = 122.0
 grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("1_prmve")
 script = ExtResource("1_net1r")
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
 
-[node name="ItemContainer" type="GridContainer" parent="MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-columns = 3
-
-[node name="CloseBtn" type="Button" parent="."]
+[node name="CloseBtn" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
-layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "X"
 
-[connection signal="pressed" from="CloseBtn" to="." method="_on_close_btn_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="ItemContainer" type="GridContainer" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 5
+
+[connection signal="pressed" from="VBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]

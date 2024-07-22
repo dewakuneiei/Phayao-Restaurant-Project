@@ -5,6 +5,8 @@ const CURRENCY = "BAHT"
 
 @onready var template = preload("res://scenes/GUI/ui_shop_item.tscn") 
 @onready var boxTemplate = preload("res://scenes/objects/box.tscn")
+@onready var buying_stream = preload("res://assets/sfx/lever.wav")
+@onready var default_stream = preload("res://assets/sfx/ui/MI_SFX 42.mp3")
 @onready var entryContainer = %ItemContainer
 @onready var money_l = %Money
 @onready var total_l = %Total
@@ -17,9 +19,10 @@ var total: int = 0
 func _ready():
 	deactivate()
 	%Close.connect("pressed", _on_close_pressed)
-	%Page1.connect("pressed", _on_page_1_pressed)
-	%Page2.connect("pressed", _on_page_2_pressed)
+	%Page1.connect("pressed", _on_page_pressed.bind(true))
+	%Page2.connect("pressed", _on_page_pressed.bind(false))
 	%Buy.connect("pressed", _on_buy_pressed)
+	%Clear.connect("pressed", _on_clear_pressed)
 
 func deactivate():
 	hide()
@@ -36,9 +39,9 @@ func activate():
 	set_process_unhandled_input(true)
 	set_process_input(true)
 
-func show_with_page(page_no: int):
-	var start_key = 0 if page_no == 1 else 5
-	var end_key = 4 if page_no == 1 else 9
+func show_with_page(is_page_1: bool):
+	var start_key = 0 if is_page_1 else 5
+	var end_key = 4 if is_page_1 else 9
 	
 	for index in range(entryContainer.get_child_count()):
 		var item = entryContainer.get_child(index) as ShopItemUi
@@ -68,9 +71,10 @@ func update_shop(newEntry: Dictionary):
 
 func update_money():
 	if money_l:
-		money_l.text = "Money: " + str(GameManager.money) + " " +CURRENCY
+		money_l.text = "%s: %d %s" % [tr("MONEY"), GameManager.money, tr(CURRENCY) ]
 
 func update_total(data:IngredientData, amount: int):
+	var money = GameManager.money
 	var key = data.get_id()
 	if amount > 0 and basket.has(key) :
 		basket[key][1] = amount
@@ -83,8 +87,11 @@ func update_total(data:IngredientData, amount: int):
 	for item in basket.values():
 		var value = item[0].price * item[1] 
 		total += value
-	total_l.modulate = Color.RED if total > 0 else Color.WHITE
-	total_l.text = "TOTAL: "+ str(total) + " " + CURRENCY
+	if total > money:
+		total_l.add_theme_color_override("font_color", Color.RED)
+	else:
+		total_l.add_theme_color_override("font_color", Color.BLACK)
+	total_l.text = "%s: %d %s" % [tr("TOTAL"), total, tr(CURRENCY) ]
 
 func reset_basket():
 	basket.clear()
@@ -95,16 +102,17 @@ func reset_basket():
 func _on_close_pressed():
 	deactivate()
 
-func _on_page_1_pressed():
-	show_with_page(1)
+func _on_page_pressed(is_page_1: bool):
+	GameManager.play_sfx_with_stream(default_stream)
+	show_with_page(is_page_1)
 
-
-func _on_page_2_pressed():
-	show_with_page(2)
+func _on_clear_pressed():
+	GameManager.play_sfx_with_stream(default_stream)
+	reset_basket()
 
 func _on_buy_pressed():
-	if basket.is_empty(): deactivate(); return;
-	
+	GameManager.play_sfx_with_stream(default_stream)
+	if basket.is_empty(): return;
 	var money = GameManager.money
 	if (money - total) < 0: return
 	var newBox = boxTemplate.instantiate() as Box
@@ -114,5 +122,6 @@ func _on_buy_pressed():
 		newBox.basket = basket.duplicate()
 		player.take_item(newBox)
 		GameManager.update_money(-total)
-	update_money()
-	deactivate()
+		GameManager.play_sfx_with_stream(buying_stream)
+		update_money()
+		deactivate()

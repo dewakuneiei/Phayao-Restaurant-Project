@@ -8,7 +8,10 @@ signal updated_amount(ingredientData: IngredientData, amount: int)
 @onready var number_l: Label = %number
 @onready var decrease_btn : Button = %Decrease
 @onready var increase_btn: Button = %Increase
+@onready var decrease5_btn: Button = %Decrease5
+@onready var increase5_btn: Button = %Increase5
 @onready var rect : TextureRect = $TextureRect
+@onready var stream = preload("res://assets/sfx/ui/MI_SFX 49.mp3")
 
 var amount: int = 0
 var ingredientData: IngredientData
@@ -16,8 +19,10 @@ var ingredientData: IngredientData
 func _ready():
 	set_process(false)
 	update_number_display()
-	decrease_btn.connect("pressed", on_decrease_pressed)
-	increase_btn.connect("pressed", on_increase_pressed)
+	decrease_btn.connect("pressed", update_amount_value.bind(-1))
+	increase_btn.connect("pressed", update_amount_value.bind(1))
+	decrease5_btn.connect("pressed", update_amount_value.bind(-5))
+	increase5_btn.connect("pressed", update_amount_value.bind(5))
 
 func setup(ingredientData: IngredientData):
 	self.ingredientData = ingredientData
@@ -26,14 +31,10 @@ func setup(ingredientData: IngredientData):
 	rect.texture = ingredientData.icon
 	update_number_display()
 
-func on_increase_pressed():
-	amount = clampi(amount + 1, 0, 10)
+func update_amount_value(value: int):
+	GameManager.play_sfx_with_stream(stream)
+	amount = clampi(amount + value, 0, 100)
 	update_number_display()
-
-func on_decrease_pressed():
-	amount = clampi(amount - 1, 0, 10)
-	update_number_display()
-	
 
 func reset():
 	amount = 0

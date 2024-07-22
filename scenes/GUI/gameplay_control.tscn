@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmuyxkhwbcgl5"]
+[gd_scene load_steps=4 format=3 uid="uid://dmuyxkhwbcgl5"]
 
+[ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="1_87qdf"]
 [ext_resource type="Script" path="res://scenes/GUI/ui_gameplay_control.gd" id="1_jajup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spcrq"]
 
 [node name="GameplayControl" type="Control"]
 layout_mode = 3
@@ -10,34 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_87qdf")
 script = ExtResource("1_jajup")
-
-[node name="HBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.969167
-anchor_top = 0.05
-anchor_right = 0.969167
-anchor_bottom = 0.05
-offset_left = -96.0
-offset_bottom = 50.0
-grow_horizontal = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Time" type="Label" parent="HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "5:00"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Money" type="Label" parent="HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "300 BAHT"
 
 [node name="Open" type="Button" parent="."]
 unique_name_in_owner = true
@@ -52,7 +29,51 @@ offset_top = -31.0
 offset_right = 51.5
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
 text = "OPEN_SHOP"
 metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.983277
+anchor_top = 0.0466667
+anchor_right = 0.983277
+anchor_bottom = 0.0466667
+offset_left = -136.932
+offset_bottom = 103.748
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_spcrq")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="Time" type="Label" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.52549)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 26
+text = "5:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Label" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.52549)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 18
+text = "300 BAHT"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Open" to="." method="_on_button_pressed"]

@@ -9,5 +9,4 @@ func _ready():
 
 func _on_area_2d_area_entered(area):
 	if area is Customer:
-		if not area.is_none_state():
-			area.queue_free()
+		area.queue_free()

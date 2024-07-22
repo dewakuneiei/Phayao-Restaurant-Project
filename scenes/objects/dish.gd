@@ -10,6 +10,7 @@ func _ready():
 	
 func set_collistion(enable: bool):
 	$CollisionShape2D.disabled = not enable
+	z_index = 0 if enable else 1
 
 func interact(player: Player):
 	if player.is_holding_dish(): return;

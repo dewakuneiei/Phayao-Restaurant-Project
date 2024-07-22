@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8k8xxy2d5uhs"]
+[gd_scene load_steps=21 format=3 uid="uid://b8k8xxy2d5uhs"]
 
+[ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="1_1c5pw"]
 [ext_resource type="Texture2D" uid="uid://w1g0dcvtmhm2" path="res://assets/sprites/foods/lon_pla_som.png" id="1_b327h"]
 [ext_resource type="Texture2D" uid="uid://cyny52jhpn2mq" path="res://assets/sprites/others/boiler.png" id="1_pieny"]
 [ext_resource type="Script" path="res://scenes/GUI/ui_recipe_book.gd" id="1_y37x8"]
@@ -28,6 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_1c5pw")
 script = ExtResource("1_y37x8")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -59,11 +61,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 36
 
 [node name="Row" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/separation = 32
 
 [node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row"]
 layout_mode = 2
@@ -158,6 +162,7 @@ texture = ExtResource("2_7jqrm")
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/separation = 32
 
 [node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2"]
 layout_mode = 2
@@ -252,6 +257,7 @@ texture = ExtResource("1_pieny")
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/separation = 32
 
 [node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3"]
 layout_mode = 2
@@ -346,6 +352,7 @@ texture = ExtResource("3_d6dyq")
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/separation = 32
 
 [node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4"]
 layout_mode = 2
@@ -440,6 +447,7 @@ texture = ExtResource("3_d6dyq")
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/separation = 32
 
 [node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5"]
 layout_mode = 2
@@ -537,6 +545,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 21
 text = "X"
 
 [connection signal="pressed" from="PanelContainer/Close" to="." method="_on_close_pressed"]
