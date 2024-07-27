@@ -84,4 +84,4 @@ func _create_food_dish() -> FoodDish:
 	return new_food_dish
 
 func _match_food_data(keys: Array) -> FoodData:
-	return FoodData.new("Don't Know Food");
+	return FoodData.new(10, "Don't Know Food");

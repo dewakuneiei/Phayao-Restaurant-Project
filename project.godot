@@ -29,7 +29,7 @@ window/stretch/aspect="keep_width"
 
 [gui]
 
-theme/custom_font="res://Sarabun-Regular.ttf"
+theme/custom_font="res://Niramit-Medium.ttf"
 
 [input]
 
@@ -71,7 +71,7 @@ menus={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://translate.en.translation", "res://translate.th.translation")
+locale/translations=PackedStringArray("res://translations.en.translation", "res://translations.th.translation")
 
 [layer_names]
 

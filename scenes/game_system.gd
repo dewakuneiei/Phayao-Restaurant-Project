@@ -47,3 +47,7 @@ func _on_game_state_changed(newState: GameManager.GameState):
 func _on_open_pressed():
 	GameManager.started()
 	spawner.start_spawner()
+
+
+func _on_texture_button_pressed():
+	toggle_recipe()

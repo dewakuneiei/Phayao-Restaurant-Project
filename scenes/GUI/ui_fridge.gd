@@ -2,8 +2,7 @@ extends Control  # Assuming this script is attached to a Control node
 class_name FridgeUI
 
 @onready var container = %ItemContainer
-@onready var style: StyleBoxTexture = preload("res://new_stylebox.tres")
-@onready var depth_style: StyleBoxTexture = preload("res://new_depth_stylebox.tres")
+@onready var stream = preload("res://assets/sfx/freezer-door.mp3")
 
 func _ready():
 	deactivate()
@@ -23,25 +22,21 @@ func update_item_data(fridge: Fridge, player: Player, storage: Dictionary):
 		var amount = storage[key][1]
 		
 		new_button.icon = ingredient.icon
-		new_button.text = "%s x%d" % [ingredient.get_name(), amount]
+		new_button.text = "x%d" % amount
 		new_button.pressed.connect(func(): fridge.take_to_player(player, key))
-		
-		# Set the button styles
-		new_button.add_theme_stylebox_override("normal", depth_style)
-		new_button.add_theme_stylebox_override("hover", depth_style)
-		new_button.add_theme_stylebox_override("pressed", style)
-		
+		new_button.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		new_button.vertical_icon_alignment = VERTICAL_ALIGNMENT_CENTER
+		new_button.clip_text = false
+		new_button.expand_icon = false
 		# Remove the focus stylebox by setting it to an empty StyleBoxEmpty
 		var empty_style = StyleBoxEmpty.new()
 		new_button.add_theme_stylebox_override("focus", empty_style)
 		
 		# Set the text color to black for all button states
-		new_button.add_theme_color_override("font_color", Color.BLACK)
-		new_button.add_theme_color_override("font_pressed_color", Color.BLACK)
-		new_button.add_theme_color_override("font_hover_color", Color.BLACK)
-		new_button.add_theme_color_override("font_focus_color", Color.BLACK)
-		new_button.add_theme_color_override("font_hover_pressed_color", Color.BLACK)
-		new_button.add_theme_color_override("font_disabled_color", Color.BLACK)
+		new_button.add_theme_color_override("font_color", Color.SADDLE_BROWN)
+		new_button.add_theme_color_override("font_pressed_color", Color.LIGHT_CYAN)
+		new_button.add_theme_color_override("font_hover_color", Color.DARK_GOLDENROD)
+		new_button.add_theme_color_override("font_focus_color", Color.FLORAL_WHITE)
 
 func deactivate():
 	hide()  # Hide the node visually

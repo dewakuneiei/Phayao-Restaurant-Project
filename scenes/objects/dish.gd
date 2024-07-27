@@ -10,7 +10,7 @@ func _ready():
 	
 func set_collistion(enable: bool):
 	$CollisionShape2D.disabled = not enable
-	z_index = 0 if enable else 1
+	z_index = 1 if enable else 2
 
 func interact(player: Player):
 	if player.is_holding_dish(): return;
@@ -20,5 +20,8 @@ func interact(player: Player):
 func set_sprite_texture(icon: Texture):
 	$Sprite2D.texture = icon
 
-func get_texutre() -> Texture:
+func get_texuture() -> Texture:
 	return $Sprite2D.texture
+
+func clone_sprite() -> Sprite2D:
+	return $Sprite2D.duplicate() as Sprite2D

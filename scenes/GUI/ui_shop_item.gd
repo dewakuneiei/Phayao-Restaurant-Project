@@ -27,13 +27,13 @@ func _ready():
 func setup(ingredientData: IngredientData):
 	self.ingredientData = ingredientData
 	name_l.text = ingredientData.get_name()
-	price_l.text = str(ingredientData.price) + " B"
+	price_l.text = "%d %s" % [str(ingredientData.price), tr("BAHT")]
 	rect.texture = ingredientData.icon
 	update_number_display()
 
 func update_amount_value(value: int):
 	GameManager.play_sfx_with_stream(stream)
-	amount = clampi(amount + value, 0, 100)
+	amount = clampi(amount + value, 0, 99)
 	update_number_display()
 
 func reset():
@@ -44,3 +44,8 @@ func update_number_display():
 	updated_amount.emit(ingredientData, amount)
 	if number_l:
 		number_l.text = str(amount)
+	
+	if amount >0:
+		number_l.add_theme_color_override("font_color", Color.ORANGE_RED)
+	else:
+		number_l.add_theme_color_override("font_color", Color.LIGHT_GRAY)

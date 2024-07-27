@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1ojffe6mxgr"]
+[gd_scene load_steps=5 format=3 uid="uid://b1ojffe6mxgr"]
 
+[ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="1_5c1q0"]
 [ext_resource type="Script" path="res://scenes/GUI/ui_game_ending.gd" id="1_ojxtf"]
+[ext_resource type="Texture2D" uid="uid://cwqahytbne5h0" path="res://assets/new_version_sprite/gui.png" id="2_wa2lw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jte6m"]
+texture = ExtResource("2_wa2lw")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(176, 173, 64, 64)
 
 [node name="UIEndedGame" type="PanelContainer"]
 process_mode = 4
+self_modulate = Color(0, 0, 0, 0.482353)
 top_level = true
 custom_minimum_size = Vector2(250, 0)
 anchors_preset = 15
@@ -13,6 +24,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_5c1q0")
+theme_override_styles/panel = SubResource("StyleBoxTexture_jte6m")
 script = ExtResource("1_ojxtf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -44,6 +57,9 @@ vertical_alignment = 1
 [node name="Result" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.482353)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 64
 text = "Yay!"
 
@@ -71,13 +87,13 @@ layout_mode = 2
 [node name="Home" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Home"
+text = "HOME"
 
 [node name="Again" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.5
-text = "Again"
+text = "AGAIN"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Again" to="." method="_on_again_pressed"]

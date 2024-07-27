@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5nnv2vttb7g8"]
+[gd_scene load_steps=8 format=3 uid="uid://b5nnv2vttb7g8"]
 
 [ext_resource type="Script" path="res://scenes/GUI/ui_fridge.gd" id="1_net1r"]
 [ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="1_prmve"]
+[ext_resource type="StyleBox" uid="uid://cxq3m1kyuixir" path="res://scenes/style/close_normal.tres" id="3_mall3"]
+[ext_resource type="StyleBox" uid="uid://b0gsg382kbv2p" path="res://scenes/style/close_pressed.tres" id="4_4ji4f"]
+[ext_resource type="StyleBox" uid="uid://bmmyh6axmm7pm" path="res://scenes/style/close_hover.tres" id="4_se6i7"]
+[ext_resource type="Theme" uid="uid://co2eiykparm6s" path="res://scenes/style/storage_item_theme.tres" id="6_b0vga"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26p3c"]
 
 [node name="FridgeContainer" type="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0.705882)
@@ -9,13 +15,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -57.0
-offset_top = 8.0
 offset_right = 57.0
-offset_bottom = 122.0
+offset_bottom = 114.0
 grow_horizontal = 2
 theme = ExtResource("1_prmve")
 script = ExtResource("1_net1r")
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -26,6 +30,10 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_styles/normal = ExtResource("3_mall3")
+theme_override_styles/hover = ExtResource("4_4ji4f")
+theme_override_styles/pressed = ExtResource("4_se6i7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26p3c")
 text = "X"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -38,6 +46,7 @@ theme_override_constants/margin_bottom = 12
 [node name="ItemContainer" type="GridContainer" parent="VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("6_b0vga")
 columns = 5
 
 [connection signal="pressed" from="VBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]

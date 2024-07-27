@@ -1,129 +1,144 @@
-[gd_scene load_steps=4 format=3 uid="uid://borvcvamckk6b"]
+[gd_scene load_steps=10 format=3 uid="uid://borvcvamckk6b"]
 
 [ext_resource type="Script" path="res://scenes/GUI/ui_shop.gd" id="1_briyk"]
-[ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="1_u642n"]
+[ext_resource type="Theme" uid="uid://bbm0skd1rcgdu" path="res://scenes/style/shop_theme.tres" id="1_hehsw"]
 [ext_resource type="PackedScene" uid="uid://bs2n83udg8ov3" path="res://scenes/GUI/ui_shop_item.tscn" id="2_6aa26"]
+[ext_resource type="StyleBox" uid="uid://dhvreegs6njs8" path="res://scenes/style/buy_normal.tres" id="4_e8a0g"]
+[ext_resource type="StyleBox" uid="uid://cxq3m1kyuixir" path="res://scenes/style/close_normal.tres" id="4_pv7io"]
+[ext_resource type="StyleBox" uid="uid://cqg57a8nc832x" path="res://scenes/style/buy_pressed.tres" id="5_75tul"]
+[ext_resource type="StyleBox" uid="uid://bmmyh6axmm7pm" path="res://scenes/style/close_hover.tres" id="5_e1kql"]
+[ext_resource type="StyleBox" uid="uid://cq5wcvojq3t7t" path="res://scenes/style/buy_hover.tres" id="5_qxpsk"]
+[ext_resource type="StyleBox" uid="uid://b0gsg382kbv2p" path="res://scenes/style/close_pressed.tres" id="8_jb2ag"]
 
 [node name="ShopControl" type="PanelContainer"]
-custom_minimum_size = Vector2(600, 400)
-anchors_preset = 13
+custom_minimum_size = Vector2(680, 400)
+anchors_preset = -1
 anchor_left = 0.5
+anchor_top = 0.395
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_right = 280.0
+anchor_bottom = 0.635
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_u642n")
+theme = ExtResource("1_hehsw")
 script = ExtResource("1_briyk")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 36
-theme_override_constants/margin_right = 36
-theme_override_constants/margin_bottom = 36
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Close" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("4_pv7io")
+theme_override_styles/hover = ExtResource("8_jb2ag")
+theme_override_styles/pressed = ExtResource("5_e1kql")
+text = "CLOSE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Page1" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Page1" type="Button" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "PAGE_ONE"
 
-[node name="Page2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Page2" type="Button" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "PAGE_TWO"
 
-[node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="item1" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item1" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 layout_mode = 2
 
-[node name="item2" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item2" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 layout_mode = 2
 
-[node name="item3" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item3" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 layout_mode = 2
 
-[node name="item4" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item4" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 layout_mode = 2
 
-[node name="item5" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item5" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 layout_mode = 2
 
-[node name="item6" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item6" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 visible = false
 layout_mode = 2
 
-[node name="item7" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item7" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 visible = false
 layout_mode = 2
 
-[node name="item8" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item8" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 visible = false
 layout_mode = 2
 
-[node name="item9" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item9" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 visible = false
 layout_mode = 2
 
-[node name="item10" parent="MarginContainer/VBoxContainer/ItemContainer" instance=ExtResource("2_6aa26")]
+[node name="item10" parent="VBoxContainer/ScrollContainer/ItemContainer" instance=ExtResource("2_6aa26")]
 visible = false
 layout_mode = 2
 
-[node name="LabelContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="LabelContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/LabelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LabelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Total" type="Label" parent="MarginContainer/VBoxContainer/LabelContainer/VBoxContainer"]
+[node name="Total" type="Label" parent="VBoxContainer/LabelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 text = "TOTAL: 0 BAHT"
 
-[node name="Money" type="Label" parent="MarginContainer/VBoxContainer/LabelContainer/VBoxContainer"]
+[node name="Money" type="Label" parent="VBoxContainer/LabelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "300 BAHT"
 
-[node name="Clear" type="Button" parent="MarginContainer/VBoxContainer/LabelContainer"]
+[node name="Clear" type="Button" parent="VBoxContainer/LabelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "RESET"
 
-[node name="Buy" type="Button" parent="MarginContainer/VBoxContainer/LabelContainer"]
+[node name="Buy" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("4_e8a0g")
+theme_override_styles/hover = ExtResource("5_qxpsk")
+theme_override_styles/pressed = ExtResource("5_75tul")
 text = "BUY"
 
-[node name="Close" type="Button" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "X"
-
-[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]

@@ -28,7 +28,7 @@ func mix_ingredients(player: Player):
 	if other_item and not other_item is RawDish and task is RawDish:
 		var id = other_item.ingredientData.get_id()
 		task.add_ingredient(id)
-		task.add_child(create_sprite(other_item.get_texutre()))
+		task.add_child(create_sprite(other_item.get_icon()))
 		play_sound(stream)
 
 func add_ingredient_to_player_dish(player: Player):
@@ -36,7 +36,7 @@ func add_ingredient_to_player_dish(player: Player):
 	if dish is RawDish and task is IngredientDish:
 		var id = task.ingredientData.get_id()
 		dish.add_ingredient(id)
-		dish.add_child(create_sprite(task.get_texutre()))
+		dish.add_child(create_sprite(task.get_texuture()))
 		task.queue_free()
 		task = null
 		play_sound(stream)
@@ -51,14 +51,15 @@ func transfer_dish_from_player(player: Player):
 	mark.add_child(task)
 
 func create_new_dish():
-	var new_dish = dish_template.instantiate()
+	var new_dish = dish_template.instantiate() as RawDish
+	new_dish.z_index = 0
 	mark.add_child(new_dish)
 	task = new_dish
 	play_sound(stream)
 
-func create_sprite(texture: Texture) -> Sprite2D:
+func create_sprite(icon: Texture) -> Sprite2D:
 	var new_sprite = Sprite2D.new()
-	new_sprite.texture = texture
+	new_sprite.texture = icon
 	new_sprite.rotation_degrees = randf_range(0, 360)
 	new_sprite.flip_h = randf() > 0.5
 	return new_sprite

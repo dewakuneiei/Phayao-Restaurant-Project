@@ -1,13 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b17k2hoxj3hm5"]
+[gd_scene load_steps=3 format=3 uid="uid://b17k2hoxj3hm5"]
 
 [ext_resource type="Script" path="res://scenes/objects/shop.gd" id="1_lmvob"]
-[ext_resource type="Texture2D" uid="uid://dglbisc6jyni7" path="res://assets/sprites/others/vending_machine.png" id="2_4fqeh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpoy0"]
 size = Vector2(101, 122)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2l7f"]
-size = Vector2(99, 32)
 
 [node name="VendingMachine" type="Area2D"]
 z_index = 1
@@ -16,20 +12,7 @@ collision_layer = 4
 script = ExtResource("1_lmvob")
 interact_name = &"Shop"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -63)
-scale = Vector2(2, 2)
-texture = ExtResource("2_4fqeh")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -61)
 shape = SubResource("RectangleShape2D_lpoy0")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.5, -19)
-shape = SubResource("RectangleShape2D_h2l7f")
 
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

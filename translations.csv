@@ -1,0 +1,44 @@
+key,en,th
+OPEN_SHOP,Open,เปิดร้าน
+TUTORIAL,Tutorial,ฝึกสอน
+PLAY,Play,เล่น
+LANG_TITLE,Langauge: ,ภาษา:
+LANG,English,ไทย
+GAME_TITLE,Restaurant,ร้านอาหาร
+GRILL,Grill,ปิ้งย่าง
+BOIL,Boil,ต้ม
+FRY,Fry,ทอด
+UNKNOWN,What is this?,คืออะไร?
+CHICKEN_KHAO_SOI,Chicken Khao Soi,ข้าวซอยไก่ 
+KHAI_PAM,Khai Pam,ไข่ป่าม
+ONG_PU_NA,Ong Pu Na,อ่องปูนา
+AEB_PLA_NIL,Aeb Pla Nil,แอ๊บปลานิล
+LON_PLA_SOM,Lon Pla Som,หลนปลาส้ม
+FISH,Fish,ปลา
+PORK,Pork,หมู
+CHICKEN,Chicken,ไก่
+CHICKEN_EGG,Chicken Egg,ไข่ไก่
+FIELD_CRAB,Field Crab,ปูนา
+SALT,Salt,เกลือ
+CHILI,Chili,พริกขี้หนู
+RICE_NOODLE,Rice Noodle,เส้นข้าวซอย
+LIME,Lime,มะนาว
+CILANTRO,Cilantro,ผักชี
+FOOD_RECIPES,Food Recipes,สูตรอาหาร
+BURNT_FOOD,Burnt food,อาหารไหม้
+SUCCESS,Success,สำเร็จ
+BAHT,Baht,บาท
+HOME,Home,หน้าหลัก
+AGAIN,Again,อีกครั้ง
+SETTINGS,Settings,ตั้งค่า
+AUDIO_VOLUME,Audio Volume,ระดับเสียง
+MUSIC_VOLUME,Music Volume,เสียงดนตรี
+SFX_VOLUME,Sound Effects Volume,เอฟเฟกต์เสียง
+OK,OK,ตกลง
+TOTAL,Total,รวม
+MONEY,Money,เงิน
+PAGE_ONE,First,แรก
+PAGE_TWO,Second,สอง
+CLOSE,Close,ปิด
+BUY,Buy,ซื้อ
+RESET,Reset,ตั้งใหม่

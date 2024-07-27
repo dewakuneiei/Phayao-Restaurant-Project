@@ -2,7 +2,6 @@ extends Dish
 class_name RawDish
 
 var _ingredients : Array = []
-var is_chopping = false
 
 func interact(player: Player):
 	super.interact(player)
@@ -23,3 +22,4 @@ func add_ingredient(id: int):
 
 func get_all_keys() -> Array:
 	return _ingredients
+

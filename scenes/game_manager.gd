@@ -6,11 +6,11 @@ signal updated_money(new_value)
 enum GameState { NONE, STARTED, ENDED }
 
 const START_RATING = 3
-const GOAL_MONEY = 500
+const GOAL_MONEY = 200
 const BASE_CUSTOMER_AMOUNT = 1
 const MAX_RATING = 100
 const MAX_CUSTOMER_AMOUNT = 5
-const GAME_DURATION = 120 # in seconds time
+const GAME_DURATION = 3# in seconds time
 
 var _game_state: GameState = GameState.NONE
 var rating: int = START_RATING
@@ -109,28 +109,30 @@ func is_game_started() -> bool:
 
 func _initialize_food_menus() -> Dictionary:
 	return {
-		"UNKNOWN_FOOD": FoodData.new("unknown", 100, preload("res://assets/sprites/foods/unknown_food.png")),
-		"BURNT_FOOD": FoodData.new("burnt_food", 1, preload("res://assets/sprites/foods/burnt_food.png")),
-		"CHICKEN_KHAO_SOI": FoodData.new("Chicken_Khao_Soi", 100, preload("res://assets/sprites/foods/chicken_khao_soi.png")),
-		"KHAI_PAM": FoodData.new("Khai_Pam", 100, preload("res://assets/sprites/foods/khai_pam.png")),
-		"ONG_PU_NA": FoodData.new("Ong_Pu_Na", 100, preload("res://assets/sprites/foods/ong_pu_na.png")),
-		"AEB_PLA_NIL": FoodData.new("Aeb_Pla_Nil", 100, preload("res://assets/sprites/foods/aeb_pla_nil.png")),
-		"LON_PLA_SOM": FoodData.new("Lon_Pla_Som", 100, preload("res://assets/sprites/foods/lon_pla_som.png")),
+		"UNKNOWN_FOOD": FoodData.new(11, "unknown", 100, preload("res://assets/sprites/dish/sprite11.png")),
+		"BURNT_FOOD": FoodData.new(12, "burnt_food", 1, preload("res://assets/sprites/dish/sprite12.png")),
+		"CHICKEN_KHAO_SOI": FoodData.new(13, "Chicken_Khao_Soi", 100, preload("res://assets/sprites/dish/sprite13.png")),
+		"LON_PLA_SOM": FoodData.new(14, "Lon_Pla_Som", 100, preload("res://assets/sprites/dish/sprite14.png")),
+		"KHAI_PAM": FoodData.new(15, "Khai_Pam", 100, preload("res://assets/sprites/dish/sprite15.png")),
+		"ONG_PU_NA": FoodData.new(16, "Ong_Pu_Na", 100, preload("res://assets/sprites/dish/sprite16.png")),
+		"AEB_PLA_NIL": FoodData.new(17, "AEB_PLA_NIL", 100, preload("res://assets/sprites/dish/sprite17.png")),
 	}
+
 
 func _initialize_ingredients() -> Array[IngredientData]:
 	return [
-		IngredientData.new(0, "Fish", 2, preload("res://assets/sprites/ingredients/fish.png")),
-		IngredientData.new(1, "Pork", 2, preload("res://assets/sprites/ingredients/pork.png")),
-		IngredientData.new(2, "Chicken", 2, preload("res://assets/sprites/ingredients/chicken.png")),
-		IngredientData.new(3, "CHICKEN_EGG", 2, preload("res://assets/sprites/ingredients/chicken_egg.png")),
-		IngredientData.new(4, "FIELD_CRAB", 2, preload("res://assets/sprites/ingredients/crab.png")),
-		IngredientData.new(5, "Salt", 2, preload("res://assets/sprites/ingredients/salt.png")),
-		IngredientData.new(6, "Chili", 2, preload("res://assets/sprites/ingredients/chili.png")),
-		IngredientData.new(7, "RICE_NOODLE", 2, preload("res://assets/sprites/ingredients/noodle.png")),
-		IngredientData.new(8, "Lime", 2, preload("res://assets/sprites/ingredients/lime.png")),
-		IngredientData.new(9, "Cilantro", 2, preload("res://assets/sprites/ingredients/coriander.png"))
+		IngredientData.new(0, "Fish", 2, preload("res://assets/sprites/dish/sprite00.png")),
+		IngredientData.new(1, "Pork", 2, preload("res://assets/sprites/dish/sprite01.png")),
+		IngredientData.new(2, "Chicken", 2, preload("res://assets/sprites/dish/sprite02.png")),
+		IngredientData.new(3, "CHICKEN_EGG", 2, preload("res://assets/sprites/dish/sprite03.png")),
+		IngredientData.new(4, "FIELD_CRAB", 2, preload("res://assets/sprites/dish/sprite04.png")),
+		IngredientData.new(5, "Salt", 2, preload("res://assets/sprites/dish/sprite05.png")),
+		IngredientData.new(6, "Chili", 2, preload("res://assets/sprites/dish/sprite06.png")),
+		IngredientData.new(7, "RICE_NOODLE", 2, preload("res://assets/sprites/dish/sprite07.png")),
+		IngredientData.new(8, "Lime", 2, preload("res://assets/sprites/dish/sprite08.png")),
+		IngredientData.new(9, "CILANTRO", 2, preload("res://assets/sprites/dish/sprite09.png"))
 	]
+
 
 func _remove_node(node: Node):
 	node.queue_free()

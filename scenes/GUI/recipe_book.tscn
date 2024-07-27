@@ -1,25 +1,31 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8k8xxy2d5uhs"]
+[gd_scene load_steps=26 format=3 uid="uid://b8k8xxy2d5uhs"]
 
 [ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="1_1c5pw"]
-[ext_resource type="Texture2D" uid="uid://w1g0dcvtmhm2" path="res://assets/sprites/foods/lon_pla_som.png" id="1_b327h"]
-[ext_resource type="Texture2D" uid="uid://cyny52jhpn2mq" path="res://assets/sprites/others/boiler.png" id="1_pieny"]
 [ext_resource type="Script" path="res://scenes/GUI/ui_recipe_book.gd" id="1_y37x8"]
-[ext_resource type="Texture2D" uid="uid://c1smi7y48q8lp" path="res://assets/sprites/others/frying_pan.png" id="2_7jqrm"]
-[ext_resource type="Texture2D" uid="uid://biixdp45g7ckq" path="res://assets/sprites/ingredients/fish.png" id="2_r38y7"]
-[ext_resource type="Texture2D" uid="uid://b873d6nqitdd0" path="res://assets/sprites/ingredients/pork.png" id="3_45p5m"]
-[ext_resource type="Texture2D" uid="uid://bset2soyt4o05" path="res://assets/sprites/others/grill.png" id="3_d6dyq"]
-[ext_resource type="Texture2D" uid="uid://bgelt4beb5hq" path="res://assets/sprites/ingredients/salt.png" id="4_ev15s"]
-[ext_resource type="Texture2D" uid="uid://r0ltblosspwj" path="res://assets/sprites/ingredients/chili.png" id="5_m7cxe"]
-[ext_resource type="Texture2D" uid="uid://c3jarehb07mcv" path="res://assets/sprites/foods/chicken_khao_soi.png" id="7_n7vjp"]
-[ext_resource type="Texture2D" uid="uid://cbpgnas07mi30" path="res://assets/sprites/ingredients/chicken.png" id="8_2fx3g"]
-[ext_resource type="Texture2D" uid="uid://8vkd0g3g3dxb" path="res://assets/sprites/ingredients/noodle.png" id="9_xmi70"]
-[ext_resource type="Texture2D" uid="uid://c5nwxni85rt6r" path="res://assets/sprites/ingredients/lime.png" id="10_3wbmb"]
-[ext_resource type="Texture2D" uid="uid://dfm20ax6dndov" path="res://assets/sprites/ingredients/coriander.png" id="11_l2lke"]
-[ext_resource type="Texture2D" uid="uid://bm4gqi0jnppi3" path="res://assets/sprites/foods/khai_pam.png" id="13_vsy2k"]
-[ext_resource type="Texture2D" uid="uid://dq4o5m17yprl2" path="res://assets/sprites/ingredients/chicken_egg.png" id="14_cl6qy"]
-[ext_resource type="Texture2D" uid="uid://mp2grftcghwn" path="res://assets/sprites/foods/ong_pu_na.png" id="16_5cy0j"]
-[ext_resource type="Texture2D" uid="uid://dqhkk1xagc0jq" path="res://assets/sprites/ingredients/crab.png" id="17_o8ftp"]
-[ext_resource type="Texture2D" uid="uid://claevdncwykha" path="res://assets/sprites/foods/aeb_pla_nil.png" id="18_b0ip6"]
+[ext_resource type="Theme" uid="uid://c4x5jqleltipo" path="res://scenes/style/recipe_theme.tres" id="3_0xlcy"]
+[ext_resource type="Texture2D" uid="uid://b7stopmmwtu2h" path="res://assets/sprites/dish/sprite00.png" id="3_obow2"]
+[ext_resource type="Texture2D" uid="uid://vey12t144idw" path="res://assets/sprites/dish/sprite14.png" id="3_qxkt3"]
+[ext_resource type="Texture2D" uid="uid://bluauiw7k2fqy" path="res://assets/sprites/dish/sprite01.png" id="4_nuxph"]
+[ext_resource type="Texture2D" uid="uid://1d4uq5mvn7g8" path="res://assets/sprites/dish/sprite05.png" id="5_0eura"]
+[ext_resource type="Texture2D" uid="uid://b8eei8p740geh" path="res://assets/sprites/dish/sprite06.png" id="6_in7gl"]
+[ext_resource type="Texture2D" uid="uid://dobb8voiw3nqv" path="res://assets/sprites/others/cooking_table_3.png" id="8_bpdni"]
+[ext_resource type="Texture2D" uid="uid://cdkuuqlfjlnh0" path="res://assets/sprites/dish/sprite13.png" id="9_t33tk"]
+[ext_resource type="Texture2D" uid="uid://ba77dne6e10bf" path="res://assets/sprites/dish/sprite02.png" id="10_lo0h4"]
+[ext_resource type="Texture2D" uid="uid://yqu58trborrp" path="res://assets/sprites/dish/sprite07.png" id="11_pl2t1"]
+[ext_resource type="Texture2D" uid="uid://b1vfec8q0ewjg" path="res://assets/sprites/dish/sprite08.png" id="12_pypd2"]
+[ext_resource type="Texture2D" uid="uid://bdwowd25seohi" path="res://assets/sprites/dish/sprite09.png" id="13_gp4km"]
+[ext_resource type="Texture2D" uid="uid://c4scxhvq2y3fj" path="res://assets/sprites/others/cooking_table_2.png" id="14_k7gwf"]
+[ext_resource type="Texture2D" uid="uid://ccvf8senb5x30" path="res://assets/sprites/dish/sprite15.png" id="15_jgiw1"]
+[ext_resource type="Texture2D" uid="uid://ddc2frl4w0nk5" path="res://assets/sprites/dish/sprite03.png" id="16_1ujni"]
+[ext_resource type="Texture2D" uid="uid://dfkd3oehugc0i" path="res://assets/sprites/others/cooking_table_1.png" id="17_pqv3c"]
+[ext_resource type="Texture2D" uid="uid://nr5mnvcnedxt" path="res://assets/sprites/dish/sprite16.png" id="18_m0a8p"]
+[ext_resource type="Texture2D" uid="uid://ojjp1scx72mf" path="res://assets/sprites/dish/sprite04.png" id="19_2wlp3"]
+[ext_resource type="Texture2D" uid="uid://bo28y2lo21kmg" path="res://assets/sprites/dish/sprite17.png" id="20_7kkms"]
+[ext_resource type="StyleBox" uid="uid://cxq3m1kyuixir" path="res://scenes/style/close_normal.tres" id="22_fko7q"]
+[ext_resource type="StyleBox" uid="uid://bmmyh6axmm7pm" path="res://scenes/style/close_hover.tres" id="23_0m2wb"]
+[ext_resource type="StyleBox" uid="uid://b0gsg382kbv2p" path="res://scenes/style/close_pressed.tres" id="24_av6nq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7cbf4"]
 
 [node name="RecipeBook" type="Control"]
 layout_mode = 3
@@ -49,494 +55,666 @@ grow_vertical = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 82
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="MarginContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer2"]
 layout_mode = 2
+theme = ExtResource("3_0xlcy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 0
+
+[node name="Container" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 36
 
-[node name="Row" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+[node name="MenuRow01" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/separation = 32
 
-[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row"]
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01"]
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/Menu"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/Menu"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 7
-texture = ExtResource("1_b327h")
+texture = ExtResource("3_qxkt3")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/Menu"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/Menu"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_vertical = 7
 text = "LON_PLA_SOM"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 columns = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("2_r38y7")
+texture = ExtResource("3_obow2")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "FISH"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("3_45p5m")
+texture = ExtResource("4_nuxph")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "PORK"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("4_ev15s")
+texture = ExtResource("5_0eura")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "SALT"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer4"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer/VBoxContainer4"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("5_m7cxe")
+texture = ExtResource("6_in7gl")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CHILI"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow01/GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("2_7jqrm")
+texture = ExtResource("8_bpdni")
+expand_mode = 3
+stretch_mode = 5
 
-[node name="Row2" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+[node name="MenuRow02" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/separation = 32
 
-[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2"]
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/Menu"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/Menu"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 7
-texture = ExtResource("7_n7vjp")
+texture = ExtResource("9_t33tk")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/Menu"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/Menu"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_vertical = 7
 text = "CHICKEN_KHAO_SOI"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 columns = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("8_2fx3g")
+texture = ExtResource("10_lo0h4")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CHICKEN"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("9_xmi70")
+texture = ExtResource("11_pl2t1")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "RICE_NOODLE"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("10_3wbmb")
-expand_mode = 3
+texture = ExtResource("12_pypd2")
+expand_mode = 5
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "LIME"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer4"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer/VBoxContainer4"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("11_l2lke")
+texture = ExtResource("13_gp4km")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CILANTRO"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row2/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow02/GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("1_pieny")
+texture = ExtResource("14_k7gwf")
+expand_mode = 5
+stretch_mode = 5
 
-[node name="Row3" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+[node name="MenuRow03" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/separation = 32
 
-[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3"]
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/Menu"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/Menu"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 7
-texture = ExtResource("13_vsy2k")
+texture = ExtResource("15_jgiw1")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/Menu"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/Menu"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_vertical = 7
 text = "KHAI_PAM"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 columns = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("14_cl6qy")
+texture = ExtResource("16_1ujni")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CHICKEN_EGG"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("14_cl6qy")
+texture = ExtResource("16_1ujni")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer/VBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CHICKEN_EGG"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer5"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("4_ev15s")
-expand_mode = 3
+texture = ExtResource("6_in7gl")
+expand_mode = 5
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer5"]
-layout_mode = 2
-text = "SALT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer6" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer6"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("5_m7cxe")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer/VBoxContainer6"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer/VBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CHILI"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row3/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_0eura")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer/VBoxContainer4"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+text = "SALT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow03/GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_d6dyq")
+texture = ExtResource("17_pqv3c")
+expand_mode = 5
+stretch_mode = 5
 
-[node name="Row4" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+[node name="MenuRow04" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/separation = 32
 
-[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4"]
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/Menu"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/Menu"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 7
-texture = ExtResource("16_5cy0j")
+texture = ExtResource("18_m0a8p")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/Menu"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/Menu"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_vertical = 7
 text = "ONG_PU_NA"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 columns = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("17_o8ftp")
+texture = ExtResource("19_2wlp3")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "FIELD_CRAB"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("17_o8ftp")
+texture = ExtResource("19_2wlp3")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer/VBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "FIELD_CRAB"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer6" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer6"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("14_cl6qy")
+texture = ExtResource("16_1ujni")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer6"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer/VBoxContainer3"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CHICKEN_EGG"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer5"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer/VBoxContainer4"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("4_ev15s")
+texture = ExtResource("5_0eura")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer/VBoxContainer5"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer/VBoxContainer4"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "SALT"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row4/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow04/GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_d6dyq")
+texture = ExtResource("17_pqv3c")
+expand_mode = 5
+stretch_mode = 5
 
-[node name="Row5" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer"]
+[node name="MenuRow05" type="HBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/separation = 32
 
-[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5"]
+[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/Menu"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/Menu"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 7
-texture = ExtResource("18_b0ip6")
+texture = ExtResource("20_7kkms")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/Menu"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/Menu"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_vertical = 7
 text = "AEB_PLA_NIL"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 columns = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("2_r38y7")
+texture = ExtResource("3_obow2")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "FISH"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("5_m7cxe")
+texture = ExtResource("6_in7gl")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CHILI"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer5"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("4_ev15s")
+texture = ExtResource("13_gp4km")
 expand_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer5"]
-layout_mode = 2
-text = "SALT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer6" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer6"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("11_l2lke")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer/VBoxContainer6"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 text = "CILANTRO"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/VBoxContainer/Row5/GridContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_0eura")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+text = "SALT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer2/MarginContainer/MarginContainer/Container/MenuRow05/GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_d6dyq")
+texture = ExtResource("17_pqv3c")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Close" type="Button" parent="PanelContainer"]
 unique_name_in_owner = true
@@ -546,6 +724,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("22_fko7q")
+theme_override_styles/hover = ExtResource("24_av6nq")
+theme_override_styles/pressed = ExtResource("23_0m2wb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7cbf4")
 text = "X"
 
 [connection signal="pressed" from="PanelContainer/Close" to="." method="_on_close_pressed"]

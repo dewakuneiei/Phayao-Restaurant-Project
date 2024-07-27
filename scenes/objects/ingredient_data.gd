@@ -8,7 +8,7 @@ var _id: int
 func _init(
 	id: int,
 	ingredient_name: StringName,
-	 initial_price: int = 1,
+	initial_price: int = 1,
 	initial_icon: Texture = null):
 	
 	_ingredient_name = ingredient_name.to_upper()
@@ -24,5 +24,5 @@ func get_id() -> int:
 	return _id
 	
 func clone() -> IngredientData:
-	return IngredientData.new(_id,_ingredient_name, price, icon)
+	return IngredientData.new(_id,_ingredient_name, price)
 

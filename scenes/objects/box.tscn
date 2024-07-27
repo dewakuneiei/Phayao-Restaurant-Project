@@ -1,33 +1,37 @@
 [gd_scene load_steps=5 format=3 uid="uid://cg6mb4q0sv2os"]
 
-[ext_resource type="Texture2D" uid="uid://bhj4xp1r586d2" path="res://assets/sprites/others/box.png" id="1_jew8y"]
 [ext_resource type="Script" path="res://scenes/objects/box.gd" id="1_md0yv"]
+[ext_resource type="Texture2D" uid="uid://cpnyyn8c6qusn" path="res://assets/new_version_sprite/object_sprite_sheet.png" id="2_kblrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qoy5"]
 size = Vector2(50, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yjjw3"]
-size = Vector2(44, 22)
+size = Vector2(44, 34)
 
 [node name="Box" type="Area2D" groups=["dish"]]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_md0yv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -14.8)
+position = Vector2(0, -18)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_jew8y")
+texture = ExtResource("2_kblrw")
+hframes = 9
+vframes = 6
+frame = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.499999, -14.8)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_3qoy5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, -3)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -13)
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_yjjw3")
+debug_color = Color(0.677138, 0.505399, 0, 0.42)

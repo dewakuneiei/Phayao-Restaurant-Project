@@ -45,9 +45,39 @@ func _animate_money_counter():
 	stream_player.stream = load("res://assets/sfx/slot-machine-41-sfx-producer.mp3")
 	stream_player.play()
 	
-	# Animate money counter
+	# Animate money counter and font color
 	var tween = create_tween()
-	tween.tween_method(func(value): money_label.text = "%d %s" % [value, tr("BAHT")], 0, money, 2.1)
+	tween.set_parallel(true)  # Allow multiple tweens to run in parallel
+	
+	# Tween the money value
+	tween.tween_method(func(value): 
+		money_label.text = "%d %s" % [value, tr("BAHT")], 
+		0, money, 2.1
+	)
+	
+	# Rainbow color sequence
+	var colors = [
+		Color.RED,
+		Color.ORANGE,
+		Color.YELLOW,
+		Color.GREEN,
+		Color.BLUE,
+		Color.INDIGO,
+		Color.VIOLET,
+		Color.WHITE  # End with white
+	]
+	
+	# Tween through rainbow colors
+	tween.tween_method(func(t):
+		var index = int(t * (len(colors) - 1))
+		var color1 = colors[index]
+		var color2 = colors[min(index + 1, len(colors) - 1)]
+		var blend = fmod(t * (len(colors) - 1), 1.0)
+		var final_color = color1.lerp(color2, blend)
+		money_label.add_theme_color_override("font_color", final_color),
+		0.0, 1.0, 2.1
+	)
+	
 	await tween.finished
 	
 	# Play cash register sound
@@ -61,7 +91,10 @@ func _show_result():
 	result_label.show()
 	var is_successful = GameManager.money >= GameManager.GOAL_MONEY
 	result_label.text = tr("SUCCESS") if is_successful else tr("FAIL")
-	result_label.modulate = Color.GOLD if is_successful else Color.GRAY
+	
+	# Use theme color override instead of modulate
+	var color = Color.GOLD if is_successful else Color.GRAY
+	result_label.add_theme_color_override("font_color", color)
 
 func _display_game_log():
 	var game_log = GameManager.game_log

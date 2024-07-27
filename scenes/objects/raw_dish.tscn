@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://coihm5txnmvpg"]
 
 [ext_resource type="Script" path="res://scenes/objects/raw_dish.gd" id="1_y2fbs"]
-[ext_resource type="Texture2D" uid="uid://p2vj2g7lgmxd" path="res://assets/sprites/foods/dish.png" id="2_q30up"]
+[ext_resource type="Texture2D" uid="uid://bbh078wx4504x" path="res://assets/sprites/dish/sprite10.png" id="2_3r8by"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opofv"]
 size = Vector2(32, 32)
 
 [node name="RawDish" type="Area2D" groups=["dish", "raw_dish"]]
-z_index = 1
+z_index = 2
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_y2fbs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("2_q30up")
-offset = Vector2(0, -3)
+texture = ExtResource("2_3r8by")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_opofv")

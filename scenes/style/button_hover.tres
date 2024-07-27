@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bmfj3gpio305p"]
+
+[ext_resource type="Texture2D" uid="uid://bvf4of7eonla6" path="res://assets/new_version_sprite/gui.png" id="1_ufnno"]
+
+[resource]
+texture = ExtResource("1_ufnno")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(220, 13, 192, 64)

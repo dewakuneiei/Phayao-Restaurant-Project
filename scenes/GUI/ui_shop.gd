@@ -18,6 +18,10 @@ var total: int = 0
 
 func _ready():
 	deactivate()
+	
+	total_l.text = "%s: %d %s" % [tr("TOTAL"), total, tr(CURRENCY) ]
+	money_l.text = "%s: %d %s" % [tr("MONEY"), GameManager.money, tr(CURRENCY) ]
+	
 	%Close.connect("pressed", _on_close_pressed)
 	%Page1.connect("pressed", _on_page_pressed.bind(true))
 	%Page2.connect("pressed", _on_page_pressed.bind(false))
@@ -72,6 +76,7 @@ func update_shop(newEntry: Dictionary):
 func update_money():
 	if money_l:
 		money_l.text = "%s: %d %s" % [tr("MONEY"), GameManager.money, tr(CURRENCY) ]
+		money_l.add_theme_color_override("font_color", Color.DIM_GRAY)
 
 func update_total(data:IngredientData, amount: int):
 	var money = GameManager.money
@@ -88,9 +93,9 @@ func update_total(data:IngredientData, amount: int):
 		var value = item[0].price * item[1] 
 		total += value
 	if total > money:
-		total_l.add_theme_color_override("font_color", Color.RED)
+		total_l.add_theme_color_override("font_color", Color.ORANGE_RED)
 	else:
-		total_l.add_theme_color_override("font_color", Color.BLACK)
+		total_l.add_theme_color_override("font_color", Color.DIM_GRAY)
 	total_l.text = "%s: %d %s" % [tr("TOTAL"), total, tr(CURRENCY) ]
 
 func reset_basket():
@@ -101,6 +106,7 @@ func reset_basket():
 
 func _on_close_pressed():
 	deactivate()
+	GameManager.play_sfx_with_stream(default_stream)
 
 func _on_page_pressed(is_page_1: bool):
 	GameManager.play_sfx_with_stream(default_stream)

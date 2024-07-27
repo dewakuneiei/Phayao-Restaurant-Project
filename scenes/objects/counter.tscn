@@ -1,15 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cu4iahgpqddbo"]
+[gd_scene load_steps=6 format=3 uid="uid://cu4iahgpqddbo"]
 
 [ext_resource type="Script" path="res://scenes/objects/counter.gd" id="1_gnhql"]
-[ext_resource type="AudioStream" uid="uid://lbvcmu2qywct" path="res://assets/sfx/coin.wav" id="2_4xls2"]
-[ext_resource type="Texture2D" uid="uid://bio4x4mjrtyed" path="res://assets/sprites/others/counter.png" id="2_jbp44"]
-[ext_resource type="AudioStream" uid="uid://c0t3fo7l2nrdy" path="res://assets/sfx/shop-door-bell.mp3" id="3_djx8w"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i13vw"]
-size = Vector2(189, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsw55"]
-size = Vector2(185, 47.5)
+size = Vector2(223, 100)
 
 [sub_resource type="Animation" id="Animation_twxj2"]
 length = 0.001
@@ -73,33 +67,17 @@ _data = {
 }
 
 [node name="Counter" type="Area2D"]
-z_index = 1
-y_sort_enabled = true
+z_index = 2
 collision_layer = 4
 script = ExtResource("1_gnhql")
-coin_sound = ExtResource("2_4xls2")
-door_bell_sound = ExtResource("3_djx8w")
 interact_name = &"Counter"
 
 [node name="StartQeue" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(69, 9)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -32)
-scale = Vector2(2, 2)
-texture = ExtResource("2_jbp44")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
-scale = Vector2(0.5, 0.5)
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(0.5, 4.5)
-shape = SubResource("RectangleShape2D_i13vw")
+position = Vector2(69, 54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -59.75)
+position = Vector2(2, 10)
 shape = SubResource("RectangleShape2D_jsw55")
 
 [node name="Label" type="Label" parent="."]

@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqhn3cor3n1pr"]
+[gd_scene load_steps=2 format=3 uid="uid://bqhn3cor3n1pr"]
 
-[ext_resource type="Texture2D" uid="uid://c3jarehb07mcv" path="res://assets/sprites/foods/chicken_khao_soi.png" id="1_h1xbk"]
 [ext_resource type="Script" path="res://scenes/GUI/ui_log_item.gd" id="1_wvbmg"]
 
 [node name="LogItemUI" type="HBoxContainer"]
@@ -11,18 +10,19 @@ script = ExtResource("1_wvbmg")
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-texture = ExtResource("1_h1xbk")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.823529, 1)
 theme_override_font_sizes/font_size = 21
 text = "MenuName x2"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.976471, 0.960784, 0.823529, 1)
 theme_override_font_sizes/font_size = 21
 text = "200 BAHT"
 horizontal_alignment = 2
