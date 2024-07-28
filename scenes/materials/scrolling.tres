@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bol8esbrrfm1m"]
+
+[ext_resource type="Shader" path="res://scenes/materials/scrolling.gdshader" id="1_vy20v"]
+
+[resource]
+shader = ExtResource("1_vy20v")
+shader_parameter/speed = 0.1

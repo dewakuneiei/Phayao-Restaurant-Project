@@ -1,11 +1,10 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://04ceu404g705"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wxant"]
-load_path = "res://.godot/imported/pixel_style4.png-a3cd9c20a836ae77e6db2cdcd345ff20.ctex"
+[ext_resource type="Texture2D" uid="uid://c118t1r8sogk1" path="res://assets/new_version_sprite/emotes.png" id="1_cp4o3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hailk"]
-texture = SubResource("CompressedTexture2D_wxant")
-region_rect = Rect2(64, 48, 16, 16)
+texture = ExtResource("1_cp4o3")
+region_rect = Rect2(16, 80, 16, 16)
 
 [resource]
 Panel/styles/panel = SubResource("StyleBoxTexture_hailk")

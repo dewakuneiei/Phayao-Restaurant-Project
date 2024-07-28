@@ -21,6 +21,7 @@ func _ready():
 	
 	total_l.text = "%s: %d %s" % [tr("TOTAL"), total, tr(CURRENCY) ]
 	money_l.text = "%s: %d %s" % [tr("MONEY"), GameManager.money, tr(CURRENCY) ]
+	total_l.add_theme_color_override("font_color", Color.DIM_GRAY)
 	
 	%Close.connect("pressed", _on_close_pressed)
 	%Page1.connect("pressed", _on_page_pressed.bind(true))

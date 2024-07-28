@@ -38,7 +38,7 @@ func show_me():
 	button_container.show()
 
 func _animate_money_counter():
-	var money = GameManager.money
+	var money = GameManager.get_net_profit()
 	var stream_player = _create_audio_player()
 	
 	# Play slot machine sound
@@ -51,10 +51,10 @@ func _animate_money_counter():
 	
 	# Tween the money value
 	tween.tween_method(func(value): 
-		money_label.text = "%d %s" % [value, tr("BAHT")], 
+		money_label.text = "%d NP" % value, 
 		0, money, 2.1
 	)
-	
+	var endColor = Color.RED if money < GameManager.GOAL_PROFIT else Color.LIME
 	# Rainbow color sequence
 	var colors = [
 		Color.RED,
@@ -64,7 +64,7 @@ func _animate_money_counter():
 		Color.BLUE,
 		Color.INDIGO,
 		Color.VIOLET,
-		Color.WHITE  # End with white
+		endColor  # Ending with Color
 	]
 	
 	# Tween through rainbow colors
@@ -89,7 +89,8 @@ func _animate_money_counter():
 
 func _show_result():
 	result_label.show()
-	var is_successful = GameManager.money >= GameManager.GOAL_MONEY
+	var net_profit = GameManager.get_net_profit()
+	var is_successful = net_profit >= GameManager.GOAL_PROFIT
 	result_label.text = tr("SUCCESS") if is_successful else tr("FAIL")
 	
 	# Use theme color override instead of modulate

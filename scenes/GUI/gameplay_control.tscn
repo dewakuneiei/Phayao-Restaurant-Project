@@ -76,4 +76,15 @@ theme_override_font_sizes/font_size = 18
 text = "300 BAHT"
 horizontal_alignment = 1
 
+[node name="NetProfit" type="Label" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.52549)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 18
+text = "99999 NP"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Open" to="." method="_on_button_pressed"]

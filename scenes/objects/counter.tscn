@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu4iahgpqddbo"]
+[gd_scene load_steps=8 format=3 uid="uid://cu4iahgpqddbo"]
 
 [ext_resource type="Script" path="res://scenes/objects/counter.gd" id="1_gnhql"]
+[ext_resource type="AudioStream" uid="uid://lbvcmu2qywct" path="res://assets/sfx/coin.wav" id="2_01jur"]
+[ext_resource type="AudioStream" uid="uid://c0t3fo7l2nrdy" path="res://assets/sfx/shop-door-bell.mp3" id="3_xf63p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsw55"]
 size = Vector2(223, 100)
@@ -70,6 +72,8 @@ _data = {
 z_index = 2
 collision_layer = 4
 script = ExtResource("1_gnhql")
+coin_sound = ExtResource("2_01jur")
+door_bell_sound = ExtResource("3_xf63p")
 interact_name = &"Counter"
 
 [node name="StartQeue" type="Marker2D" parent="."]

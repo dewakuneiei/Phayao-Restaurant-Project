@@ -7,8 +7,6 @@
 size = Vector2(32, 32)
 
 [node name="RawDish" type="Area2D" groups=["dish", "raw_dish"]]
-z_index = 2
-y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_y2fbs")
 

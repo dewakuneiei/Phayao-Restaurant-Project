@@ -1,7 +1,7 @@
 extends Interactive
 class_name Counter
 
-const QUEUE_DISTANCE: int = 45
+const QUEUE_DISTANCE: int = 46
 
 @export var coin_sound: AudioStream
 @export var door_bell_sound: AudioStream
@@ -16,10 +16,6 @@ func _ready() -> void:
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
 	label.hide()
-	
-	for i in range(2):
-		for g in GameManager.all_food_menus.values():
-			GameManager.update_log(g)
 
 func interact(player: Player) -> void:
 	var customer := queue.front() as Customer

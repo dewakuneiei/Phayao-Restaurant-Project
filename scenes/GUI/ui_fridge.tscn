@@ -31,8 +31,8 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_styles/normal = ExtResource("3_mall3")
-theme_override_styles/hover = ExtResource("4_4ji4f")
-theme_override_styles/pressed = ExtResource("4_se6i7")
+theme_override_styles/hover = ExtResource("4_se6i7")
+theme_override_styles/pressed = ExtResource("4_4ji4f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_26p3c")
 text = "X"
 

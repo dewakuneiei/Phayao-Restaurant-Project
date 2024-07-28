@@ -9,7 +9,6 @@ enum CookingState {
 @onready var _stream = preload("res://assets/sfx/bell.mp3")
 @onready var _dish_template = preload("res://scenes/objects/food_dish.tscn")
 @onready var _prgbar: TextureProgressBar = %ProgressBar
-@onready var _streamPlayer : AudioStreamPlayer2D= %StreamLoopPlayer
 
 @export var cook_duration = 5
 @export var overheat_duration = 10
@@ -27,8 +26,6 @@ func interact(player: Player):
 			player.take_item(new_food_dish)
 		_prgbar.hide()
 		_state = CookingState.FREE
-		_streamPlayer.stop()
-	
 
 	if _state != CookingState.FREE: return
 	var dish = player.get_dish() as RawDish
@@ -51,7 +48,6 @@ func cooked(keys: Array):
 	_prgbar.value = 0
 	_prgbar.max_value = cook_duration
 	_prgbar.modulate = Color.GREEN
-	_streamPlayer.play()
 	set_process(true)
 
 

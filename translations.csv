@@ -1,6 +1,6 @@
 key,en,th
 OPEN_SHOP,Open,เปิดร้าน
-TUTORIAL,Tutorial,ฝึกสอน
+TUTORIAL,How to play,วิธีเล่น
 PLAY,Play,เล่น
 LANG_TITLE,Langauge: ,ภาษา:
 LANG,English,ไทย
@@ -42,3 +42,9 @@ PAGE_TWO,Second,สอง
 CLOSE,Close,ปิด
 BUY,Buy,ซื้อ
 RESET,Reset,ตั้งใหม่
+CREDIT,Credits,เครดิต
+MONEY_GOAL,Net profit target,เป้าหมายกำไรสุทธิ
+INTERACTION,Interact,ปฏิสัมพันธ์
+MOVEMENT,Move,เคลื่อนไหว
+HIT_CUSTOMER,Hit a customer,ตีลูกค้า
+LEFT_MOUSE ,Left mouse,เมาส์ซ้าย

@@ -725,8 +725,8 @@ size_flags_vertical = 0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = ExtResource("22_fko7q")
-theme_override_styles/hover = ExtResource("24_av6nq")
-theme_override_styles/pressed = ExtResource("23_0m2wb")
+theme_override_styles/hover = ExtResource("23_0m2wb")
+theme_override_styles/pressed = ExtResource("24_av6nq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7cbf4")
 text = "X"
 

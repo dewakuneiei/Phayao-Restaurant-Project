@@ -27,7 +27,7 @@ func _ready():
 func setup(ingredientData: IngredientData):
 	self.ingredientData = ingredientData
 	name_l.text = ingredientData.get_name()
-	price_l.text = "%d %s" % [str(ingredientData.price), tr("BAHT")]
+	price_l.text = "%d %s" % [ingredientData.price, tr("BAHT")]
 	rect.texture = ingredientData.icon
 	update_number_display()
 

@@ -5,7 +5,7 @@ enum CustomerState {NONE, REQUEST, WAITING, FINISHED}
 enum Feedback {GREAT, GOOD, BAD, ANGRY, ANNOYING}
 enum State {IDLE, WALK}
 
-const MAX_WAITING = 20
+const MAX_WAITING = 63
 
 const ANIMATION = {
 	SHOW_ORDER = "show_order",
@@ -19,10 +19,10 @@ const ANIMATION = {
 
 @export_category("settings")
 @export var move_speed: float = 100.0  # pixels per second
-@export var max_players = 3
 @export var max_particle_systems = 3
 @onready var _nuh_sound = preload("res://assets/sfx/nuuuh.mp3")
-@onready var _streamPlayer: AudioStreamPlayer2D = %AppearAudio
+@onready var _slap_sound = preload("res://assets/sfx/slap.mp3")
+@onready var _pop_sound = preload("res://assets/sfx/pop.wav")
 @onready var _label: Label = %feedbackValueLabel
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _particle_template: CPUParticles2D = $CPUParticles2D
@@ -53,20 +53,12 @@ var _hit_count = 0
 func _ready():
 	set_process(true)
 	set_physics_process(false)
-	_create_pool_audio_stream()
+	_create_pool()
 	_timer = 0
 	_is_good = true
 	_sprite.frame = random_sprite_frame()
 
-func _create_pool_audio_stream():
-	# Create the pool of AudioStreamPlayer2D nodes
-	for i in range(max_players):
-		var player = AudioStreamPlayer2D.new()
-		player.stream = _streamPlayer.stream
-		player.bus = _streamPlayer.bus
-		add_child(player)
-		_audio_players.append(player)
-	
+func _create_pool():
 	# Create the pool of CPUParticles2D nodes
 	for j in range(max_particle_systems):
 		var particles = _particle_template.duplicate() as CPUParticles2D
@@ -191,7 +183,7 @@ func hit():
 		leve()
 	
 	emit_particles()
-	play_sound()
+	play_sound2d(_slap_sound)
 
 func emit_particles():
 	var particles = _particle_systems[_next_particle]
@@ -200,16 +192,9 @@ func emit_particles():
 		particles.restart()
 		_next_particle = (_next_particle + 1) % max_particle_systems
 
-func play_sound():
-	var player = _audio_players[_next_player]
-	if not player.playing:
-		player.play()
-		_next_player = (_next_player + 1) % max_players
-
 func leve():
 	action_state = CustomerState.FINISHED
-	_streamPlayer.stream = _nuh_sound
-	_streamPlayer.play()
+	play_sound2d(_nuh_sound)
 	GameManager.decrease_rating2()
 	_counter.remove_from_queue(self)
 	set_move_to_target(GameSystem.instance.endPoint.position)
@@ -218,6 +203,14 @@ func leve():
 		_animation_ply.play("RESET")
 	
 	show_feedback(Feedback.ANGRY)
+
+func play_sound2d(stream: AudioStream):
+	var player = AudioStreamPlayer2D.new()
+	player.bus = "SFX"
+	player.stream = stream
+	player.finished.connect(player.queue_free)
+	add_child(player)
+	player.play()
 
 func show_feedback(feedback: Feedback):
 	_animation_ply.stop()
@@ -232,4 +225,6 @@ func show_feedback(feedback: Feedback):
 			_animation_ply.play(ANIMATION.SHOW_ANGRY)
 		Feedback.ANNOYING:
 			_animation_ply.play(ANIMATION.SHOW_ANNOYING)
+	
+	play_sound2d(_pop_sound)
 	

@@ -14,6 +14,7 @@ static var instance: GameSystem
 @export var ui_gameplay: GamePlayUI
 @export var ui_ended_game: GameEndUi
 @export var ui_recipe: RecipeUI
+@export var ui_gamepause: GamePauseUI
 
 func get_all_food_menus() -> Array:
 	return GameManager.all_food_menus.values().filter(func(food): 
@@ -43,6 +44,7 @@ func _on_game_state_changed(newState: GameManager.GameState):
 			ui_recipe.hide()
 			shop.shop_ui.hide()
 			ui_ended_game.show_me()
+			ui_gamepause.hide()
 
 func _on_open_pressed():
 	GameManager.started()

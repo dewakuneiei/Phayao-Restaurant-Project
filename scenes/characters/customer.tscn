@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnfxvjy5jdttm"]
+[gd_scene load_steps=15 format=3 uid="uid://bnfxvjy5jdttm"]
 
 [ext_resource type="Texture2D" uid="uid://bjfi377cycjl" path="res://assets/new_version_sprite/character_sprite_sheet.png" id="2_al43e"]
 [ext_resource type="Script" path="res://scenes/characters/customer.gd" id="2_wuily"]
-[ext_resource type="AudioStream" uid="uid://c0hc8u8agnknd" path="res://assets/sfx/slap.mp3" id="3_5blvf"]
 [ext_resource type="Texture2D" uid="uid://de0k7hh84wmty" path="res://assets/sprites/others/heart.png" id="3_ns1q3"]
 [ext_resource type="Theme" uid="uid://04ceu404g705" path="res://customer_theme.tres" id="5_3md2k"]
 
@@ -699,10 +698,10 @@ _data = {
 }
 
 [node name="Customer" type="Area2D" groups=["customer", "npc"]]
-z_index = 2
+z_index = 3
 y_sort_enabled = true
 script = ExtResource("2_wuily")
-move_speed = 120.0
+move_speed = 123.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -38)
@@ -715,10 +714,6 @@ frame = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -34.125)
 shape = SubResource("RectangleShape2D_6xjj7")
-
-[node name="AppearAudio" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("3_5blvf")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = 1
@@ -747,7 +742,7 @@ unique_name_in_owner = true
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
-z_index = 3
+z_index = 5
 z_as_relative = false
 layout_direction = 1
 offset_left = -10.0

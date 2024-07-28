@@ -43,6 +43,8 @@ func _process(delta: float):
 		interact_with_object()
 	elif Input.is_action_just_pressed("recipe"):
 		GameSystem.instance.toggle_recipe()
+	elif  Input.is_action_just_pressed("pause"):
+		GameSystem.instance.ui_gamepause.enable()
 
 func handle_movement():
 	if not can_move:

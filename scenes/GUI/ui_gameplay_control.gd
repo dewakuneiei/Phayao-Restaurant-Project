@@ -4,6 +4,7 @@ class_name GamePlayUI
 @onready var money_l : Label = %Money
 @onready var time_l : Label = %Time
 @onready var open_btn : Button = %Open
+@onready var np_l : Label = %NetProfit
 var time_left: float
 
 func _process(delta):
@@ -25,6 +26,8 @@ func _initialized():
 	time_left = GameManager.GAME_DURATION
 	money_l.text = str(GameManager.money) + " " + tr("BAHT")
 	GameManager.updated_money.connect(_on_money_updated)
+	
+	_on_money_updated(GameManager.money)
 
 func _time_start():
 	time_l.show()
@@ -32,6 +35,15 @@ func _time_start():
 
 func _on_money_updated(new_value: int):
 	money_l.text = str(new_value) + " " + tr("BAHT")
+	var net_profit = GameManager.get_net_profit()
+	np_l.text = "%d NP" % net_profit
+	if net_profit > 0:
+		np_l.add_theme_color_override("font_color", Color.LIME_GREEN)
+	elif net_profit <0:
+		np_l.add_theme_color_override("font_color", Color.SALMON)
+	else:
+		np_l.add_theme_color_override("font_color", Color.WHITE)
+	
 
 func _on_button_pressed():
 	open_btn.hide()

@@ -6,15 +6,18 @@ signal updated_money(new_value)
 enum GameState { NONE, STARTED, ENDED }
 
 const START_RATING = 3
-const GOAL_MONEY = 200
+const GOAL_PROFIT = 321
+const BASE_MONEY = 180
 const BASE_CUSTOMER_AMOUNT = 1
-const MAX_RATING = 100
+const MAX_RATING = 10
 const MAX_CUSTOMER_AMOUNT = 5
-const GAME_DURATION = 3# in seconds time
+const GAME_DURATION = 365# in seconds time
 
 var _game_state: GameState = GameState.NONE
 var rating: int = START_RATING
 var money: int = 300
+var total_revenue: int = 0
+var total_expenses: int = 0
 
 var gameSystem: GameSystem
 var game_log: Dictionary
@@ -59,11 +62,21 @@ func calculate_customer_amount() -> int:
 
 func update_money(amount: int) -> void:
 	money += amount
+	if amount > 0:
+		total_revenue += amount
+	else:
+		total_expenses += -amount  # Convert negative expense to positive for tracking
 	updated_money.emit(money)
+
+# Function to calculate and return net profit
+func get_net_profit() -> int:
+	return total_revenue - total_expenses
 
 func reset() -> void:
 	_game_state = GameState.NONE
-	money = 300
+	money = BASE_MONEY
+	total_revenue = 0
+	total_expenses = 0
 	rating = START_RATING
 	gameSystem = null
 	game_log = {}
@@ -109,28 +122,28 @@ func is_game_started() -> bool:
 
 func _initialize_food_menus() -> Dictionary:
 	return {
-		"UNKNOWN_FOOD": FoodData.new(11, "unknown", 100, preload("res://assets/sprites/dish/sprite11.png")),
-		"BURNT_FOOD": FoodData.new(12, "burnt_food", 1, preload("res://assets/sprites/dish/sprite12.png")),
-		"CHICKEN_KHAO_SOI": FoodData.new(13, "Chicken_Khao_Soi", 100, preload("res://assets/sprites/dish/sprite13.png")),
-		"LON_PLA_SOM": FoodData.new(14, "Lon_Pla_Som", 100, preload("res://assets/sprites/dish/sprite14.png")),
-		"KHAI_PAM": FoodData.new(15, "Khai_Pam", 100, preload("res://assets/sprites/dish/sprite15.png")),
-		"ONG_PU_NA": FoodData.new(16, "Ong_Pu_Na", 100, preload("res://assets/sprites/dish/sprite16.png")),
-		"AEB_PLA_NIL": FoodData.new(17, "AEB_PLA_NIL", 100, preload("res://assets/sprites/dish/sprite17.png")),
+		"UNKNOWN_FOOD": FoodData.new(11, "unknown", 25, preload("res://assets/sprites/dish/sprite11.png")),
+		"BURNT_FOOD": FoodData.new(12, "burnt_food", 15, preload("res://assets/sprites/dish/sprite12.png")),
+		"CHICKEN_KHAO_SOI": FoodData.new(13, "Chicken_Khao_Soi", 35, preload("res://assets/sprites/dish/sprite13.png")),
+		"LON_PLA_SOM": FoodData.new(14, "Lon_Pla_Som", 40, preload("res://assets/sprites/dish/sprite14.png")),
+		"KHAI_PAM": FoodData.new(15, "Khai_Pam", 25, preload("res://assets/sprites/dish/sprite15.png")),
+		"ONG_PU_NA": FoodData.new(16, "Ong_Pu_Na", 32, preload("res://assets/sprites/dish/sprite16.png")),
+		"AEB_PLA_NIL": FoodData.new(17, "AEB_PLA_NIL", 35, preload("res://assets/sprites/dish/sprite17.png")),
 	}
 
 
 func _initialize_ingredients() -> Array[IngredientData]:
 	return [
-		IngredientData.new(0, "Fish", 2, preload("res://assets/sprites/dish/sprite00.png")),
-		IngredientData.new(1, "Pork", 2, preload("res://assets/sprites/dish/sprite01.png")),
-		IngredientData.new(2, "Chicken", 2, preload("res://assets/sprites/dish/sprite02.png")),
-		IngredientData.new(3, "CHICKEN_EGG", 2, preload("res://assets/sprites/dish/sprite03.png")),
-		IngredientData.new(4, "FIELD_CRAB", 2, preload("res://assets/sprites/dish/sprite04.png")),
-		IngredientData.new(5, "Salt", 2, preload("res://assets/sprites/dish/sprite05.png")),
-		IngredientData.new(6, "Chili", 2, preload("res://assets/sprites/dish/sprite06.png")),
-		IngredientData.new(7, "RICE_NOODLE", 2, preload("res://assets/sprites/dish/sprite07.png")),
-		IngredientData.new(8, "Lime", 2, preload("res://assets/sprites/dish/sprite08.png")),
-		IngredientData.new(9, "CILANTRO", 2, preload("res://assets/sprites/dish/sprite09.png"))
+		IngredientData.new(0, "Fish", 10, preload("res://assets/sprites/dish/sprite00.png")),
+		IngredientData.new(1, "Pork", 15, preload("res://assets/sprites/dish/sprite01.png")),
+		IngredientData.new(2, "Chicken", 12, preload("res://assets/sprites/dish/sprite02.png")),
+		IngredientData.new(3, "CHICKEN_EGG", 1, preload("res://assets/sprites/dish/sprite03.png")),
+		IngredientData.new(4, "FIELD_CRAB", 8, preload("res://assets/sprites/dish/sprite04.png")),
+		IngredientData.new(5, "Salt", 1, preload("res://assets/sprites/dish/sprite05.png")),
+		IngredientData.new(6, "Chili", 1, preload("res://assets/sprites/dish/sprite06.png")),
+		IngredientData.new(7, "RICE_NOODLE", 3, preload("res://assets/sprites/dish/sprite07.png")),
+		IngredientData.new(8, "Lime", 1, preload("res://assets/sprites/dish/sprite08.png")),
+		IngredientData.new(9, "CILANTRO", 1, preload("res://assets/sprites/dish/sprite09.png"))
 	]
 
 

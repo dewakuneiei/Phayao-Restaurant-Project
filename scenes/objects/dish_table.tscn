@@ -15,4 +15,5 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_csv05")
 
 [node name="DishMark" type="Marker2D" parent="."]
-position = Vector2(0, -42)
+z_as_relative = false
+position = Vector2(0, -43)

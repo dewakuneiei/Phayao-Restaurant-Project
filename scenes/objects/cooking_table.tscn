@@ -41,7 +41,3 @@ value = 4.73
 fill_mode = 4
 texture_under = ExtResource("2_hxoey")
 texture_progress = ExtResource("3_tor26")
-
-[node name="StreamLoopPlayer" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-bus = &"SFX"
