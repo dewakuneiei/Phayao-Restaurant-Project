@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://coly51ufkac73"]
+
+[ext_resource type="AudioStream" uid="uid://cijudpa83uo6v" path="res://assets/Chill_Rabbit.mp3" id="1_bkt1v"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_bkt1v")
+autoplay = true
+bus = &"Music"

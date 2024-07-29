@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwbbpqe5xtgem"]
+
+[ext_resource type="Script" path="res://scenes/GUI/game_credits.gd" id="1_oufdc"]
+
+[node name="GameCredits" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_oufdc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 36
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="credit_text" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center][b][font=28]Sound Asset Credits[/font][/b][/center]
+
+[font=20]
+[url=https://freesound.org/s/393777/]Money Collect 1[/url] by Pogmog
+[url=https://freesound.org/s/513941/]Call Bell Ring[/url] by Paleblood
+[url=https://freesound.org/s/607687/]pots_and_cans_53.wav[/url] by jayroo9
+[url=https://freesound.org/s/494565/]Shop door bell.wav[/url] by 775noise
+[url=https://freesound.org/s/209578/]Cash Register Purchase[/url] by Zott820
+[url=https://freesound.org/s/184438/]Cash Register Fake.wav[/url] by CapsLok
+[url=https://freesound.org/s/142895/]winchester 30-30 lever action EJECT.aif[/url] by ceremonialchapstick
+[url=https://freesound.org/s/36328/]coinbank.wav[/url] by UncleSigmund
+[url=https://freesound.org/s/681107/]ES_Slot Machine 41 - SFX Producer.mp3[/url] by simbakademzeb1
+[url=https://freesound.org/s/265000/]freezer door opening and closing.wav[/url] by sethlind
+[url=https://freesound.org/s/629986/]Knocking on Wood Door (2)[/url] by Flem0527
+[url=https://freesound.org/s/696746/]lever.wav[/url] by Krokulator
+[url=https://freesound.org/s/693363/]pop effect[/url] by ninoing
+[/font]
+
+[center][font=20][url=https://coloralpha.itch.io/]50 Menu Interface SFX[/url] by ColorAlpha[/font][/center]
+
+[center][font=18]All sounds licensed under Creative Commons 0 except where noted above.[/font][/center]
+"
+
+[node name="CloseBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "BACK"

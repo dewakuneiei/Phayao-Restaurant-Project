@@ -34,3 +34,5 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_c5b0r")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.0823529)
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_oh0t4")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 8

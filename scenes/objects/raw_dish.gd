@@ -12,7 +12,6 @@ func get_ingredients():
 func set_ingredients(newIngredients: Array):
 	_ingredients = newIngredients
 
-
 func add_ingredient(id: int):
 	_ingredients.append(id)
 	if _ingredients.size() > 4:
@@ -23,3 +22,12 @@ func add_ingredient(id: int):
 func get_all_keys() -> Array:
 	return _ingredients
 
+func reset_key():
+	_ingredients.clear()
+	_remove_children_from_third()
+
+func _remove_children_from_third():
+	while get_child_count() > 2:
+		var child = get_child(2)
+		remove_child(child)
+		child.queue_free()

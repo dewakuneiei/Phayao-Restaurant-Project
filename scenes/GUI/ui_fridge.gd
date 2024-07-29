@@ -3,6 +3,8 @@ class_name FridgeUI
 
 @onready var container = %ItemContainer
 @onready var stream = preload("res://assets/sfx/freezer-door.mp3")
+@onready var click_stream = preload("res://assets/sfx/ui/MI_SFX 13.mp3")
+@onready var fail_stream = preload("res://assets/sfx/ui/MI_SFX 11.mp3")
 
 func _ready():
 	deactivate()
@@ -23,7 +25,7 @@ func update_item_data(fridge: Fridge, player: Player, storage: Dictionary):
 		
 		new_button.icon = ingredient.icon
 		new_button.text = "x%d" % amount
-		new_button.pressed.connect(func(): fridge.take_to_player(player, key))
+		new_button.pressed.connect(_on_item_pressed.bind(fridge, player, key))
 		new_button.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		new_button.vertical_icon_alignment = VERTICAL_ALIGNMENT_CENTER
 		new_button.clip_text = false
@@ -52,6 +54,14 @@ func activate():
 	set_process_unhandled_input(true)  # Resume unhandled input processing
 	set_process_input(true)  # Resume input processing
 
+
+func _on_item_pressed(fridge: Fridge, player: Player, key):
+	GameManager.play_sfx_with_stream(click_stream)
+	var can_added = fridge.take_to_player(player, key)
+	if can_added:
+		GameManager.play_sfx_with_stream(click_stream)
+	else:
+		GameManager.play_sfx_with_stream(fail_stream)
 
 func _on_close_btn_pressed():
 	deactivate()

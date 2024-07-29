@@ -24,6 +24,13 @@ func interact(player: Player):
 		insert_ingredient(dish.ingredientData)
 		player.transfer_dish().queue_free()
 		return
+	elif  dish is RawDish:
+		var ids = dish.get_all_keys() as Array
+		if not ids.is_empty():
+			for id in ids:
+				insert_ingredient(GameManager.all_ingredients[id])
+			dish.reset_key()
+			return
 	
 	ui_storage.activate()
 	ui_storage.update_item_data(self, player, storage)
@@ -33,7 +40,6 @@ func update_storage(basket: Dictionary):
 		var data = basket[key][0]
 		var amount = basket[key][1]
 		if storage.has(key):
-			print(storage[key][1])
 			storage[key][1] += amount
 		else:
 			storage[key] = [data, amount]
@@ -52,7 +58,7 @@ func decrease_item(key):
 		storage.erase(key)
 
 func take_to_player(player:Player, key):
-	if not storage.has(key): return
+	if not storage.has(key): return false
 	var item: IngredientData = storage[key][0]
 	var dish = player.get_dish()
 	if dish and dish is RawDish:        
@@ -64,6 +70,8 @@ func take_to_player(player:Player, key):
 			new_sprite.flip_h = randf() > 0.5
 			new_sprite.scale = Vector2i.ONE * 1.5
 			dish.add_child(new_sprite)
+			ui_storage.update_item_data(self, player, storage)
+			return true
 			
 	elif dish == null:
 		var new_dish = dishTemplate.instantiate() as IngredientDish
@@ -71,8 +79,12 @@ func take_to_player(player:Player, key):
 		new_dish.ingredientData = item
 		player.take_item(new_dish)
 		decrease_item(key)
+		ui_storage.update_item_data(self, player, storage)
+		return true
 	
 	ui_storage.update_item_data(self, player, storage)
+	return false
+	
 
 
 func _on_area_exited(area: Area2D):

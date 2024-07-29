@@ -47,4 +47,8 @@ MONEY_GOAL,Net profit target,เป้าหมายกำไรสุทธิ
 INTERACTION,Interact,ปฏิสัมพันธ์
 MOVEMENT,Move,เคลื่อนไหว
 HIT_CUSTOMER,Hit a customer,ตีลูกค้า
-LEFT_MOUSE ,Left mouse,เมาส์ซ้าย
+LEFT_MOUSE,Left mouse,เมาส์ซ้าย
+GET_MONEY,Get money,เมาส์ซ้าย
+FAIL,Fail,ล้มเหลว
+CONTINUE,Continue,ดำเนินต่อ
+BACK,Back,กลับ

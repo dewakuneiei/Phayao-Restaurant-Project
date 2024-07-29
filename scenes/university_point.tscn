@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfh3q5v11w3g"]
+[gd_scene load_steps=28 format=3 uid="uid://cfh3q5v11w3g"]
 
 [ext_resource type="PackedScene" uid="uid://idacl1vytymb" path="res://scenes/characters/player.tscn" id="1_wtq63"]
 [ext_resource type="Theme" uid="uid://lv4ee4qe14om" path="res://default_theme.tres" id="2_qew3v"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dey5dj6qscuow" path="res://scenes/objects/dish_table.tscn" id="8_3mwod"]
 [ext_resource type="Texture2D" uid="uid://dkkq0455tg33d" path="res://assets/sprites/others/book.png" id="8_y2x43"]
 [ext_resource type="PackedScene" uid="uid://dljk77ctifo1g" path="res://scenes/GUI/gamepause.tscn" id="9_v8kpy"]
+[ext_resource type="Texture2D" uid="uid://kqmfwrnqh0u1" path="res://assets/sprites/others/money.png" id="10_biguu"]
+[ext_resource type="Script" path="res://scenes/money_goal.gd" id="11_ix6vs"]
 [ext_resource type="PackedScene" uid="uid://cn4h1kjisfx5o" path="res://scenes/objects/grill_table.tscn" id="13_sx4kn"]
 [ext_resource type="PackedScene" uid="uid://cu4iahgpqddbo" path="res://scenes/objects/counter.tscn" id="15_82idv"]
 [ext_resource type="PackedScene" uid="uid://cb7ukr4mfiqfm" path="res://scenes/endpoint.tscn" id="16_c62xb"]
@@ -28,10 +30,168 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-37, 682, -36, 341, 440, 343, 429, 710, 312, 706, 309, 449, 70, 453, 63, 682)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
+[sub_resource type="Animation" id="Animation_i3mtu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control/ColorRect:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/ColorRect/HBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Control/ColorRect/HBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gmvuv"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 2.1, 3),
+"transitions": PackedFloat32Array(1.03527, 1.03527, 1.03527, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.1, 3),
+"transitions": PackedFloat32Array(1.03527, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/Camera2D:zoom")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.1, 3),
+"transitions": PackedFloat32Array(1.03527, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(1.5, 1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control/ColorRect:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/ColorRect/HBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Control/ColorRect/HBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9, 2.1, 3),
+"transitions": PackedFloat32Array(0.143587, 1, 12, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojlwr"]
+_data = {
+"RESET": SubResource("Animation_i3mtu"),
+"fade_in": SubResource("Animation_gmvuv")
+}
+
 [node name="University_Point" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_wtq63")]
+process_mode = 4
 position = Vector2(-61, 283)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -103,6 +263,48 @@ metadata/_edit_use_anchors_ = true
 [node name="Gamepause" parent="CanvasLayer/Control" instance=ExtResource("9_v8kpy")]
 visible = false
 layout_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+process_mode = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 21
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_biguu")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "MONEY_GOAL"
+script = ExtResource("11_ix6vs")
 
 [node name="GameSystem" type="Node" parent="." node_paths=PackedStringArray("player", "fridge", "shop", "counter", "endPoint", "spawner", "ui_gameplay", "ui_ended_game", "ui_recipe", "ui_gamepause")]
 process_priority = 1
@@ -195,7 +397,7 @@ layer_0/name = "Ground"
 layer_0/tile_data = PackedInt32Array(-65542, 65536, 4, -6, 65536, 4, 65530, 65536, 4, 131066, 65536, 4, 196602, 65536, 4, 262138, 65536, 4, 327674, 65536, 4, 393210, 65536, 4, -65541, 65536, 4, -5, 65536, 4, 65531, 65536, 4, 131067, 65536, 4, 196603, 65536, 4, 262139, 65536, 4, 327675, 65536, 4, 393211, 65536, 4, -65540, 65536, 4, -4, 65536, 4, 65532, 65536, 4, 131068, 65536, 4, 196604, 65536, 4, 262140, 65536, 4, 327676, 65536, 4, 393212, 65536, 4, -65539, 65536, 4, -3, 65536, 4, -65538, 65536, 4, -2, 65536, 4, -65537, 65536, 4, -1, 65536, 4, -131072, 65536, 4, -65536, 65536, 4, -131071, 65536, 4, -65535, 65536, 4, -131070, 65536, 4, -65534, 65536, 4, -131069, 65536, 4, -65533, 65536, 4, 3, 65536, 4, 65539, 65536, 4, -131068, 65536, 4, -65532, 65536, 4, 4, 65536, 4, 65540, 65536, 4, -131067, 65536, 4, -65531, 65536, 4, 5, 65536, 4, 65541, 65536, 4, -131066, 65536, 4, -65530, 65536, 4, 6, 65536, 4, 65542, 65536, 4, -131065, 65536, 4, -65529, 65536, 4, 7, 65536, 4, 65543, 65536, 4, -131064, 65536, 4, -65528, 65536, 4, 8, 65536, 4, 65544, 65536, 4, 131080, 65536, 4, 196616, 65536, 4, 262152, 65536, 4, 327688, 65536, 4, 65533, 65536, 4, 131069, 65536, 4, 65534, 65536, 4, 131070, 65536, 4, 65535, 65536, 4, 131071, 65536, 4, 0, 65536, 4, 65536, 65536, 4, 1, 65536, 4, 65537, 65536, 4, 2, 65536, 4, 65538, 65536, 4, 262141, 393216, 1, 327677, 393216, 1, 393213, 65536, 4, 262142, 393216, 1, 327678, 393216, 1, 393214, 65536, 4, 262143, 393216, 1, 327679, 393216, 1, 393215, 65536, 4, 196608, 393216, 1, 262144, 393216, 1, 327680, 65536, 4, 196609, 393216, 1, 262145, 393216, 1, 327681, 65536, 4, 196610, 393216, 1, 262146, 393216, 1, 327682, 65536, 4, 196611, 393216, 1, 262147, 393216, 1, 327683, 65536, 4, 196612, 393216, 1, 262148, 393216, 1, 327684, 65536, 4, 196613, 393216, 1, 262149, 393216, 1, 327685, 65536, 4, 196614, 393216, 1, 262150, 393216, 1, 327686, 65536, 4, 196615, 393216, 1, 262151, 393216, 1, 327687, 65536, 4, 458746, 65536, 4, 524282, 65536, 4, 589818, 65536, 4, 655354, 65536, 4, 458747, 65536, 4, 524283, 65536, 4, 589819, 65536, 4, 655355, 65536, 4, 458748, 65536, 4, 524284, 65536, 4, 589820, 65536, 4, 655356, 65536, 4, 458749, 65536, 4, 524285, 65536, 4, 589821, 65536, 4, 655357, 65536, 4, 458750, 65536, 4, 524286, 65536, 4, 589822, 65536, 4, 655358, 65536, 4, 458751, 65536, 4, 524287, 65536, 4, 589823, 65536, 4, 655359, 65536, 4, 393216, 65536, 4, 458752, 65536, 4, 524288, 65536, 4, 589824, 65536, 4, 393217, 65536, 4, 458753, 65536, 4, 524289, 65536, 4, 589825, 65536, 4, 393218, 65536, 4, 458754, 65536, 4, 524290, 65536, 4, 589826, 65536, 4, 393219, 65536, 4, 458755, 65536, 4, 524291, 65536, 4, 589827, 65536, 4, 393220, 65536, 4, 458756, 65536, 4, 524292, 65536, 4, 589828, 65536, 4, 393221, 65536, 4, 458757, 65536, 4, 524293, 65536, 4, 589829, 65536, 4, 393222, 65536, 4, 458758, 65536, 4, 524294, 65536, 4, 589830, 65536, 4, 393223, 65536, 4, 458759, 65536, 4, 524295, 65536, 4, 589831, 65536, 4, 393224, 65536, 4, 458760, 65536, 4, 524296, 65536, 4, 589832, 65536, 4, -65546, 65536, 4, -10, 65536, 4, 65526, 65536, 4, 131062, 65536, 4, 196598, 65536, 4, 262134, 65536, 4, 327670, 65536, 4, 393206, 65536, 4, 458742, 65536, 4, 524278, 65536, 4, 589814, 65536, 4, 655350, 65536, 4, -65545, 65536, 4, -9, 65536, 4, 65527, 65536, 4, 131063, 65536, 4, 196599, 65536, 4, 262135, 65536, 4, 327671, 65536, 4, 393207, 65536, 4, 458743, 65536, 4, 524279, 65536, 4, 589815, 65536, 4, 655351, 65536, 4, -65544, 65536, 4, -8, 65536, 4, 65528, 65536, 4, 131064, 65536, 4, 196600, 65536, 4, 262136, 65536, 4, 327672, 65536, 4, 393208, 65536, 4, 458744, 65536, 4, 524280, 65536, 4, 589816, 65536, 4, 655352, 65536, 4, -65543, 65536, 4, -7, 65536, 4, 65529, 65536, 4, 131065, 65536, 4, 196601, 65536, 4, 262137, 65536, 4, 327673, 65536, 4, 393209, 65536, 4, 458745, 65536, 4, 524281, 65536, 4, 589817, 65536, 4, 655353, 65536, 4, -131063, 65536, 4, -65527, 65536, 4, 9, 65536, 4, 65545, 65536, 4, 131081, 65536, 4, 196617, 65536, 4, 262153, 65536, 4, 327689, 65536, 4, 393225, 65536, 4, 458761, 65536, 4, 524297, 65536, 4, 589833, 65536, 4, -131062, 65536, 4, -65526, 65536, 4, 10, 65536, 4, 65546, 65536, 4, 131082, 65536, 4, 196618, 65536, 4, 262154, 65536, 4, 327690, 65536, 4, 393226, 65536, 4, 458762, 65536, 4, 524298, 65536, 4, 589834, 65536, 4, -131061, 65536, 4, -65525, 65536, 4, 11, 65536, 4, 65547, 65536, 4, 131083, 65536, 4, 196619, 65536, 4, 262155, 65536, 4, 327691, 65536, 4, 393227, 65536, 4, 458763, 65536, 4, 524299, 65536, 4, 589835, 65536, 4, -131060, 65536, 4, -65524, 65536, 4, 12, 65536, 4, 65548, 65536, 4, 131084, 65536, 4, 196620, 65536, 4, 262156, 65536, 4, 327692, 65536, 4, 393228, 65536, 4, 458764, 65536, 4, 524300, 65536, 4, 589836, 65536, 4, -131059, 65536, 4, -65523, 65536, 4, 13, 65536, 4, 65549, 65536, 4, 131085, 65536, 4, 196621, 65536, 4, 262157, 65536, 4, 327693, 65536, 4, 393229, 65536, 4, 458765, 65536, 4, 524301, 65536, 4, 589837, 65536, 4, -131058, 65536, 4, -65522, 65536, 4, 14, 65536, 4, 65550, 65536, 4, 131086, 65536, 4, 196622, 65536, 4, 262158, 65536, 4, 327694, 65536, 4, 393230, 65536, 4, 458766, 65536, 4, 524302, 65536, 4, 589838, 65536, 4, -131057, 65536, 4, -65521, 65536, 4, 15, 65536, 4, 65551, 65536, 4, 131087, 65536, 4, 196623, 65536, 4, 262159, 65536, 4, 327695, 65536, 4, 393231, 65536, 4, 458767, 65536, 4, 524303, 65536, 4, 589839, 65536, 4, -131056, 65536, 4, -65520, 65536, 4, 16, 65536, 4, 65552, 65536, 4, 131088, 65536, 4, 196624, 65536, 4, 262160, 65536, 4, 327696, 65536, 4, 393232, 65536, 4, 458768, 65536, 4, 524304, 65536, 4, 589840, 65536, 4, -131055, 65536, 4, -65519, 65536, 4, 17, 65536, 4, 65553, 65536, 4, 131089, 65536, 4, 196625, 65536, 4, 262161, 65536, 4, 327697, 65536, 4, 393233, 65536, 4, 458769, 65536, 4, 524305, 65536, 4, 589841, 65536, 4, -131054, 65536, 4, -65518, 65536, 4, 18, 65536, 4, 65554, 65536, 4, 131090, 65536, 4, 196626, 65536, 4, 262162, 65536, 4, 327698, 65536, 4, 393234, 65536, 4, 458770, 65536, 4, 524306, 65536, 4, 589842, 65536, 4, -131053, 65536, 4, -65517, 65536, 4, 19, 65536, 4, 65555, 65536, 4, 131091, 65536, 4, 196627, 65536, 4, 262163, 65536, 4, 327699, 65536, 4, 393235, 65536, 4, 458771, 65536, 4, 524307, 65536, 4, 589843, 65536, 4, -131052, 65536, 4, -65516, 65536, 4, 20, 65536, 4, 65556, 65536, 4, 131092, 65536, 4, 196628, 65536, 4, 262164, 65536, 4, 327700, 65536, 4, 393236, 65536, 4, 458772, 65536, 4, 524308, 65536, 4, 589844, 65536, 4)
 layer_1/name = "GroundObj"
 layer_1/y_sort_enabled = true
-layer_1/tile_data = PackedInt32Array(196606, 393216, 0, 196607, 393216, 0, 131072, 393216, 0, 131073, 393216, 0, 131074, 393216, 0, 131075, 393216, 0, 131076, 393216, 0, 131077, 393216, 0, 131078, 393216, 0, 327676, 327680, 1, 262140, 327680, 1, 196604, 327680, 0, 196605, 393216, 0, 131079, 393216, 0, 131080, 458752, 0, 196616, 458752, 1, 393212, 327680, 2, 327688, 458752, 2, 393214, 393216, 2, 393215, 393216, 2, 327680, 393216, 2, 327681, 393216, 2, 327682, 393216, 2, 327683, 393216, 2, 327684, 393216, 2, 327685, 393216, 2, 327686, 393216, 2, 327687, 393216, 2, 393213, 393216, 2, 131082, 524288, 5, 131084, 458752, 5, 458748, 524288, 5, 524296, 458752, 5, 196603, 458752, 5, 8, 393216, 0, 458747, 393216, 5, 458746, 393216, 5, 393225, 393216, 5, 393226, 393216, 5, 589821, 393216, 5, 524295, 393216, 5, 393232, 458752, 1, 327696, 458752, 1, 262160, 458752, 1, 196624, 458752, 1, 131088, 458752, 1, 65552, 458752, 1, 16, 458752, 0, 15, 393216, 0, 14, 393216, 0, 13, 393216, 0, 12, 393216, 0, 11, 393216, 0, 10, 393216, 0, 9, 393216, 0, 7, 393216, 0, 6, 393216, 0, 5, 393216, 0, 4, 393216, 0, 3, 393216, 0, 2, 393216, 0, 1, 393216, 0, 0, 393216, 0, 65535, 393216, 0, 65534, 393216, 0, 65533, 393216, 0, 65532, 393216, 0, 65531, 393216, 0, 65530, 393216, 0, 65529, 393216, 0, 65528, 393216, 0, 65527, 327680, 0, 131063, 327680, 1, 196599, 327680, 1, 262135, 327680, 1, 327671, 327680, 1, 393207, 327680, 1, 458743, 327680, 1, 524279, 327680, 1, 589815, 327680, 1, 655353, 393216, 0, 655354, 393216, 0, 655355, 393216, 0, 655356, 393216, 0, 655357, 393216, 0, 655358, 393216, 0, 655359, 393216, 0, 589824, 393216, 0, 589825, 393216, 0, 589826, 393216, 0, 589827, 393216, 0, 589828, 393216, 0, 589829, 393216, 0, 589830, 393216, 0, 589831, 393216, 0, 589832, 393216, 0, 589833, 393216, 0, 589834, 393216, 0, 589835, 393216, 0, 589836, 393216, 0, 589837, 393216, 0, 589838, 393216, 0, 589839, 393216, 0, 589840, 458752, 2, 524304, 458752, 1, 458768, 458752, 1, 655351, 327680, 2, 655352, 393216, 0)
+layer_1/tile_data = PackedInt32Array(196606, 393216, 0, 196607, 393216, 0, 131072, 393216, 0, 131073, 393216, 0, 131074, 393216, 0, 131075, 393216, 0, 131076, 393216, 0, 131077, 393216, 0, 131078, 393216, 0, 327676, 327680, 1, 262140, 327680, 1, 196604, 327680, 0, 196605, 393216, 0, 131079, 393216, 0, 131080, 458752, 0, 393212, 327680, 2, 327688, 458752, 2, 393214, 393216, 2, 393215, 393216, 2, 327680, 393216, 2, 327681, 393216, 2, 327682, 393216, 2, 327683, 393216, 2, 327684, 393216, 2, 327685, 393216, 2, 327686, 393216, 2, 327687, 393216, 2, 393213, 393216, 2, 131082, 524288, 5, 131084, 458752, 5, 458748, 524288, 5, 524296, 458752, 5, 196603, 458752, 5, 8, 393216, 0, 458747, 393216, 5, 458746, 393216, 5, 393225, 393216, 5, 393226, 393216, 5, 589821, 393216, 5, 524295, 393216, 5, 393232, 458752, 1, 327696, 458752, 1, 262160, 458752, 1, 196624, 458752, 1, 131088, 458752, 1, 65552, 458752, 1, 16, 458752, 0, 15, 393216, 0, 14, 393216, 0, 13, 393216, 0, 12, 393216, 0, 11, 393216, 0, 10, 393216, 0, 9, 393216, 0, 7, 393216, 0, 6, 393216, 0, 5, 393216, 0, 4, 393216, 0, 3, 393216, 0, 2, 393216, 0, 1, 393216, 0, 0, 393216, 0, 65535, 393216, 0, 65534, 393216, 0, 65533, 393216, 0, 65532, 393216, 0, 65531, 393216, 0, 65530, 393216, 0, 65529, 393216, 0, 65528, 393216, 0, 65527, 327680, 0, 131063, 327680, 1, 196599, 327680, 1, 262135, 327680, 1, 327671, 327680, 1, 393207, 327680, 1, 458743, 327680, 1, 524279, 327680, 1, 589815, 327680, 1, 655353, 393216, 0, 655354, 393216, 0, 655355, 393216, 0, 655356, 393216, 0, 655357, 393216, 0, 655358, 393216, 0, 655359, 393216, 0, 589824, 393216, 0, 589825, 393216, 0, 589826, 393216, 0, 589827, 393216, 0, 589828, 393216, 0, 589829, 393216, 0, 589830, 393216, 0, 589831, 393216, 0, 589832, 393216, 0, 589833, 393216, 0, 589834, 393216, 0, 589835, 393216, 0, 589836, 393216, 0, 589837, 393216, 0, 589838, 393216, 0, 589839, 393216, 0, 589840, 458752, 2, 524304, 458752, 1, 458768, 458752, 1, 655351, 327680, 2, 655352, 393216, 0, 196616, 524288, 0)
 layer_2/name = "Obj"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(131077, 262144, 0, 131076, 196608, 0, 131075, 196608, 0, 131074, 196608, 0, 131073, 131072, 0, 131072, 196608, 1, 196607, 0, 0, 196606, 0, 0, 131083, 0, 1, 327683, 131072, 2, 262145, 393216, 3, 262149, 524288, 3, 262146, 458752, 3, 262147, 458752, 3, 262148, 458752, 3, 327681, 393216, 4, 327685, 524288, 4, 131079, 65536, 0)
@@ -204,6 +406,12 @@ layer_2/tile_data = PackedInt32Array(131077, 262144, 0, 131076, 196608, 0, 13107
 z_index = 2
 position = Vector2(5, -3)
 navigation_polygon = SubResource("NavigationPolygon_8a6s4")
+
+[node name="Start Scene" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ojlwr")
+}
+autoplay = "fade_in"
 
 [connection signal="pressed" from="CanvasLayer/Control/GameplayControl/Open" to="GameSystem" method="_on_open_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/TextureButton" to="GameSystem" method="_on_texture_button_pressed"]

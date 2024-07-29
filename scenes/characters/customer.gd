@@ -39,9 +39,9 @@ var order_food: FoodData
 var is_mouse_enter: bool = false
 var state: State = State.IDLE
 var action_state: CustomerState = CustomerState.NONE
+var gameSystem: GameSystem
+var counter: Counter
 
-var _gameSystem: GameSystem
-var _counter: Counter
 var _timer: float = 0
 var _is_good = true
 var _audio_players = []
@@ -49,6 +49,7 @@ var _next_player = 0
 var _particle_systems = []
 var _next_particle = 0
 var _hit_count = 0
+var _counter_player: Player
 
 func _ready():
 	set_process(true)
@@ -57,6 +58,13 @@ func _ready():
 	_timer = 0
 	_is_good = true
 	_sprite.frame = random_sprite_frame()
+	
+	await get_tree().create_timer(.5).timeout
+	
+	gameSystem = GameManager.gameSystem
+	counter = gameSystem.counter
+	counter.player_entered.connect(func(p: Player): _counter_player = p)
+	counter.player_exited.connect(func(p: Player): _counter_player = p)
 
 func _create_pool():
 	# Create the pool of CPUParticles2D nodes
@@ -123,22 +131,16 @@ func _on_movement_completed():
 		action_state = CustomerState.WAITING
 
 func sent_order_request():
-	_gameSystem = GameSystem.instance
-	if _gameSystem:
-		_counter = _gameSystem.counter
-	
-	order_food = _gameSystem.get_random_food_menu() as FoodData
+	order_food = gameSystem.get_random_food_menu() as FoodData
 	action_state = CustomerState.REQUEST
-	_counter.add_to_queue(self)
+	counter.add_to_queue(self)
 	_food_texture.texture = order_food.icon
 
 func pay_food(foodData: FoodData):
 	action_state = CustomerState.FINISHED
-	set_move_to_target(_gameSystem.endPoint.global_position)
+	set_move_to_target(gameSystem.endPoint.global_position)
 	feed_back(order_food == foodData)
 	
-	if is_mouse_enter:
-		_animation_ply.play(ANIMATION.INVISIBLE_ORDER)
 
 func feed_back(is_it_right_food: bool):
 	# right food and less wating
@@ -178,9 +180,13 @@ func is_waiting():
 
 func hit():
 	if action_state != CustomerState.WAITING: return;
-	_hit_count += 1
-	if _hit_count >= 3:
-		leve()
+	
+	if _counter_player and _counter_player.get_dish() is FoodDish:
+		counter.process_order(_counter_player, self)
+	else:
+		_hit_count += 1
+		if _hit_count >= 3:
+			leve()
 	
 	emit_particles()
 	play_sound2d(_slap_sound)
@@ -196,7 +202,7 @@ func leve():
 	action_state = CustomerState.FINISHED
 	play_sound2d(_nuh_sound)
 	GameManager.decrease_rating2()
-	_counter.remove_from_queue(self)
+	counter.remove_from_queue(self)
 	set_move_to_target(GameSystem.instance.endPoint.position)
 	
 	if is_mouse_enter:
