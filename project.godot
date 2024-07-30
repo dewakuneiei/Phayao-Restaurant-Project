@@ -13,7 +13,7 @@ config_version=5
 config/name="Dish Rushhh"
 run/main_scene="res://scenes/GUI/ui_main_menus.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://logo.png"
 
 [autoload]
 
